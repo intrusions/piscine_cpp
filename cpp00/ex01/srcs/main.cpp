@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 20:47:24 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/15 20:23:41 by jucheval         ###   ########.fr       */
+/*   Created: 2022/11/14 23:23:09 by jucheval          #+#    #+#             */
+/*   Updated: 2022/11/15 21:15:15 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include <iostream>
+#include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-class Contact {
-	public:
+int main(void) {
+	std::string	input;
+	PhoneBook	phb;
 	
-		std::string first_name; 
-		std::string last_name;
-		std::string nickname;
-		std::string phone_number;
-		std::string darkest_secret;
-
-	
-		void	fill_info();
-};
+	while (true) {
+		std::cin >> input;
+		if (input == "ADD")
+			phb.add();
+		else if (input == "SEARCH")
+			phb.search();
+		else if (input == "EXIT")
+			return 0;
+	}
+}
