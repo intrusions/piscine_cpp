@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 21:12:02 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/15 21:14:24 by jucheval         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:57:37 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ void Contact::fill_info() {
 		else
 			break;
 	}
-	std::cout << "Contact added successfully" << std::endl;
+	std::cout << "Contact added successfully" << std::endl << std::endl;
 }
