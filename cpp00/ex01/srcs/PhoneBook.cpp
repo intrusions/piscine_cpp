@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:08:28 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/16 00:05:41 by jucheval         ###   ########.fr       */
+/*   Updated: 2022/11/16 00:21:23 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	PhoneBook::search(void) {
 	int	user_in;
 	
 	std::cin >> user_in;
+	std::cout << std::endl;
 	if ((user_in >= 0 && user_in < this->index)) {
 		std::cout << "- First name : " << this->contact_tab[user_in].first_name << std::endl;
 		std::cout << "- Last name : " << this->contact_tab[user_in].last_name << std::endl;
