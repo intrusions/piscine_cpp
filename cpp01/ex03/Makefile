@@ -1,6 +1,7 @@
-SRCS		=	main.cpp			\
-				Zombie.cpp			\
-				zombieHorde.cpp
+SRCS		=	main.cpp		\
+				HumanA.cpp		\
+				HumanB.cpp		\
+				Weapon.cpp		
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -12,7 +13,7 @@ CFLAGS		= 	-Wall -Wextra -Werror -I
 
 CPPFLAGS	= 	-std=c++98
 
-NAME		= 	zombie_horde
+NAME		=	addr
 
 all:		$(NAME)
 
