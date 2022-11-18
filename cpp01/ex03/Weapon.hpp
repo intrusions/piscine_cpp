@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 22:44:23 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/17 23:04:10 by jucheval         ###   ########.fr       */
+/*   Updated: 2022/11/18 22:09:02 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 class Weapon {
 	private:
-		Weapon(std::string type);
 		std::string type;
 
 	public:
-		std::string	&getType();
+		Weapon();
+		Weapon(std::string type);
+		std::string	&getType(); // const
 		void		setType(std::string name);
 };

@@ -6,15 +6,19 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:04:18 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/17 23:22:42 by jucheval         ###   ########.fr       */
+/*   Updated: 2022/11/18 22:13:42 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string name) {
-    this->name = name;
+Weapon::Weapon(std::string type) {
+    this->type = type;
+}
+
+Weapon::Weapon() {
+     this->type = "";
 }
 
 std::string &Weapon::getType() {
@@ -22,5 +26,5 @@ std::string &Weapon::getType() {
 }
 
 void    Weapon::setType(std::string type) {
-    this->type = type;
+    this->type = type; 
 }
