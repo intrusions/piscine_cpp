@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 17:11:10 by jucheval          #+#    #+#             */
-/*   Updated: 2022/07/29 17:47:44 by jucheval         ###   ########.fr       */
+/*   Updated: 2022/11/20 09:38:54 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 
 int main(int ac, char **av) {
     if (ac == 1)

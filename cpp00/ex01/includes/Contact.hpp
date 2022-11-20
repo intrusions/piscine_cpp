@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:47:24 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/15 20:23:41 by jucheval         ###   ########.fr       */
+/*   Updated: 2022/11/20 09:41:41 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Contact.hpp"
 
 class Contact {
 	public:
