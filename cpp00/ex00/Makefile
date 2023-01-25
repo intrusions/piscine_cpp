@@ -10,7 +10,7 @@ CFLAGS		= 	-Wall -Wextra -Werror
 
 CPPFLAGS	= 	-std=c++98
 
-NAME		= 	megaphone
+NAME		= 	ex00
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@

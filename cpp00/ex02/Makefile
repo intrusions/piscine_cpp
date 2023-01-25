@@ -1,5 +1,5 @@
 SRCS		=	Account.cpp	\
-				tests.cpp
+				tests.cpp 
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -7,11 +7,11 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror -I
+CFLAGS		= 	-Wall -Wextra -Werror
 
 CPPFLAGS	= 	-std=c++98
 
-NAME		= 	account
+NAME		= 	ex02
 
 all:		$(NAME)
 

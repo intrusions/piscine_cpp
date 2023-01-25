@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:47:04 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/15 20:46:58 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:12:50 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 #include "Contact.hpp"
 
 class PhoneBook {
-    private:
+	private:
+		int     index;
+		Contact contact_tab[8];
 
-        int     index;
-        Contact contact_tab[8];
-
-    public:
-    
-    PhoneBook() {index = 0;};
-    void    add();
-    void    search();
+	public:
+		PhoneBook() {index = 0;};
+		void    add();
+		void    search();
 };

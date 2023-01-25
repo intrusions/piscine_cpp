@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 21:12:02 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/16 00:23:09 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:33:57 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 void Contact::fill_info() {
 	while (true) {
 		std::cout << "What is your first name ?" << std::endl;
+		std::getline(std::cin, this->first_name);
 		std::getline(std::cin, this->first_name);
 		if (this->first_name.empty())
 			std::cout << "The field cannot be empty" << std::endl;
