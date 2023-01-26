@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:50:32 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/16 22:01:53 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/26 22:22:15 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class Zombie {
         std::string     name;
 
     public:
+        Zombie();
         ~Zombie();
         void    announce(void);
         void    set_name(std::string name);

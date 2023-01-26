@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 00:25:08 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/21 02:28:51 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/26 23:23:39 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,17 @@ int main (int argc, char **argv) {
 	
 	if (in_file) {
 		std::string		line;
+		int				found;
 		std::ofstream	out_file((std::string)argv[1] + ".replace");
 		
 		std::getline(in_file, line, '\0');
-		int	found = line.find(argv[2]);
-		while (found != -1) {
+		while ((found = line.find(argv[2])) != -1) {
 			line.erase(found, ((std::string)(argv[2])).length());
 			line.insert(found, (std::string)argv[3]);
-			found = line.find(argv[2]);
 		}
 		out_file << line;
 			
 	} else 
 		std::cout << "File doesn't exist" << std::endl;
-	return 0;
+	return (1);
 }

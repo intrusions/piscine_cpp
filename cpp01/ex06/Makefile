@@ -1,4 +1,5 @@
-SRCS		=	main.cpp
+SRCS		=	main.cpp	\
+				Harl.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -6,11 +7,11 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror -I
+CFLAGS		= 	-Wall -Wextra -Werror
 
 CPPFLAGS	= 	-std=c++98
 
-NAME		=	ex04
+NAME		=	HarlFilter
 
 all:		$(NAME)
 

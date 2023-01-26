@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 23:04:18 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/26 22:51:11 by jucheval         ###   ########.fr       */
+/*   Created: 2023/01/26 23:39:14 by jucheval          #+#    #+#             */
+/*   Updated: 2023/01/27 00:10:29 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Weapon.hpp"
+#pragma once
 
-Weapon::Weapon(std::string type) : type(type) {
-    return ;
-}
+class Harl {
+    private:
+        int     gravity_level;
 
-Weapon::Weapon() : type(""){
-    return ;
-}
-
-Weapon::~Weapon() {
-    return ;
-}
-
-const std::string &Weapon::getType() {
-    return this->type;
-}
-
-void    Weapon::setType(std::string type) {
-    this->type = type; 
-}
+    public:
+        Harl();
+        ~Harl();
+        int     getLevelGravity();
+        void    setLevelGravity(int lvl);
+        void    printDebugMessage();
+        void    printInfoMessage();
+        void    printWarningMessage();
+        void    printErrorMessage();
+};
