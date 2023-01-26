@@ -9,11 +9,11 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror -I
+CFLAGS		= 	-Wall -Wextra -Werror
 
 CPPFLAGS	= 	-std=c++98
 
-NAME		= 	zombie
+NAME		= 	ex00
 
 all:		$(NAME)
 
@@ -32,4 +32,4 @@ fclean:		clean
 
 re:		fclean $(NAME)
 
-.PHONY:		all clean fclean re bonus
+.PHONY:		all clean fclean re

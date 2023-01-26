@@ -6,21 +6,23 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:14:08 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/18 22:43:25 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/26 08:30:39 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) {
-    this->name = name;
-    this->weapon = NULL;
+HumanB::HumanB(std::string name) : weapon(NULL), name(name) {
+    return ;
 }
 
-HumanB::HumanB(std::string name, Weapon *weapon) {
-    this->name = name;
-    this->weapon = weapon;
+HumanB::HumanB(std::string name, Weapon *weapon) : weapon(weapon), name(name) {
+    return ;
+}
+
+HumanB::~HumanB() {
+    return ;
 }
 
 void    HumanB::attack() {

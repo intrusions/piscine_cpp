@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:52:17 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/26 03:22:59 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/26 08:12:32 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "Zombie.hpp"
 
 int main() {
-    randomChump("lunix");
-    
-    Zombie *new_z = NewZombie("coucou");
-    
-    randomChump("salut");
-    
+    Zombie *new_z = NewZombie("Bar");
+    randomChump("Foo");
+    Zombie *new_zz = NewZombie("42");
+    randomChump("school");
+
     delete new_z;
+    delete new_zz;
 }
