@@ -6,14 +6,14 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 23:38:35 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/27 00:12:55 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/27 00:40:59 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 #include <iostream>
 
-Harl::Harl() {
+Harl::Harl() : gravity_level(-1) {
     return ;
 }
 
