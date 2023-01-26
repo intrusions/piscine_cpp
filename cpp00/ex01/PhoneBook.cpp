@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:08:28 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/26 07:47:42 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/26 07:51:01 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ PhoneBook::~PhoneBook() {
 
 void	PhoneBook::add(void) {
 	this->index %= 8;
-	this->contact_tab[this->index].fill_info();
+	this->_contactArray[this->index].fill_info();
 	this->index++;
 }
 
-std::string space(std::string str)
+std::string	space(std::string str)
 {
 	if (str.size() >= 10)
 		return (str.substr(0, 9) + ".");
@@ -42,9 +42,9 @@ void	PhoneBook::search(void) {
 	
 	for (int id = 0; id < 8; id++) {
 		std::cout << std::setw(10) << id << "|";
-		std::cout << std::setw(10) << space(this->contact_tab[id].getFirstName()) << "|";
-		std::cout << std::setw(10) << space(this->contact_tab[id].getLastName()) << "|";
-		std::cout << std::setw(10) << space(this->contact_tab[id].getNickname()) << "|" << std::endl;
+		std::cout << std::setw(10) << space(this->_contactArray[id].getFirstName()) << "|";
+		std::cout << std::setw(10) << space(this->_contactArray[id].getLastName()) << "|";
+		std::cout << std::setw(10) << space(this->_contactArray[id].getNickname()) << "|" << std::endl;
 	}
 	
 	std::cout << "From which user do you want all the information?" << std::endl;
@@ -54,11 +54,11 @@ void	PhoneBook::search(void) {
 	int user_int = std::atoi(user_in.c_str());
 
 	if ((user_int >= 0 && user_int < this->index) && isdigit(user_in[0])) {
-		std::cout << "- First name : " << this->contact_tab[user_int].getFirstName() << std::endl;
-		std::cout << "- Last name : " << this->contact_tab[user_int].getLastName() << std::endl;
-		std::cout << "- Nickname : " << this->contact_tab[user_int].getNickname() << std::endl;
-		std::cout << "- Phone number : " << this->contact_tab[user_int].getPhoneNumber() << std::endl;
-		std::cout << "- Darkest secret : " << this->contact_tab[user_int].getDarkestSecret() << std::endl << std::endl;
+		std::cout << "- First name : " << this->_contactArray[user_int].getFirstName() << std::endl;
+		std::cout << "- Last name : " << this->_contactArray[user_int].getLastName() << std::endl;
+		std::cout << "- Nickname : " << this->_contactArray[user_int].getNickname() << std::endl;
+		std::cout << "- Phone number : " << this->_contactArray[user_int].getPhoneNumber() << std::endl;
+		std::cout << "- Darkest secret : " << this->_contactArray[user_int].getDarkestSecret() << std::endl << std::endl;
 	} else
 		std::cout << "Retry with a valid id" << std::endl;
 }
