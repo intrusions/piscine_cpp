@@ -6,13 +6,21 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 21:12:02 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/26 05:22:47 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/26 07:40:38 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+
+Contact::Contact() {
+	return ;
+}
+
+Contact::~Contact() {
+	return ;
+}
 
 /*GETTER*/
 std::string		Contact::getFirstName(void) {
@@ -60,64 +68,25 @@ void	Contact::setDarkestSecret(std::string darkestSecret) {
 void Contact::fill_info() {
 	std::string	tmp;
 	
-	while (true) {
-		std::cout << "What is your first name ?" << std::endl;
-		std::cin >> tmp;
-		
-		if (tmp.empty())
-			std::cout << "The field cannot be empty" << std::endl;
-		else {
-			this->setFirstName(tmp);
-			break ;
-		}
-	}
+	std::cout << "What is your first name ?" << std::endl;
+	std::cin >> tmp;
+	this->setFirstName(tmp);
 	
-	while (true) {
-		std::cout << "What is your last name ?" << std::endl;
-		std::cin >> tmp;
-		
-		if (tmp.empty())
-			std::cout << "The field cannot be empty" << std::endl;
-		else {
-			this->setLastName(tmp);
-			break ;
-		}
-	}
+	std::cout << "What is your last name ?" << std::endl;
+	std::cin >> tmp;
+	this->setLastName(tmp);
 
-	while (true) {
-		std::cout << "What is your nickname ?" << std::endl;
-		std::cin >> tmp;
-		
-		if (tmp.empty())
-			std::cout << "The field cannot be empty" << std::endl;
-		else {
-			this->setNickname(tmp);
-			break ;
-		}
-	}
+	std::cout << "What is your nickname ?" << std::endl;
+	std::cin >> tmp;
+	this->setNickname(tmp);
 
-	while (true) {
-		std::cout << "What is your phone number ?" << std::endl;
-		std::cin >> tmp;
-		
-		if (tmp.empty())
-			std::cout << "The field cannot be empty" << std::endl;
-		else {
-			this->setPhoneNumber(tmp);
-			break ;
-		}
-	}
+	std::cout << "What is your phone number ?" << std::endl;
+	std::cin >> tmp;
+	this->setPhoneNumber(tmp);
 
-	while (true) {
-		std::cout << "What is your darkest secret ?" << std::endl;
-		std::cin >> tmp;
-
-		if (tmp.empty())
-			std::cout << "The field cannot be empty" << std::endl;
-		else {
-			this->setDarkestSecret(tmp);
-			break ;
-		}
-	}
+	std::cout << "What is your darkest secret ?" << std::endl;
+	std::cin >> tmp;
+	this->setDarkestSecret(tmp);
+	
 	std::cout << "Contact added successfully" << std::endl << std::endl;
 }
