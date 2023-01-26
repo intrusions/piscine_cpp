@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:47:04 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/23 20:12:50 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/26 01:04:24 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class PhoneBook {
 		Contact contact_tab[8];
 
 	public:
-		PhoneBook() {index = 0;};
+		PhoneBook();
 		void    add();
 		void    search();
 };

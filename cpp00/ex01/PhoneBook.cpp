@@ -6,14 +6,17 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:08:28 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/23 21:34:54 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/26 01:25:24 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <sstream>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+
+PhoneBook::PhoneBook() {
+	index = 0;
+}
 
 void	PhoneBook::add(void) {
 	this->index %= 8;
@@ -59,20 +62,21 @@ void	PhoneBook::search(void) {
 	}
 	std::cout << "From which user do you want all the information?" << std::endl;
 	std::string	user_in;
-	int			user_int;
 	
 	std::getline(std::cin, user_in);
 	std::getline(std::cin, user_in);
+	int user_int = user_in[0] - 48;
 
-	std::istringstream(user_in) >> user_int;
 	std::cout << std::endl;
+	
+	
 	if ((user_int >= 0 && user_int < this->index)) {
 		std::cout << "- First name : " << this->contact_tab[user_int].first_name << std::endl;
 		std::cout << "- Last name : " << this->contact_tab[user_int].last_name << std::endl;
 		std::cout << "- Nickname : " << this->contact_tab[user_int].nickname << std::endl;
 		std::cout << "- Phone number : " << this->contact_tab[user_int].phone_number << std::endl;
 		std::cout << "- Darkest secret : " << this->contact_tab[user_int].darkest_secret << std::endl << std::endl;
-	}
-	else
+	} else {
 		std::cout << "Retry with a valid id" << std::endl << std::endl;
+	}
 }
