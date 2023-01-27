@@ -1,12 +1,15 @@
 $> ./a.out
-Default constructor called
-Copy constructor called
-Copy assignment operator called // <-- This line may be missing depending on your implementation
-getRawBits member function called
-Default constructor called
-Copy assignment operator called
-getRawBits member function called
-getRawBits member function called
+Default constructor called              // a;
+Copy constructor called                 // b(a)
+getRawBits member function called       // dans le copy constructor b(a)
+Default constructor called              // c
+DEBUT:
+
+Copy assignment operator called         // c = b
+getRawBits member function called       // a.getraw()
+FIN:
+
+getRawBits member function called       // b.getraw()
 0
 getRawBits member function called
 0

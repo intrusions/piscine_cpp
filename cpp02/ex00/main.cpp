@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 20:35:57 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/22 20:36:30 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/27 01:47:54 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@ int main( void ) {
     Fixed a;
     Fixed b( a );
     Fixed c;
+
+    std::cout << "DEBUT: " << std::endl << std::endl;
     c = b;
+    std::cout << "FIN: " << std::endl << std::endl;
+
+
+    
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;
     std::cout << c.getRawBits() << std::endl;

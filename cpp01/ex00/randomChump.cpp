@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:53:14 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/16 21:46:02 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/27 00:29:47 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Zombie.hpp"
 
 void	randomChump(std::string name) {
-	Zombie *new_z = NewZombie(name);
-	delete new_z;
+	Zombie new_z;
+	new_z.set_name(name);
+	new_z.announce();
 }
