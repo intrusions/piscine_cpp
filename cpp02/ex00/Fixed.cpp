@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:35:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/28 00:09:41 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/01/28 00:13:26 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ Fixed& Fixed::operator=(Fixed &r) {
     this->val = r.getRawBits();
     return (*this);
 }
-
 
 int	Fixed::getRawBits() const {
     std::cout << "GetRawBits member function called" << std::endl;
