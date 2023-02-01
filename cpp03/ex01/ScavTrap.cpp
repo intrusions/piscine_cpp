@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:56:00 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/02 00:00:23 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/02 00:10:08 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ ScavTrap::ScavTrap(ScavTrap const &obj) {
 
 	return ;
 }
-
 
 ScavTrap::~ScavTrap() {
 	std::cout << "-- ScavTrap descructor called" << std::endl;
