@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:56:00 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/02 00:10:08 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/02 00:13:29 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void    ScavTrap::attack(const std::string &target) {
 	}
 	else
 		std::cout	<< "ScavTrap " << getName() 
-					<< " can't attack because is dead " 
+					<< " can't attack because hes dead " 
 					<< std::endl;
 	return ;
 }

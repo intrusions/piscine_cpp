@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:25:13 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/02 00:00:11 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/02 00:13:24 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ ClapTrap::ClapTrap(std::string _name, uint32_t _hitPoints, uint32_t _energyPoint
 	return ;
 }
 
+ClapTrap::ClapTrap(ClapTrap const &obj) {
+	std::cout << "++ ClapTrap copy constructor called" << std::endl;
+	
+	setName(obj.name);
+	setHitPoints(obj.hitPoints);
+	setEnergyPoints(obj.energyPoints);
+	setAttackDamage(obj.attackDamage);
+}
 
 ClapTrap::~ClapTrap() {
 	std::cout << "-- ClapTrap descructor called" << std::endl;
@@ -55,14 +63,6 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &obj) {
 	return (*this);
 }
 
-ClapTrap::ClapTrap(ClapTrap const &obj) {
-	std::cout << "++ ClapTrap copy constructor called" << std::endl;
-	
-	setName(obj.name);
-	setHitPoints(obj.hitPoints);
-	setEnergyPoints(obj.energyPoints);
-	setAttackDamage(obj.attackDamage);
-}
 
 void	ClapTrap::attack(const std::string &target) {
 	if (getHitPoints() && getEnergyPoints()) {
@@ -93,7 +93,7 @@ void	ClapTrap::beRepaired(uint32_t amount) {
 	}
 	else
 		std::cout	<< "ClapTrap " << getName() 
-					<< " can't be repaired because is dead " 
+					<< " can't be repaired because hes dead " 
 					<< std::endl;
 	return ;
 }
