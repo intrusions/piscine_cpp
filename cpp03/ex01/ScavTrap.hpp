@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/22 14:25:40 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/01 20:28:34 by jucheval         ###   ########.fr       */
+/*   Created: 2023/02/01 20:30:58 by jucheval          #+#    #+#             */
+/*   Updated: 2023/02/01 23:46:54 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+#include <stdint.h>
+#include "ClapTrap.hpp"
 
-
-class Fixed {
+class ScavTrap : public ClapTrap {
 	private:
-		int 				val;
-		static const int	bits = 8;
-	
-	public:
-		Fixed();
-		Fixed(const Fixed &r);
-		Fixed(const int n);
-		Fixed(const float n);
-		~Fixed();
 
-		float			toFloat(void) const;
-		int				toInt(void) const;
-		int				getRawBits() const;
-		void 			setRawBits(int const raw);
+    public:
+        ScavTrap();
+        ScavTrap(std::string _name);
+        ScavTrap(ScavTrap const &obj);
+        ~ScavTrap();
 
-		Fixed& 		operator=(const Fixed &r);
+        void    guardGate();
+        void    attack(const std::string &target);
+
 };
-
-std::ostream&	operator<<(std::ostream &os, const Fixed &obj);
