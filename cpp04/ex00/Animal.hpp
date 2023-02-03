@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:24 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/03 04:22:10 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/03 22:51:47 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Animal {
 		Animal();
 		Animal(const std::string _type);
 		Animal(const Animal &obj);
-		~Animal();
+		virtual ~Animal();
 	
 		Animal			&operator=(const Animal &obj);
 

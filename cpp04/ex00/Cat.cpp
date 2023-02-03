@@ -6,14 +6,14 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:27 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/03 04:28:44 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/03 22:55:08 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat") {
+Cat::Cat() : Animal("Cat"), brain(new Brain()) {
 	std::cout << "++ cat default constructor" << std::endl;
 	return ;
 }
@@ -32,6 +32,7 @@ Cat		&Cat::operator=(const Cat &obj) {
 
 Cat::~Cat() {
 	std::cout << "-- cat default destructor" << std::endl;
+	delete this->brain;
 	return ;
 }
 

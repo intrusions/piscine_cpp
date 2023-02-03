@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 02:10:30 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/03 21:34:46 by jucheval         ###   ########.fr       */
+/*   Created: 2023/02/03 21:09:05 by jucheval          #+#    #+#             */
+/*   Updated: 2023/02/03 21:41:50 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "Animal.hpp"
-#include "Brain.hpp"
 
-class Cat : public Animal {
+class Brain {
 	private:
-		Brain	*brain;
+		std::string     ideas[100];
+		
 	public:
-		Cat();
-		Cat(const Cat &obj);
-		~Cat();
+		Brain();
+		Brain(const Brain &obj);
+		~Brain();
 
-		Cat		&operator=(const Cat &obj);
-
-		void	makeSound() const;
+		Brain	operator=(const Brain &obj);
 };

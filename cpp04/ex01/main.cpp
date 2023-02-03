@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 02:10:30 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/03 21:34:46 by jucheval         ###   ########.fr       */
+/*   Created: 2023/02/03 02:10:37 by jucheval          #+#    #+#             */
+/*   Updated: 2023/02/03 23:18:38 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #include "Animal.hpp"
-#include "Brain.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-class Cat : public Animal {
-	private:
-		Brain	*brain;
-	public:
-		Cat();
-		Cat(const Cat &obj);
-		~Cat();
+int main()
+{
+	const Animal *animalArr[20];
+	for (int i = 0; i < 20; i++) {
+		if (i < 10)
+			animalArr[i] = new Dog();
+		else
+			animalArr[i] = new Cat();
+	}
+	for (int i = 0; i < 20; i++)
+		delete animalArr[i];
+	return 0;
+}
 
-		Cat		&operator=(const Cat &obj);
-
-		void	makeSound() const;
-};
+// int main()
+// {
+// 	const Animal* j = new Dog();
+// 	const Animal* i = new Cat();
+// 	delete j;//should not create a leak
+// 	delete i;
+// 	return 0;
+// }
