@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:37 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/03 23:18:38 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/04 01:18:26 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 int main()
 {
+	// const Animal *cc = new Animal();
+	// (void)cc;
 	const Animal *animalArr[20];
 	for (int i = 0; i < 20; i++) {
 		if (i < 10)

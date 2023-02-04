@@ -6,14 +6,14 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:33 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/03 22:55:27 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/04 00:59:06 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog"), brain(new Brain()) {
+Dog::Dog() : Animal("Dog") {
 	std::cout << "++ dog default constructor" << std::endl;
 	return ;
 }
@@ -32,7 +32,6 @@ Dog		&Dog::operator=(const Dog &obj) {
 
 Dog::~Dog() {
 	std::cout << "-- dog default destructor" << std::endl;
-	delete this->brain;
 	return ;
 }
 

@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 02:10:37 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 01:00:07 by jucheval         ###   ########.fr       */
+/*   Created: 2023/02/03 21:09:05 by jucheval          #+#    #+#             */
+/*   Updated: 2023/02/03 21:41:50 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
 
-int main()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	
-	delete i;
-	delete j;
-	delete meta;
-	
-	return 0;
-}
+class Brain {
+	private:
+		std::string     ideas[100];
+		
+	public:
+		Brain();
+		Brain(const Brain &obj);
+		~Brain();
+
+		Brain	operator=(const Brain &obj);
+};
