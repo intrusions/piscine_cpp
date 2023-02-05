@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:15:49 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/05 19:02:34 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:28:03 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,15 @@ std::string		Form::GradeTooHighException::tooHigh() const throw() {
 
 std::string		Form::GradeTooLowException::tooLow() const throw() {
 	return ("Form grade is too low");
+}
+
+std::string		Form::FormIsNotSigned::notSigned() const throw() {
+	return ("Form is not signed");
+}
+
+void	Form::executeCheck(Bureaucrat const &executor) const {
+	if (executor.getGrade() > this->getGradeToExec())
+		throw GradeTooHighException();
+	else if (!this->getIsSigned())
+		throw FormIsNotSigned();
 }
