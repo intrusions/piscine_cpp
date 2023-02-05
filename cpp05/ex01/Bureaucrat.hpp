@@ -6,7 +6,7 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 01:52:09 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 19:51:33 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/04 20:04:08 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <stdint.h>
 #include <exception>
 #include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 	private:

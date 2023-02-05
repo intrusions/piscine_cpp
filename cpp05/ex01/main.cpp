@@ -6,7 +6,7 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 02:37:05 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 19:34:29 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/04 20:31:05 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 
 int	main() {
 	try {
-		Bureaucrat a("John Doe", 3);
-		std::cout << a << std::endl;
-		
-		Form b("Form_B", 110, 110);
-		std::cout << b << std::endl;
+		Bureaucrat c("Julien", 52);
+		std::cout << c << std::endl;
+
+		Form d("Form_D", 50, 50);
+		std::cout << d << std::endl;
+
+		d.beSigned(c);
+		std::cout << d << std::endl;
+
 	} catch (const Bureaucrat::GradeTooHighException &err ) {
 		std::cout << err.tooHigh() << std::endl;
 	} catch (const Bureaucrat::GradeTooLowException &err ) {

@@ -6,7 +6,7 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:15:49 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 19:40:34 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/04 20:31:43 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,17 @@ void		Form::beSigned(Bureaucrat bureaucrat) {
 		throw Form::GradeTooLowException();
 	}
 	this->isSigned = 1;
-
 	return ;
 }
 
 std::ostream	&operator<<(std::ostream &os, Form &obj) {
-	os	<< "Form : " 
+	os	<< "Form       " 
 		<< obj.getName()
 		<< (!obj.getIsSigned() ? " is not signed, " : " is signed, ")
 		<< "Bureaucrat need grade " << (int)obj.getGradeToSign()
-		<< "For sign it, and grade " << (int)obj.getGradeToExec()
+		<< " For sign it, and grade " << (int)obj.getGradeToExec()
 		<< " for execute it" << std::endl;
-		
-		return (os);
+	return (os);
 }
 
 std::string		Form::GradeTooHighException::tooHigh() const throw() {
