@@ -6,11 +6,14 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:16:04 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 19:39:35 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:56:20 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include <iostream>
+#include <stdint.h>
+#include <exception>
 #include "Bureaucrat.hpp"
 
 class Form {
