@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 01:52:09 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/05 22:21:17 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/05 23:04:52 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ class Bureaucrat {
 		void			decrementGrade();
 
 		bool			signForm(Form &form);
-
-		virtual void	execute(Bureaucrat &bureaucrat) const;
 };
 
 std::ostream	&operator<<(std::ostream &os, const Bureaucrat &obj);

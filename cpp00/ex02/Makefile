@@ -1,5 +1,5 @@
-SRCS		=	Account.cpp	\
-				tests.cpp 
+SRCS		=	main.cpp			\
+				srcs/Account.cpp	\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -7,7 +7,7 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror -I./includes
 
 CPPFLAGS	= 	-std=c++98
 

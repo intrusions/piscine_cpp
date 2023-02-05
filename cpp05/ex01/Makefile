@@ -1,6 +1,6 @@
-SRCS		=	main.cpp			\
-				Bureaucrat.cpp		\
-				Form.cpp			\
+SRCS		=	main.cpp				\
+				srcs/Bureaucrat.cpp		\
+				srcs/Form.cpp			\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -8,7 +8,7 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror -I./includes
 
 CPPFLAGS	= 	-std=c++98
 

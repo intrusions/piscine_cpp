@@ -1,7 +1,7 @@
-SRCS		=	main.cpp			\
-				ClapTrap.cpp		\
-				FragTrap.cpp		\
-				ScavTrap.cpp
+SRCS		=	main.cpp				\
+				srcs/ClapTrap.cpp		\
+				srcs/FragTrap.cpp		\
+				srcs/ScavTrap.cpp		\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -9,7 +9,7 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror -I./includes
 
 CPPFLAGS	= 	-std=c++98
 

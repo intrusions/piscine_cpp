@@ -1,9 +1,9 @@
-SRCS		=	main.cpp							\
-				Bureaucrat.cpp						\
-				Form.cpp							\
-				PresidentialPardonForm.cpp			\
-				RobotomyRequestForm.cpp				\
-				ShrubberyCreationForm.cpp			\
+SRCS		=	main.cpp								\
+				srcs/Bureaucrat.cpp						\
+				srcs/Form.cpp							\
+				srcs/PresidentialPardonForm.cpp			\
+				srcs/RobotomyRequestForm.cpp			\
+				srcs/ShrubberyCreationForm.cpp			\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -11,7 +11,7 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror -I./includes
 
 CPPFLAGS	= 	-std=c++98
 

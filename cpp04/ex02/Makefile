@@ -1,8 +1,8 @@
 SRCS		=	main.cpp			\
-				Animal.cpp			\
-				Dog.cpp				\
-				Cat.cpp				\
-				Brain.cpp			\
+				srcs/Animal.cpp		\
+				srcs/Dog.cpp		\
+				srcs/Cat.cpp		\
+				srcs/Brain.cpp		\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -10,7 +10,7 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror -I./includes
 
 CPPFLAGS	= 	-std=c++98
 

@@ -1,7 +1,7 @@
-SRCS		=	main.cpp		\
-				HumanA.cpp		\
-				HumanB.cpp		\
-				Weapon.cpp		
+SRCS		=	main.cpp			\
+				srcs/HumanA.cpp		\
+				srcs/HumanB.cpp		\
+				srcs/Weapon.cpp		
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -9,7 +9,7 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror -I./includes
 
 CPPFLAGS	= 	-std=c++98
 
