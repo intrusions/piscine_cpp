@@ -6,7 +6,7 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 02:00:31 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 19:44:21 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:47:07 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,21 @@ void		Bureaucrat::decrementGrade() {
 		throw GradeTooLowException();
 	this->grade++;
 	return ;
+}
+
+bool		Bureaucrat::signForm(Form &form) {
+	if (!this->getGrade() > form.getGradeToSign()) {
+		std::cout 	<< this->getName()
+					<< " couldn't signed "
+					<< form.getName()
+					<< " because "
+					<< std::endl;
+		return (0);	
+	} else {
+		std::cout 	<< this->getName()
+					<< " signed "
+					<< form.getName()
+					<< std::endl;
+		return (1);
+	}
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Bureaucrat2.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 01:52:09 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 19:44:02 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:42:59 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <stdint.h>
 #include <exception>
+#include "Form.hpp"
 
 class Bureaucrat {
 	private:
@@ -39,6 +40,8 @@ class Bureaucrat {
 
 		void			incrementGrade();
 		void			decrementGrade();
+
+		bool			signForm(Form &form);
 
 };
 

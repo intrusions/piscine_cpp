@@ -51,6 +51,8 @@
         "cstring": "cpp",
         "numbers": "cpp",
         "span": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "ctime": "cpp",
+        "iomanip": "cpp"
     }
 }
