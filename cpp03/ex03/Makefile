@@ -2,6 +2,7 @@ SRCS		=	main.cpp				\
 				srcs/ClapTrap.cpp		\
 				srcs/FragTrap.cpp		\
 				srcs/ScavTrap.cpp		\
+				srcs/DiamondTrap.cpp	\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -13,7 +14,7 @@ CFLAGS		= 	-Wall -Wextra -Werror -I./includes
 
 CPPFLAGS	= 	-std=c++98
 
-NAME		=	ex02
+NAME		=	ex03
 
 all:		$(NAME)
 
