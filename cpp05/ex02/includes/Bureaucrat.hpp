@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 01:52:09 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 20:04:08 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:16:51 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class Form;
 
 class Bureaucrat {
 	private:
-		const std::string   name;
-		uint8_t				grade;
+		const std::string   _name;
+		uint8_t				_grade;
 	
 	public:
 		Bureaucrat(const std::string name, uint8_t grade);
-		~Bureaucrat();
+		virtual ~Bureaucrat();
 
 		class GradeTooHighException : public std::exception {
 			public:

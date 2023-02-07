@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:35:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/31 11:01:55 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 01:34:54 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 #include <iostream>
 #include <cmath>
 
-Fixed::Fixed() : val(0){
+Fixed::Fixed() : _val(0){
 	return ;
 }
 
-Fixed::Fixed(const Fixed &r) : val(r.getRawBits()){
+Fixed::Fixed(const Fixed &r) : _val(r.getRawBits()){
 	return ;
 }
 
 Fixed::Fixed(const int n) {
-	this->val = n << this->bits;
+	_val = n << _bits;
 	return ;
 }
 
 Fixed::Fixed(const float n) {
-	this->val = int(roundf(n * (1 << this->bits)));
+	_val = int(roundf(n * (1 << _bits)));
 	return ;
 }
 
@@ -37,19 +37,19 @@ Fixed::~Fixed() {
 }
 
 float    Fixed::toFloat(void) const {
-	return (this->val / (double)(1 << this->bits));
+	return (_val / (double)(1 << _bits));
 }
 
 int    Fixed::toInt(void) const {
-	return (this->val >> this->bits);
+	return (_val >> _bits);
 }
 
 int	Fixed::getRawBits() const {
-	return (this->val);
+	return (_val);
 }
 
 void Fixed::setRawBits(int const raw) {
-	this->val = raw;
+	_val = raw;
 	return ;
 }
 
@@ -60,7 +60,7 @@ std::ostream&	operator<<(std::ostream &os, const Fixed &obj) {
 }
 
 Fixed& 			Fixed::operator=(const Fixed &r) {
-	this->val = r.getRawBits();
+	_val = r.getRawBits();
 	return (*this);
 }
 
@@ -68,41 +68,41 @@ Fixed& 			Fixed::operator=(const Fixed &r) {
 /*ex02 parts*/
 
 bool		Fixed::operator<(const Fixed &obj) {
-	return (this->val < obj.val);
+	return (_val < obj._val);
 }
 
 bool		Fixed::operator<=(const Fixed &obj) {
-	return (this->val <= obj.val);
+	return (_val <= obj._val);
 }
 
 bool		Fixed::operator>(const Fixed &obj) {
-	return (this->val > obj.val);
+	return (_val > obj._val);
 }
 
 bool		Fixed::operator>=(const Fixed &obj) {
-	return (this->val >= obj.val);
+	return (_val >= obj._val);
 }
 
 bool		Fixed::operator==(const Fixed &obj) {
-	return (this->val == obj.val);
+	return (_val == obj._val);
 }
 
 bool		Fixed::operator!=(const Fixed &obj) {
-	return (this->val != obj.val);
+	return (_val != obj._val);
 }
 
 int			Fixed::operator*(const Fixed &obj) {
-	return (this->val * obj.val);
+	return (_val * obj._val);
 }
 
 int			Fixed::operator/(const Fixed &obj) {
-	return (this->val / obj.val);
+	return (_val / obj._val);
 }
 
 int			Fixed::operator+(const Fixed &obj) {
-	return (this->val + obj.val);
+	return (_val + obj._val);
 }
 
 int			Fixed::operator-(const Fixed &obj) {
-	return (this->val - obj.val);
+	return (_val - obj._val);
 }

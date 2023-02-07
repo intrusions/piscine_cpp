@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:21:02 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/03 22:46:10 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:06:41 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Brain::Brain(const Brain &obj) {
 Brain	Brain::operator=(const Brain &obj) {
 	std::cout << "++ brain asignement constructor" << std::endl;
 	for (int i = 0; i < 100; i++)
-		this->ideas[i] = obj.ideas[i];
+		_ideas[i] = obj._ideas[i];
 	return (*this);
 }
 

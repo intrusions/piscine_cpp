@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:27 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 00:59:13 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:02:31 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cat::Cat(const Cat &obj) {
 
 Cat		&Cat::operator=(const Cat &obj) {
 	std::cout << "++ cat asignement constructor" << std::endl;
-	this->type = obj.type;
+	_type = obj._type;
 	return (*this);
 }
 

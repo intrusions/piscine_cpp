@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:56:00 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/02 00:13:29 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 01:50:53 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap()
 	return ;
 }
 
-ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name, 100, 50, 20)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
 	std::cout << "++ ScavTrap default constructor called" << std::endl;
 	return ;
@@ -39,7 +39,7 @@ ScavTrap::~ScavTrap() {
 	return ;
 }
 
-void    ScavTrap::guardGate() {
+void    ScavTrap::guardGate() const{
 	std::cout << "ScavTrap is in Gate keeper mode" << std::endl;
 	return ;
 }

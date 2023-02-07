@@ -6,15 +6,15 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:42:53 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/05 22:32:48 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:27:36 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(std::string _target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	: Form("PresidentialForm", 25, 5)
-	, target(_target)
+	, _target(target)
 {
 	return ;
 }
@@ -25,9 +25,9 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 
 void	PresidentialPardonForm::execute(Bureaucrat &bureaucrat) const {
 	try {
-		this->executeCheck(bureaucrat);
+		executeCheck(bureaucrat);
 		
-		std::cout	<< this->target
+		std::cout	<< _target
 					<< " est pardonnée par Zaphod Beeblebrox."
 					<< std::endl;
 	} catch(Form::GradeTooHighException &err) {

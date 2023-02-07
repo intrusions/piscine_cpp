@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:11:37 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/05 22:38:05 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:24:47 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 class ShrubberyCreationForm : public Form {
 	private:
-		std::string     target;
+		std::string     _target;
 		
 	public:
 		ShrubberyCreationForm(std::string _target);
-		~ShrubberyCreationForm();
+		virtual ~ShrubberyCreationForm();
 
 		void	execute(Bureaucrat &bureaucrat) const;
 };

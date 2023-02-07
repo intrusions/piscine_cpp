@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:08:28 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/26 07:51:01 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/06 23:51:02 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-PhoneBook::PhoneBook() : index(0) {
+PhoneBook::PhoneBook() : _index(0) {
 	return ;
 }
 
@@ -25,9 +25,9 @@ PhoneBook::~PhoneBook() {
 }
 
 void	PhoneBook::add(void) {
-	this->index %= 8;
-	this->_contactArray[this->index].fill_info();
-	this->index++;
+	_index %= 8;
+	_contactArray[_index].fill_info();
+	_index++;
 }
 
 std::string	space(std::string str)
@@ -53,12 +53,12 @@ void	PhoneBook::search(void) {
 	std::cout << std::endl;
 	int user_int = std::atoi(user_in.c_str());
 
-	if ((user_int >= 0 && user_int < this->index) && isdigit(user_in[0])) {
-		std::cout << "- First name : " << this->_contactArray[user_int].getFirstName() << std::endl;
-		std::cout << "- Last name : " << this->_contactArray[user_int].getLastName() << std::endl;
-		std::cout << "- Nickname : " << this->_contactArray[user_int].getNickname() << std::endl;
-		std::cout << "- Phone number : " << this->_contactArray[user_int].getPhoneNumber() << std::endl;
-		std::cout << "- Darkest secret : " << this->_contactArray[user_int].getDarkestSecret() << std::endl << std::endl;
+	if ((user_int >= 0 && user_int < _index) && isdigit(user_in[0])) {
+		std::cout << "- First name : " << _contactArray[user_int].getFirstName() << std::endl;
+		std::cout << "- Last name : " << _contactArray[user_int].getLastName() << std::endl;
+		std::cout << "- Nickname : " << _contactArray[user_int].getNickname() << std::endl;
+		std::cout << "- Phone number : " << _contactArray[user_int].getPhoneNumber() << std::endl;
+		std::cout << "- Darkest secret : " << _contactArray[user_int].getDarkestSecret() << std::endl << std::endl;
 	} else
 		std::cout << "Retry with a valid id" << std::endl;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:16:04 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 20:03:56 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:13:10 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ class Bureaucrat;
 
 class Form {
 	private:
-		const std::string	name;
-		bool				isSigned;
-		const uint8_t		gradeToSign;
-		const uint8_t		gradeToExec;
+		const std::string	_name;
+		bool				_isSigned;
+		const uint8_t		_gradeToSign;
+		const uint8_t		_gradeToExec;
 
 	public:
 		Form(std::string _name, uint8_t _gradeToSign, uint8_t _gradeToExec);
-		~Form();
+		virtual ~Form();
 
 		class GradeTooHighException : public std::exception {
 			public:

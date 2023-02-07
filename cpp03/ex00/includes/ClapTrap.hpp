@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:24:57 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/01 23:53:59 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 01:36:26 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 class ClapTrap {
 	private:
 		
-		std::string	name;
-		uint32_t	hitPoints;
-		uint32_t	energyPoints;
-		uint32_t	attackDamage;
+		std::string	_name;
+		uint32_t	_hitPoints;
+		uint32_t	_energyPoints;
+		uint32_t	_attackDamage;
 	
 	protected:
-		ClapTrap(std::string _name, uint32_t _hitPoints, uint32_t _energyPoints, uint32_t _attackDamage);
+		ClapTrap(std::string name, uint32_t hitPoints, uint32_t energyPoints, uint32_t attackDamage);
 
 	public:
 		ClapTrap();
 		ClapTrap(std::string _name);
 		ClapTrap(ClapTrap const &obj);
-		~ClapTrap();
+		virtual ~ClapTrap();
 		ClapTrap	&operator=(ClapTrap const &obj);
 
 		std::string		getName() const;

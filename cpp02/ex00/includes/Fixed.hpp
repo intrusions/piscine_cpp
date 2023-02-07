@@ -6,21 +6,22 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:25:40 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/28 00:09:36 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 01:28:09 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include <iostream>
 
 class Fixed {
 	private:
-		int 				val;
-		static const int	bits = 8;
+		int 				_val;
+		static const int	_bits = 8;
 	
 	public:
 		Fixed();
 		Fixed(Fixed &r);
-		~Fixed();
+		virtual ~Fixed();
 
 		Fixed& 		operator=(Fixed &r);
 		int			getRawBits() const;

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:43:51 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/05 22:38:10 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:24:58 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 class PresidentialPardonForm : public Form {
     private:
-        std::string     target;
+        std::string     _target;
         
     public:
         PresidentialPardonForm(std::string _target);
-		~PresidentialPardonForm();
+		virtual ~PresidentialPardonForm();
 
         void	execute(Bureaucrat &bureaucrat) const;
 };

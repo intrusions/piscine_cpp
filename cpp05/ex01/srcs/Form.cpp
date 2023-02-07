@@ -6,21 +6,21 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:15:49 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/05 19:02:34 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:14:35 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(std::string _name, uint8_t _gradeToSign, uint8_t _gradeToExec) 
-	: name(_name)
-	, isSigned(0)
-	, gradeToSign(_gradeToSign)
-	, gradeToExec(_gradeToExec)
+Form::Form(std::string name, uint8_t gradeToSign, uint8_t gradeToExec) 
+	: _name(name)
+	, _isSigned(0)
+	, _gradeToSign(gradeToSign)
+	, _gradeToExec(gradeToExec)
 {
-	if (_gradeToSign < 1 || _gradeToExec < 1)
+	if (gradeToSign < 1 || gradeToExec < 1)
 		throw Form::GradeTooHighException();
-	else if (_gradeToSign > 150 || _gradeToExec > 150)
+	else if (gradeToSign > 150 || gradeToExec > 150)
 		throw Form::GradeTooLowException();
 	return ;
 }
@@ -30,26 +30,26 @@ Form::~Form() {
 }
 
 std::string	Form::getName() const {
-	return (this->name);
+	return (_name);
 }
 
 bool		Form::getIsSigned() const {
-	return (this->isSigned);
+	return (_isSigned);
 }
 
 uint8_t		Form::getGradeToSign() const {
-	return (this->gradeToSign);
+	return (_gradeToSign);
 }
 
 uint8_t		Form::getGradeToExec() const {
-	return (this->gradeToExec);
+	return (_gradeToExec);
 }
 
 void		Form::beSigned(Bureaucrat bureaucrat) {
 	if (!bureaucrat.signForm(*this)) {
 		throw Form::GradeTooLowException();
 	}
-	this->isSigned = 1;
+	_isSigned = 1;
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:30 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/03 21:34:46 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:03:42 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 class Cat : public Animal {
 	private:
-		Brain	*brain;
+		Brain	*_brain;
 	public:
 		Cat();
 		Cat(const Cat &obj);
-		~Cat();
+		virtual ~Cat();
 
 		Cat		&operator=(const Cat &obj);
 

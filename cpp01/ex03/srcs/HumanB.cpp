@@ -6,18 +6,18 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:14:08 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/26 08:30:39 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 01:21:47 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : weapon(NULL), name(name) {
+HumanB::HumanB(std::string name) : _weapon(NULL), _name(name) {
     return ;
 }
 
-HumanB::HumanB(std::string name, Weapon *weapon) : weapon(weapon), name(name) {
+HumanB::HumanB(std::string name, Weapon *weapon) : _weapon(weapon), _name(name) {
     return ;
 }
 
@@ -26,9 +26,9 @@ HumanB::~HumanB() {
 }
 
 void    HumanB::attack() {
-    std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+    std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
 }
 
 void    HumanB::setWeapon(Weapon &weapon) {
-    this->weapon = &weapon;
+    _weapon = &weapon;
 }

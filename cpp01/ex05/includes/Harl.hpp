@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 03:15:42 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/21 03:29:16 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 01:23:15 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 class Harl {
     private:
-        void    debug(void);
-        void    info(void);
-        void    warning(void);
-        void    error(void);
+        void    _debug(void);
+        void    _info(void);
+        void    _warning(void);
+        void    _error(void);
 
     public:
         void    complain(std::string level);

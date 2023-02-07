@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:35 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/03 21:34:35 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:07:42 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 class Dog : public Animal {
 	private:
-		Brain	*brain;
+		Brain	*_brain;
 	public:
 		Dog();
 		Dog(const Dog &obj);
-		~Dog();
+		virtual ~Dog();
 
 		Dog		&operator=(const Dog &obj);
 

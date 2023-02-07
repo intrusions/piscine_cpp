@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:30:58 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/03 01:36:32 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/06 23:43:45 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class ScavTrap : public ClapTrap {
 		ScavTrap();
 		ScavTrap(std::string _name);
 		ScavTrap(ScavTrap const &obj);
-		~ScavTrap();
+		virtual ~ScavTrap();
 
-		void    guardGate();
+		void    guardGate() const;
 		void    attack(const std::string &target);
 
 };

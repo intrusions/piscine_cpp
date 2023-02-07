@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:24 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 01:10:17 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:07:17 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ class Animal {
 	private:
 
 	protected:
-		std::string		type;		
+		std::string		_type;		
 		Animal();
-		Animal(const std::string _type);
+		Animal(const std::string type);
 		Animal(const Animal &obj);
 
 	public:

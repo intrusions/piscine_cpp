@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 23:51:17 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/06 00:50:29 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/06 23:37:46 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 class DiamondTrap : public FragTrap, public ScavTrap {
 	private:
-		std::string     name;
+		std::string     _name;
 		
 	public:
-		DiamondTrap(std::string _name);
+		DiamondTrap(std::string name);
 		~DiamondTrap();
 
 		// void	whoAmI();

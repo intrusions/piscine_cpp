@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:47:04 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/26 07:51:01 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/06 23:51:36 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 class PhoneBook {
 	private:
-		int     index;
+		int     _index;
 		Contact _contactArray[8];
 
 	public:
 		PhoneBook();
-		~PhoneBook();
+		virtual ~PhoneBook();
 		
 		void    add();
 		void    search();

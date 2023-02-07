@@ -6,15 +6,15 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:15:27 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/05 22:35:28 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:29:12 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string _target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	: Form("ShrubberyForm", 145, 137)
-	, target(_target)
+	, _target(target)
 {
 	return ;
 }
@@ -25,9 +25,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 void	ShrubberyCreationForm::execute(Bureaucrat &bureaucrat) const {
 	try {
-		this->executeCheck(bureaucrat);
+		executeCheck(bureaucrat);
 		
-		std::cout	<< this->target
+		std::cout	<< _target
 					<< " Shrubbery creation"
 					<< std::endl;
 	} catch(Form::GradeTooHighException &err) {

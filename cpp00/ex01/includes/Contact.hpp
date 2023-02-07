@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:47:24 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/26 07:31:03 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 00:05:04 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 class Contact {
 	private:
-	
 		std::string _firstName; 
 		std::string _lastName;
 		std::string _nickname;
@@ -23,7 +22,7 @@ class Contact {
 
 	public:
 		Contact();
-		~Contact();
+		virtual ~Contact();
 		
 		void			fill_info();
 

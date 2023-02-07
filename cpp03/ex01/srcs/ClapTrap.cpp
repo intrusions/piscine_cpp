@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:25:13 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/05 23:24:51 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 01:42:49 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@ ClapTrap::ClapTrap()
 	return ;
 }
 
-ClapTrap::ClapTrap(std::string _name)
-	: name(_name)
-	, hitPoints(10)
-	, energyPoints(10)
-	, attackDamage(0) 
+ClapTrap::ClapTrap(std::string name)
+	: _name(name)
+	, _hitPoints(10)
+	, _energyPoints(10)
+	, _attackDamage(0) 
 {
 	std::cout << "++ ClapTrap default constructor called" << std::endl;
 	return ;
 }
 
-ClapTrap::ClapTrap(std::string _name, uint32_t _hitPoints, uint32_t _energyPoints, uint32_t _attackDamage) 
-	: name(_name)
-	, hitPoints(_hitPoints)
-	, energyPoints(_energyPoints)
-	, attackDamage(_attackDamage)	
+ClapTrap::ClapTrap(std::string name, uint32_t hitPoints, uint32_t energyPoints, uint32_t attackDamage) 
+	: _name(name)
+	, _hitPoints(hitPoints)
+	, _energyPoints(energyPoints)
+	, _attackDamage(attackDamage)	
 {
 	std::cout << "++ ClapTrap constructor called by ScavTrap" << std::endl;
 	return ;
@@ -41,10 +41,11 @@ ClapTrap::ClapTrap(std::string _name, uint32_t _hitPoints, uint32_t _energyPoint
 ClapTrap::ClapTrap(ClapTrap const &obj) {
 	std::cout << "++ ClapTrap copy constructor called" << std::endl;
 	
-	setName(obj.name);
-	setHitPoints(obj.hitPoints);
-	setEnergyPoints(obj.energyPoints);
-	setAttackDamage(obj.attackDamage);
+	setName(obj._name);
+	setHitPoints(obj._hitPoints);
+	setEnergyPoints(obj._energyPoints);
+	setAttackDamage(obj._attackDamage);
+	return ;
 }
 
 ClapTrap::~ClapTrap() {
@@ -55,10 +56,10 @@ ClapTrap::~ClapTrap() {
 ClapTrap	&ClapTrap::operator=(ClapTrap const &obj) {
 	std::cout << "++ ClapTrap asignement constructor called" << std::endl;
 	
-	setName(obj.name);
-	setHitPoints(obj.hitPoints);
-	setEnergyPoints(obj.energyPoints);
-	setAttackDamage(obj.attackDamage);
+	setName(obj._name);
+	setHitPoints(obj._hitPoints);
+	setEnergyPoints(obj._energyPoints);
+	setAttackDamage(obj._attackDamage);
 	
 	return (*this);
 }
@@ -109,34 +110,34 @@ void	ClapTrap::takeDamage(uint32_t amount) {
 }
 
 std::string	ClapTrap::getName(void) const {
-	return (this->name);
+	return (_name);
 }
 
 uint32_t	ClapTrap::getHitPoints(void) const {
-	return (this->hitPoints);
+	return (_hitPoints);
 }
 
 uint32_t	ClapTrap::getEnergyPoints(void) const {
-	return (this->energyPoints);
+	return (_energyPoints);
 }
 
 uint32_t	ClapTrap::getAttackDamage(void) const {
-	return (this->attackDamage);
+	return (_attackDamage);
 }
 
 
 void		ClapTrap::setName(std::string n) {
-	this->name = n;
+	_name = n;
 }
 
 void		ClapTrap::setHitPoints(uint32_t v) {
-	this->hitPoints = v;
+	_hitPoints = v;
 }
 
 void		ClapTrap::setEnergyPoints(uint32_t v) {
-	this->energyPoints = v;
+	_energyPoints = v;
 }
 
 void		ClapTrap::setAttackDamage(uint32_t v) {
-	this->attackDamage = v;
+	_attackDamage = v;
 }

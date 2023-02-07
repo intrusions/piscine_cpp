@@ -6,15 +6,15 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:41:57 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/05 22:20:44 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:28:58 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string _target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
 	: Form("RobotomyForm", 72, 45)
-	, target(_target)
+	, _target(target)
 {
 	return ;
 }
@@ -25,9 +25,9 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 
 void	RobotomyRequestForm::execute(Bureaucrat &bureaucrat) const {
 	try {
-		this->executeCheck(bureaucrat);
+		executeCheck(bureaucrat);
 		
-		std::cout	<< this->target
+		std::cout	<< _target
 					<< " Robotomy creation"
 					<< std::endl;
 	} catch(Form::GradeTooHighException &err) {
