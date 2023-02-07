@@ -6,12 +6,11 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:00:11 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:57:51 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:55:41 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
 #include "Weapon.hpp"
 
 class HumanB {

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:25:40 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:28:09 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:59:01 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Fixed {
 		virtual ~Fixed();
 
 		Fixed& 		operator=(Fixed &r);
+
 		int			getRawBits() const;
 		void 		setRawBits(int const raw);
 };

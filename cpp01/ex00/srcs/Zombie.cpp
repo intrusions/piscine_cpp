@@ -6,11 +6,10 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:53:27 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:55:26 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:54:29 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Zombie.hpp"
 
 Zombie::Zombie() {
@@ -22,7 +21,7 @@ Zombie::~Zombie() {
 	return ;
 }
 
-void    Zombie::announce(void) {
+void    Zombie::announce(void) const{
 	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 

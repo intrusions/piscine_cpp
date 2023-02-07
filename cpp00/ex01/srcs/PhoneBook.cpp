@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:08:28 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/06 23:51:02 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:52:32 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ std::string	space(std::string str)
 	return (str);
 }
 
-void	PhoneBook::search(void) {
+void	PhoneBook::search(void) const{
 	std::cout << "        ID|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
 	
 	for (int id = 0; id < 8; id++) {

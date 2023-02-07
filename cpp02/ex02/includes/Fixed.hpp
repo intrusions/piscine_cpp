@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:25:40 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 03:06:48 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:59:34 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ class Fixed {
 		Fixed(const float n);
 		virtual ~Fixed();
 
+		Fixed& 		operator=(const Fixed &r);
+		
 		float			toFloat(void) const;
 		int				toInt(void) const;
 		int				getRawBits() const;
 		void 			setRawBits(int const raw);
 
-		Fixed& 		operator=(const Fixed &r);
 		bool		operator<(const Fixed &obj);
 		bool		operator<=(const Fixed &obj);
 		bool		operator>(const Fixed &obj);

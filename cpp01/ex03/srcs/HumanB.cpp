@@ -6,11 +6,10 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:14:08 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:57:58 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:57:23 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "HumanB.hpp"
 
 HumanB::HumanB(std::string name) : _weapon(NULL), _name(name) {
@@ -27,8 +26,10 @@ HumanB::~HumanB() {
 
 void    HumanB::attack() const {
     std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
+    return ;
 }
 
 void    HumanB::setWeapon(Weapon &weapon) {
     _weapon = &weapon;
+    return ;
 }

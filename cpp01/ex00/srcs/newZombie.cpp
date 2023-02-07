@@ -6,11 +6,10 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:53:23 by jucheval          #+#    #+#             */
-/*   Updated: 2022/11/16 21:46:31 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:53:36 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Zombie.hpp"
 
 Zombie* NewZombie(std::string name) {

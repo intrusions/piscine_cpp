@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:53:30 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:54:35 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:54:36 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Zombie {
 		Zombie();
 		virtual ~Zombie();
 		
-		void	announce(void);
+		void	announce(void) const;
 		void	set_name(std::string name);
 };
 

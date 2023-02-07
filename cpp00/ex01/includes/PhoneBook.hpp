@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:47:04 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/06 23:51:36 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:52:27 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ class PhoneBook {
 		virtual ~PhoneBook();
 		
 		void    add();
-		void    search();
+		void    search() const;
 };
