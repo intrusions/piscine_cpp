@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 21:12:02 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/06 23:52:28 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:50:10 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,23 @@ Contact::~Contact() {
 }
 
 /*GETTER*/
-std::string		Contact::getFirstName(void) {
+std::string		Contact::getFirstName(void) const{
 	return (_firstName);
 }
 
-std::string		Contact::getLastName(void) {
+std::string		Contact::getLastName(void) const{
 	return (_lastName);
 }
 
-std::string		Contact::getNickname(void) {
+std::string		Contact::getNickname(void) const{
 	return (_nickname);
 }
 
-std::string		Contact::getPhoneNumber(void) {
+std::string		Contact::getPhoneNumber(void) const{
 	return (_phoneNumber);
 }
 
-std::string		Contact::getDarkestSecret(void) {
+std::string		Contact::getDarkestSecret(void) const{
 	return (_darkestSecret);
 }
 
@@ -70,23 +70,23 @@ void Contact::fill_info() {
 	
 	std::cout << "What is your first name ?" << std::endl;
 	std::cin >> tmp;
-	this->setFirstName(tmp);
+	setFirstName(tmp);
 	
 	std::cout << "What is your last name ?" << std::endl;
 	std::cin >> tmp;
-	this->setLastName(tmp);
+	setLastName(tmp);
 
 	std::cout << "What is your nickname ?" << std::endl;
 	std::cin >> tmp;
-	this->setNickname(tmp);
+	setNickname(tmp);
 
 	std::cout << "What is your phone number ?" << std::endl;
 	std::cin >> tmp;
-	this->setPhoneNumber(tmp);
+	setPhoneNumber(tmp);
 
 	std::cout << "What is your darkest secret ?" << std::endl;
 	std::cin >> tmp;
-	this->setDarkestSecret(tmp);
+	setDarkestSecret(tmp);
 	
 	std::cout << "Contact added successfully" << std::endl << std::endl;
 }

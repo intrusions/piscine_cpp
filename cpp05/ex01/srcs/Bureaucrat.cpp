@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 02:00:31 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:15:38 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:08:26 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ Bureaucrat::Bureaucrat(const std::string name, uint8_t grade) : _name(name) {
 
 Bureaucrat::~Bureaucrat() {
 	return ;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
+	std::cout << "Bureaucrat asignement constructor called" << std::endl;
+
+	if (this != &rhs) {
+		_grade = rhs._grade;
+	}
+	return (*this);
 }
 
 std::ostream	&operator<<(std::ostream &os, const Bureaucrat &obj) {

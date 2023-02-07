@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:06:39 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:22:42 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:57:32 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ HumanA::~HumanA() {
 	return ;
 }
 
-void    HumanA::attack() {
+void    HumanA::attack() const{
 	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
 }

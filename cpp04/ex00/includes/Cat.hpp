@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:30 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 00:56:39 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:09:25 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Cat : public Animal {
 	public:
 		Cat();
 		Cat(const Cat &obj);
-		~Cat();
+		virtual ~Cat();
 
 		Cat		&operator=(const Cat &obj);
 

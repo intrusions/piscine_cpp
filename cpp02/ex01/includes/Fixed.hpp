@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:25:40 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:30:04 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:05:51 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Fixed {
 		int				getRawBits() const;
 		void 			setRawBits(int const raw);
 
-		Fixed& 		operator=(const Fixed &r);
+		Fixed&		operator=(const Fixed &r);
 };
 
 std::ostream&	operator<<(std::ostream &os, const Fixed &obj);

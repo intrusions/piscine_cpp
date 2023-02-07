@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:47:24 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 00:05:04 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:48:32 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ class Contact {
 		
 		void			fill_info();
 
-		std::string		getFirstName(void);
-		std::string		getLastName(void);
-		std::string		getNickname(void);
-		std::string		getPhoneNumber(void);
-		std::string		getDarkestSecret(void);
+		std::string		getFirstName(void) const;
+		std::string		getLastName(void) const;
+		std::string		getNickname(void) const;
+		std::string		getPhoneNumber(void) const;
+		std::string		getDarkestSecret(void) const;
 
 
 		void			setFirstName(std::string firstname);

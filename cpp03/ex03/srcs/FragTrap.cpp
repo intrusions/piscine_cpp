@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 22:58:38 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/06 00:20:08 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 04:09:54 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ FragTrap::FragTrap()
 	return ;
 }
 
-FragTrap::FragTrap(std::string _name) : ClapTrap(_name, 100, 100, 30)
+FragTrap::FragTrap(std::string name) 
+	: ClapTrap(name, 100, 100, 30)
 {
 	std::cout << "++ FragTrap default constructor called" << std::endl;
 	return ;
@@ -39,7 +40,19 @@ FragTrap::~FragTrap() {
 	return ;
 }
 
-void    FragTrap::highFivesGuys() {
+FragTrap	&FragTrap::operator=(FragTrap const &obj) {
+	std::cout << "++ FragTrap asignement constructor called" << std::endl;
+	
+	if (this != &obj) {
+		setName(obj.getName());
+		setHitPoints(obj.getHitPoints());
+		setEnergyPoints(obj.getEnergyPoints());
+		setAttackDamage(obj.getAttackDamage());
+	}
+	return (*this);
+}
+
+void    FragTrap::highFivesGuys() const{
 	std::cout << "do you want a high fives ?" << std::endl;
 	return ;
 }

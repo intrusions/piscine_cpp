@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 22:58:38 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:50:36 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:57:53 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,18 @@ FragTrap::FragTrap(FragTrap const &obj) {
 FragTrap::~FragTrap() {
 	std::cout << "-- FragTrap descructor called" << std::endl;
 	return ;
+}
+
+FragTrap	&FragTrap::operator=(FragTrap const &obj) {
+	std::cout << "++ FragTrap asignement constructor called" << std::endl;
+	
+	if (this != &obj) {
+		setName(obj.getName());
+		setHitPoints(obj.getHitPoints());
+		setEnergyPoints(obj.getEnergyPoints());
+		setAttackDamage(obj.getAttackDamage());
+	}
+	return (*this);
 }
 
 void    FragTrap::highFivesGuys() const {

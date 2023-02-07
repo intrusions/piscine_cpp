@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:39:02 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 00:04:25 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:53:41 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Account::Account(int initial_deposit) {
 		<< "index:" << _accountIndex << ";"
 		<< "amount:" << _amount << ";"
 		<< "created" << std::endl;
+	return ;
 }
 
 Account::Account(void) {
@@ -70,6 +71,7 @@ void	Account::displayAccountsInfos(void) {
 		<< "total:" << getTotalAmount() << ";"
 		<< "deposits:" << getNbDeposits() << ";"
 		<< "withdrawals:" << getNbWithdrawals() << std::endl;
+	return ;
 }
 
 
@@ -88,6 +90,7 @@ void	Account::makeDeposit(int deposit) {
 		<< "deposit:" << deposit << ";"
 		<< "amount:" << _amount << ";"
 		<< "nb_deposits:" << _nbDeposits << std::endl;
+	return ;
 }
 
 bool	Account::makeWithdrawal(int withdrawal) {
@@ -126,6 +129,7 @@ void	Account::displayStatus(void) const {
 		<< "deposits:" << _nbDeposits << ";"
 		<< "withdrawals:" << _nbWithdrawals
 		<< std::endl;
+	return l
 }
 
 void	Account::_displayTimestamp(void) {

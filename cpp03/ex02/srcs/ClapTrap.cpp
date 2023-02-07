@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:25:13 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:51:34 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:56:53 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ ClapTrap::~ClapTrap() {
 ClapTrap	&ClapTrap::operator=(ClapTrap const &obj) {
 	std::cout << "++ ClapTrap asignement constructor called" << std::endl;
 	
-	if (this != &obj)
-	{
+	if (this != &obj) {
 		setName(obj._name);
 		setHitPoints(obj._hitPoints);
 		setEnergyPoints(obj._energyPoints);

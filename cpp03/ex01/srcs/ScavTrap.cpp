@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:56:00 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:45:52 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:50:04 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,18 @@ ScavTrap::ScavTrap(ScavTrap const &obj) {
 ScavTrap::~ScavTrap() {
 	std::cout << "-- ScavTrap descructor called" << std::endl;
 	return ;
+}
+
+ScavTrap	&ScavTrap::operator=(ScavTrap const &obj) {
+	std::cout << "++ FragTrap asignement constructor called" << std::endl;
+	
+	if (this != &obj) {
+		setName(obj.getName());
+		setHitPoints(obj.getHitPoints());
+		setEnergyPoints(obj.getEnergyPoints());
+		setAttackDamage(obj.getAttackDamage());
+	}
+	return (*this);
 }
 
 void    ScavTrap::guardGate() {

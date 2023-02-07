@@ -6,13 +6,13 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:25:40 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:32:12 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:06:48 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-
+#include <cmath>
 
 class Fixed {
 	private:

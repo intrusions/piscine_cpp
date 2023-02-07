@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:25:13 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:42:49 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:49:36 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ ClapTrap::~ClapTrap() {
 ClapTrap	&ClapTrap::operator=(ClapTrap const &obj) {
 	std::cout << "++ ClapTrap asignement constructor called" << std::endl;
 	
-	setName(obj._name);
-	setHitPoints(obj._hitPoints);
-	setEnergyPoints(obj._energyPoints);
-	setAttackDamage(obj._attackDamage);
-	
+	if (this != &obj) {
+		setName(obj.getName());
+		setHitPoints(obj.getHitPoints());
+		setEnergyPoints(obj.getEnergyPoints());
+		setAttackDamage(obj.getAttackDamage());
+	}
 	return (*this);
 }
-
 
 void	ClapTrap::attack(const std::string &target) {
 	if (getHitPoints() && getEnergyPoints()) {

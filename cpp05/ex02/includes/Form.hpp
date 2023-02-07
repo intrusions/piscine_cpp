@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:16:04 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:25:03 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:49:46 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Form {
 	public:
 		Form(std::string _name, uint8_t _gradeToSign, uint8_t _gradeToExec);
 		virtual ~Form();
+
+		Form &operator=(const Form &rhs);
 
 		class GradeTooHighException : public std::exception {
 			public:

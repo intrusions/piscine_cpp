@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 01:52:09 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:10:45 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 04:22:02 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class Bureaucrat {
 	public:
 		Bureaucrat(const std::string name, uint8_t grade);
 		virtual ~Bureaucrat();
+
+		Bureaucrat &operator=(const Bureaucrat &rhs);
 
 		class GradeTooHighException : public std::exception {
 			public:

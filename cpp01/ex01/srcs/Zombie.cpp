@@ -6,11 +6,10 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:51:04 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:17:36 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:56:18 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Zombie.hpp"
 
 Zombie::Zombie() {

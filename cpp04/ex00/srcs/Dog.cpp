@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:33 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:02:47 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 04:13:14 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ Dog::Dog(const Dog &obj) {
 
 Dog		&Dog::operator=(const Dog &obj) {
 	std::cout << "++ dog asignement constructor" << std::endl;
-	_type = obj._type;
+	
+	if (this != &obj)
+		_type = obj._type;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:15:49 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:14:35 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:48:35 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ Form::Form(std::string name, uint8_t gradeToSign, uint8_t gradeToExec)
 Form::~Form() {
 	return ;
 }
+
+Form &Form::operator=(const Form &rhs) {
+	
+	if (this != &rhs)
+		_isSigned = rhs.getIsSigned();
+	return (*this);
+}
+
 
 std::string	Form::getName() const {
 	return (_name);

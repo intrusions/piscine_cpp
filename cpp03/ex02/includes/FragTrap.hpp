@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 22:56:56 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:55:07 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 04:02:09 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ class FragTrap : public ClapTrap {
 		FragTrap(std::string _name);
 		FragTrap(FragTrap const &obj);
 		virtual ~FragTrap();
+
+        FragTrap	&operator=(FragTrap const &obj);
+
         
         void    highFivesGuys() const ;
 };

@@ -6,13 +6,11 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:35:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:34:54 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:31:23 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
-#include <cmath>
 
 Fixed::Fixed() : _val(0){
 	return ;
@@ -54,13 +52,13 @@ void Fixed::setRawBits(int const raw) {
 }
 
 std::ostream&	operator<<(std::ostream &os, const Fixed &obj) {
-	
 	os << obj.toFloat();
 	return (os);
 }
 
 Fixed& 			Fixed::operator=(const Fixed &r) {
-	_val = r.getRawBits();
+	if (this != &r)
+		_val = r.getRawBits();
 	return (*this);
 }
 

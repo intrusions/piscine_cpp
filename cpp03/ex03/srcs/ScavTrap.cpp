@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:56:00 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/02 00:13:29 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 04:10:26 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ ScavTrap::ScavTrap()
 	return ;
 }
 
-ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name, 100, 50, 20)
+ScavTrap::ScavTrap(std::string name) 
+	: ClapTrap(name, 100, 50, 20)
 {
 	std::cout << "++ ScavTrap default constructor called" << std::endl;
 	return ;
@@ -39,7 +40,19 @@ ScavTrap::~ScavTrap() {
 	return ;
 }
 
-void    ScavTrap::guardGate() {
+ScavTrap	&ScavTrap::operator=(ScavTrap const &obj) {
+	std::cout << "++ ScavTrap asignement constructor called" << std::endl;
+	
+	if (this != &obj) {
+		setName(obj.getName());
+		setHitPoints(obj.getHitPoints());
+		setEnergyPoints(obj.getEnergyPoints());
+		setAttackDamage(obj.getAttackDamage());
+	}
+	return (*this);
+}
+
+void    ScavTrap::guardGate() const{
 	std::cout << "ScavTrap is in Gate keeper mode" << std::endl;
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:04:18 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:21:41 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:58:19 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Weapon::~Weapon() {
 	return ;
 }
 
-const std::string &Weapon::getType() {
+const std::string &Weapon::getType() const{
 	return (_type);
 }
 

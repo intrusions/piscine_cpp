@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 23:39:14 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:26:42 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:02:27 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class Harl {
 		Harl();
 		virtual ~Harl();
 		
-		int		getLevelGravity();
+		int		getLevelGravity() const;
 		void	setLevelGravity(int lvl);
-		void	printDebugMessage();
-		void	printInfoMessage();
-		void	printWarningMessage();
-		void	printErrorMessage();
+		void	printDebugMessage() const;
+		void	printInfoMessage() const;
+		void	printWarningMessage() const;
+		void	printErrorMessage() const;
 };

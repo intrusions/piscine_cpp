@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 22:57:33 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 01:18:18 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:57:38 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ class HumanA {
 	public:
 		HumanA(std::string name, Weapon &weapon);
 		virtual	~HumanA();
-		void	attack();
+		void	attack() const;
 
 };
