@@ -6,11 +6,10 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 03:23:46 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 03:01:58 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 06:51:59 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Harl.hpp"
 
 void	Harl::_debug(void) {

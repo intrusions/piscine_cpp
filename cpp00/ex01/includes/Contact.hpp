@@ -6,11 +6,12 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:47:24 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:48:32 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 01:36:16 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include <iostream>
 
 class Contact {
 	private:

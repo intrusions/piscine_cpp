@@ -6,28 +6,19 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 23:38:35 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 03:03:01 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 07:51:46 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-#include <iostream>
 
-Harl::Harl() : _gravity_level(-1) {
-	return ;
-}
+Harl::Harl() : _gravity_level(-1) {}
 
-Harl::~Harl() {
-	return ;
-}
+Harl::~Harl() {}
 
-int		Harl::getLevelGravity() const{
-	return (_gravity_level);
-}
+int		Harl::getLevelGravity() const{ return (_gravity_level); }
 
-void	Harl::setLevelGravity(int lvl) {
-	_gravity_level = lvl;
-}
+void	Harl::setLevelGravity(int lvl) { _gravity_level = lvl; }
 
 void	Harl::printDebugMessage() const{
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do !"

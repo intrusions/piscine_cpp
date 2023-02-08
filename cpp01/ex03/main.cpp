@@ -6,11 +6,10 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:01:32 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/26 03:26:47 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 06:10:09 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:53:30 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 05:54:36 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 07:43:07 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@ class Zombie {
 
 Zombie* NewZombie (std::string name);
 void	randomChump(std::string name);
+

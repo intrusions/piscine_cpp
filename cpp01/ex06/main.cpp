@@ -6,13 +6,11 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 23:39:23 by jucheval          #+#    #+#             */
-/*   Updated: 2023/01/27 00:41:56 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 07:08:58 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-#include <iostream>
-#include <cstring>
 
 int main(int argc, char **argv) {
 	

@@ -6,40 +6,48 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:01:47 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 04:06:48 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/07 07:08:10 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(std::string name) 
-	: _name(name)
-	, ClapTrap(
+	: ClapTrap(
 		name + "_clap_name"
-		, hitPoints(100)
-		, energyPoints(50)
-		, attackDamage(30)
+		, _hitPoints(100)
+		, _energyPoints(50)
+		, _attackDamage(30)
 	)
-	, FragTrap(_name + "_clap_name")
-	, ScavTrap(_name + "_clap_name")
+	, FragTrap(name)
+	, ScavTrap(name)
+	, _name(name)
 {
 	std::cout << "++ DiamondTrap default constructor called" << std::endl;
 	return ;
 }
 
-// DiamondTrap::DiamondTrap(std::string _name) 
-// 	: ClapTrap(_name)
-// 	, ScavTrap(_name)
-// 	, ClapTrap(_name)
+// DiamondTrap::DiamondTrap(std::string name) 
+// 	: FragTrap(name)
+// 	, ScavTrap(name)
+// 	, ClapTrap(name)
 // {
 // 	std::cout << "++ DiamondTrap default constructor called" << std::endl;
-// 	this->name = _name;
-// 	this->ClapTrap::name = _name + "_clap_name";
-// 	this->hitPoints = this->FragTrap::getHitPoints();
-// 	this->energyPoints = this->ScavTrap::getEnergyPoints();
-// 	this->attackDamage = this->FragTrap::getAttackDamage();
+// 	_name = name;
+// 	ClapTrap::_name = name + "_clap_name";
+// 	_hitPoints = this->FragTrap::getHitPoints();
+// 	_energyPoints = this->ScavTrap::getEnergyPoints();
+// 	_attackDamage = this->FragTrap::getAttackDamage();
 // 	return ;
 // }
+
+// DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name) {
+//     _name = name + "_clap_name";
+//     _hitPoints = this->FragTrap::getHitPoints();
+//     _energyPoints = this->ScavTrap::getEnergyPoints();
+//     _attackDamage = this->FragTrap::getAttackDamage();
+// }
+
 
 DiamondTrap::~DiamondTrap() {
   	std::cout << "-- DiamondTrap default destructor called" << std::endl;

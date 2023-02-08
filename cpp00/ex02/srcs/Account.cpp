@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:39:02 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:53:41 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 01:43:46 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	Account::displayStatus(void) const {
 		<< "deposits:" << _nbDeposits << ";"
 		<< "withdrawals:" << _nbWithdrawals
 		<< std::endl;
-	return l
+	return ;
 }
 
 void	Account::_displayTimestamp(void) {
