@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:39:02 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 01:43:46 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 07:57:06 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ Account::Account(int initial_deposit) {
 	return ;
 }
 
-Account::Account(void) {
-	return ;
-}
+Account::Account(void) {}
 
 Account::~Account(void) {
 
@@ -47,21 +45,13 @@ Account::~Account(void) {
 	return;
 }
 
-int 	 Account::getNbAccounts(void) {
-	return (_nbAccounts);
-}
+int 	Account::getNbAccounts(void) { return (_nbAccounts); }
 
-int		Account::getTotalAmount(void) {
-	return (_totalAmount);
-}
+int		Account::getTotalAmount(void) { return (_totalAmount); }
 
-int 	 Account::getNbDeposits(void) {
-	return (_totalNbDeposits);
-}
+int		Account::getNbDeposits(void) { return (_totalNbDeposits); }
 
-int 	 Account::getNbWithdrawals(void) {
-	return (_totalNbWithdrawals);
-}
+int 	Account::getNbWithdrawals(void) { return (_totalNbWithdrawals); }
 
 void	Account::displayAccountsInfos(void) {
 
@@ -116,9 +106,7 @@ bool	Account::makeWithdrawal(int withdrawal) {
 	}
 }
 
-int		Account::checkAmount(void) const {
-	return (_amount);
-}
+int		Account::checkAmount(void) const { return (_amount); }
 
 void	Account::displayStatus(void) const {
 

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:08:28 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 05:52:32 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 07:55:15 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,9 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-PhoneBook::PhoneBook() : _index(0) {
-	return ;
-}
+PhoneBook::PhoneBook() : _index(0) {}
 
-PhoneBook::~PhoneBook() {
-	return ;
-}
+PhoneBook::~PhoneBook() {}
 
 void	PhoneBook::add(void) {
 	_index %= 8;
