@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:35:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 03:22:16 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 08:30:46 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,9 @@ int    Fixed::toInt(void) const {
 	return (_val >> _bits);
 }
 
-int	Fixed::getRawBits() const {
-	return (_val);
-}
+int	Fixed::getRawBits() const { return (_val); }
 
-void Fixed::setRawBits(int const raw) {
-	_val = raw;
-	return ;
-}
+void Fixed::setRawBits(int const raw) { _val = raw; }
 
 std::ostream&	operator<<(std::ostream &os, const Fixed &obj) {
 	

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:06:39 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 07:39:31 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 08:31:50 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@
 
 HumanA::HumanA(std::string name, Weapon &weapon)
 	: _weapon(weapon)
-	, _name(name)
-{
-	return ;
-}
+	, _name(name) {}
 
 HumanA::~HumanA() {}
 
