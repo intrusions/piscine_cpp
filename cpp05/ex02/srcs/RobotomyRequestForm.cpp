@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:41:57 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:28:58 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 09:28:13 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,9 @@
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
 	: Form("RobotomyForm", 72, 45)
-	, _target(target)
-{
-	return ;
-}
+	, _target(target) {}
 
-RobotomyRequestForm::~RobotomyRequestForm() {
-	return ;
-}
+RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void	RobotomyRequestForm::execute(Bureaucrat &bureaucrat) const {
 	try {

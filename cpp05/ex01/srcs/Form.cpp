@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:15:49 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 05:48:35 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 09:26:03 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ Form::Form(std::string name, uint8_t gradeToSign, uint8_t gradeToExec)
 	return ;
 }
 
-Form::~Form() {
-	return ;
-}
+Form::~Form() {}
 
 Form &Form::operator=(const Form &rhs) {
 	
@@ -37,21 +35,13 @@ Form &Form::operator=(const Form &rhs) {
 }
 
 
-std::string	Form::getName() const {
-	return (_name);
-}
+std::string	Form::getName() const { return (_name); }
 
-bool		Form::getIsSigned() const {
-	return (_isSigned);
-}
+bool		Form::getIsSigned() const { return (_isSigned); }
 
-uint8_t		Form::getGradeToSign() const {
-	return (_gradeToSign);
-}
+uint8_t		Form::getGradeToSign() const { return (_gradeToSign); }
 
-uint8_t		Form::getGradeToExec() const {
-	return (_gradeToExec);
-}
+uint8_t		Form::getGradeToExec() const { return (_gradeToExec); }
 
 void		Form::beSigned(Bureaucrat bureaucrat) {
 	if (!bureaucrat.signForm(*this)) {

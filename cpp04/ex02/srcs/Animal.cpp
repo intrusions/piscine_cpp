@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:22 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 04:19:18 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 09:31:10 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ Animal::~Animal() {
 	return ;
 }
 
-std::string	Animal::getType() const {
-	return (_type);
-}
+std::string	Animal::getType() const { return (_type); }
 
 void	Animal::makeSound() const {
 	std::cout << "Animal sound" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 02:00:31 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 05:08:14 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 09:24:58 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ Bureaucrat::Bureaucrat(const std::string name, uint8_t grade) : _name(name) {
 	return ;
 }
 
-Bureaucrat::~Bureaucrat() {
-	return ;
-}
+Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 	std::cout << "Bureaucrat asignement constructor called" << std::endl;
@@ -50,22 +48,18 @@ std::string		Bureaucrat::GradeTooLowException::tooLow() const throw() {
 	return ("Bureaucrat grade is too low");
 }
 
-std::string		Bureaucrat::getName() const {
-	return (_name);
-}
+std::string		Bureaucrat::getName() const { return (_name); }
 
-uint8_t		Bureaucrat::getGrade() const {
-	return (_grade);
-}
+uint8_t			Bureaucrat::getGrade() const { return (_grade); }
 
-void		Bureaucrat::incrementGrade() {
+void			Bureaucrat::incrementGrade() {
 	if (_grade == 1)
 		throw GradeTooHighException();
 	_grade--;
 	return ;
 }
 
-void		Bureaucrat::decrementGrade() {
+void			Bureaucrat::decrementGrade() {
 	if (_grade == 150)
 		throw GradeTooLowException();
 	_grade++;

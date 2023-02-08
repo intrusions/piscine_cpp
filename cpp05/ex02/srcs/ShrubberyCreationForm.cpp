@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:15:27 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:29:12 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 09:28:25 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,9 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	: Form("ShrubberyForm", 145, 137)
-	, _target(target)
-{
-	return ;
-}
+	, _target(target) {}
 
-ShrubberyCreationForm::~ShrubberyCreationForm() {
-	return ;
-}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void	ShrubberyCreationForm::execute(Bureaucrat &bureaucrat) const {
 	try {

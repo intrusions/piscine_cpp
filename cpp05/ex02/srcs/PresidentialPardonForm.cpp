@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:42:53 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:27:36 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/08 09:27:43 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,9 @@
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	: Form("PresidentialForm", 25, 5)
-	, _target(target)
-{
-	return ;
-}
+	, _target(target) {}
 
-PresidentialPardonForm::~PresidentialPardonForm() {
-	return ;
-}
+PresidentialPardonForm::~PresidentialPardonForm() {}
 
 void	PresidentialPardonForm::execute(Bureaucrat &bureaucrat) const {
 	try {
