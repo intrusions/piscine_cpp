@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Amateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 23:51:17 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/15 04:40:56 by jucheval         ###   ########.fr       */
+/*   Created: 2023/02/09 04:17:28 by jucheval          #+#    #+#             */
+/*   Updated: 2023/02/09 04:18:54 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "FragTrap.hpp"
-#include "ClapTrap.hpp"
+#include <iostream>
 
-class DiamondTrap : public FragTrap, public ScavTrap {
-	private:
-		std::string     _name;
-		
+class AMateria {
+	protected:
+
 	public:
-		DiamondTrap(std::string name);
-		virtual ~DiamondTrap();
-
-		void	whoAmI();
+		AMateria(std::string const & type);
+		std::string const & getType() const; //Returns the materia type
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
 };

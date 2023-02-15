@@ -1,26 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 23:51:17 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/15 04:40:56 by jucheval         ###   ########.fr       */
+/*   Created: 2023/02/09 04:19:44 by jucheval          #+#    #+#             */
+/*   Updated: 2023/02/09 04:19:55 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "FragTrap.hpp"
-#include "ClapTrap.hpp"
+#include "AMateria.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap {
-	private:
-		std::string     _name;
-		
-	public:
-		DiamondTrap(std::string name);
-		virtual ~DiamondTrap();
-
-		void	whoAmI();
-};
