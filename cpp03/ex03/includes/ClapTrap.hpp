@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:24:57 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/15 04:35:27 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/16 01:50:27 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class ClapTrap {
 		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const &obj);
-		~ClapTrap();
+		virtual ~ClapTrap();
 		
 		ClapTrap	&operator=(ClapTrap const &obj);
 
