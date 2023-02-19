@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 03:14:28 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/19 16:44:54 by jucheval         ###   ########.fr       */
+/*   Created: 2023/02/16 03:59:56 by jucheval          #+#    #+#             */
+/*   Updated: 2023/02/16 23:38:22 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#pragma once
+#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-int main(void) {
-	Harl	harl;
+class Intern {
+	private:
 
-	harl.complain("ERROR");
-	std::cout << std::endl;
-	
-	harl.complain("DEBUG");
-	std::cout << std::endl;
-	
-	harl.complain("INFO");
-	std::cout << std::endl;
-	
-	harl.complain("WARNING");
-}
+
+	public:
+		Intern();
+		Intern(Intern const &obj);
+		virtual ~Intern();
+
+		// Intern	&operator=(Intern const &obj);
+		Form	*makeForm(std::string formName, std::string FormTarget);
+
+};

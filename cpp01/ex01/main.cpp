@@ -6,16 +6,14 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:49:54 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 05:31:36 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/19 16:23:07 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int main(void) {
+	Zombie	*zombie_tab = zombieHorde(5, "Foo");
 
-    int N = 5;
-    Zombie *zombie_tab = zombieHorde(N, "Foo");
-
-    delete[] zombie_tab;
+	delete[] zombie_tab;
 }

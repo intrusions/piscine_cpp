@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 03:14:28 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/19 16:44:54 by jucheval         ###   ########.fr       */
+/*   Created: 2023/02/05 19:11:37 by jucheval          #+#    #+#             */
+/*   Updated: 2023/02/07 02:24:47 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#pragma once
+#include <iostream>
+#include "Form.hpp"
 
-int main(void) {
-	Harl	harl;
+class ShrubberyCreationForm : public Form {
+	private:
+		std::string     _target;
+		
+	public:
+		ShrubberyCreationForm(std::string _target);
+		virtual ~ShrubberyCreationForm();
 
-	harl.complain("ERROR");
-	std::cout << std::endl;
-	
-	harl.complain("DEBUG");
-	std::cout << std::endl;
-	
-	harl.complain("INFO");
-	std::cout << std::endl;
-	
-	harl.complain("WARNING");
-}
+		void	execute(Bureaucrat &bureaucrat) const;
+};

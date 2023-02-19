@@ -6,22 +6,19 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:53:27 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 07:28:49 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/19 16:14:56 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie() {
-	return ;
-}
+Zombie::Zombie() {}
 
 Zombie::~Zombie() {
 	std::cout << _name <<" is destruct" << std::endl;
-	return ;
 }
 
-void    Zombie::announce(void) const{
+void    Zombie::announce() const {
 	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 

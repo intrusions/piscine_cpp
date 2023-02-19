@@ -5,24 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 03:14:28 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/19 16:44:54 by jucheval         ###   ########.fr       */
+/*   Created: 2023/02/04 02:37:05 by jucheval          #+#    #+#             */
+/*   Updated: 2023/02/17 02:40:10 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
-int main(void) {
-	Harl	harl;
+int	main() {
 
-	harl.complain("ERROR");
-	std::cout << std::endl;
-	
-	harl.complain("DEBUG");
-	std::cout << std::endl;
-	
-	harl.complain("INFO");
-	std::cout << std::endl;
-	
-	harl.complain("WARNING");
+	Bureaucrat	a("BOSS", 1);
+	Intern		b;
+
+	Form *newForm = b.makeForm("shrubbery creation", "hello");
+
+	a.signForm(*newForm);
+	a.executeForm(*newForm);
+	// (void)ret;
+	// newForm->execute(a);
 }
