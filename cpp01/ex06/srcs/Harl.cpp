@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 23:38:35 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 07:51:46 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/19 21:06:22 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,4 @@ void    Harl::printErrorMessage() const{
 	std::cout << "This is unacceptable ! I want to speak to the manager now."
 	<< std::endl;
 }
+
