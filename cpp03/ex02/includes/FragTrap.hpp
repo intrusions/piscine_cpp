@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 22:56:56 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 04:02:09 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 09:05:33 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
-#include <stdint.h>
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap {
     private:
@@ -25,7 +23,6 @@ class FragTrap : public ClapTrap {
 		virtual ~FragTrap();
 
         FragTrap	&operator=(FragTrap const &obj);
-
         
         void    highFivesGuys() const ;
 };

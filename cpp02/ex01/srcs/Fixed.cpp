@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:35:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 08:30:46 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 07:54:43 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,24 @@
 
 Fixed::Fixed() : _val(0) {
 	std::cout << "Default constructor called" << std::endl;
-	return ;
 }
 
 Fixed::Fixed(const Fixed &r) : _val(r.getRawBits()) {
 	std::cout << "Copy constructor called" << std::endl;
-	return ;
 }
 
 Fixed::Fixed(const int n) {
 	std::cout << "Int constructor called" << std::endl;
 	_val = n << _bits;
-	return ;
 }
 
 Fixed::Fixed(const float n) {
 	std::cout << "Float constructor called" << std::endl;
 	_val = int(roundf(n * (1 << _bits)));
-	return ;
 }
 
 Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
-	return ;
 }
 
 float    Fixed::toFloat(void) const {
@@ -52,7 +47,6 @@ int	Fixed::getRawBits() const { return (_val); }
 void Fixed::setRawBits(int const raw) { _val = raw; }
 
 std::ostream&	operator<<(std::ostream &os, const Fixed &obj) {
-	
 	os << obj.toFloat();
 	return (os);
 }

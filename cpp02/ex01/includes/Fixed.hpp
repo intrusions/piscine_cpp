@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:25:40 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 05:59:14 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 07:54:11 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class Fixed {
 		int				toInt(void) const;
 		int				getRawBits() const;
 		void 			setRawBits(int const raw);
-
 };
 
 std::ostream&	operator<<(std::ostream &os, const Fixed &obj);

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:24 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:07:17 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 10:11:16 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 
-class Animal {
+class AAnimal {
 	private:
 
 	protected:
 		std::string		_type;		
-		Animal();
-		Animal(const std::string type);
-		Animal(const Animal &obj);
+		AAnimal();
+		AAnimal(const std::string type);
+		AAnimal(const AAnimal &obj);
 
 	public:
-		virtual ~Animal();
+		virtual ~AAnimal();
 	
-		Animal			&operator=(const Animal &obj);
+		AAnimal			&operator=(const AAnimal &obj);
 
 		std::string		getType() const;
 		

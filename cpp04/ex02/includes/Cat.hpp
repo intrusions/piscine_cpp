@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:30 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:07:47 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 10:08:29 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 	private:
 		Brain	*_brain;
 	public:

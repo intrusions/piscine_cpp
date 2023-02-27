@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:53:27 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/19 16:14:56 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 07:42:30 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,4 @@ void    Zombie::announce() const {
 	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void    Zombie::set_name(std::string name) { _name = name; }
+void    Zombie::setName(std::string name) { _name = name; }

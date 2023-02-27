@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:37 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/09 04:11:56 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 10:01:47 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int main()
 {
 	// const Animal *cc = new Animal();
 	// (void)cc;
-	const Animal *animalArr[20];
-	for (int i = 0; i < 20; i++) {
-		if (i < 10)
+	const Animal *animalArr[4];
+	for (int i = 0; i < 4; i++) {
+		if (i < 2)
 			animalArr[i] = new Dog();
 		else
 			animalArr[i] = new Cat();
 	}
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 4; i++)
 		delete animalArr[i];
 	return 0;
 }

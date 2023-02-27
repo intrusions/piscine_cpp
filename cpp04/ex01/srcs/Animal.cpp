@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:22 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 09:23:21 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 10:00:15 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 Animal::Animal() {
 	std::cout << "++ animal default constructor" << std::endl;
-	return ;
 }
 
 Animal::Animal(const std::string type) : _type(type) {
 	std::cout << "++ animal constructor called by other classe" << std::endl;
-	return ;
 }
 
 Animal::Animal(const Animal &obj) {
 	std::cout << "++ animal copy constructor" << std::endl;
 	*this = obj;
-	return ;
 }
 
 Animal	&Animal::operator=(const Animal &obj) {
@@ -38,12 +35,10 @@ Animal	&Animal::operator=(const Animal &obj) {
 
 Animal::~Animal() {
 	std::cout << "-- animal default destructor" << std::endl;
-	return ;
 }
 
 std::string	Animal::getType() const { return (_type); }
 
 void	Animal::makeSound() const {
 	std::cout << "Animal sound" << std::endl;
-	return ;
 }

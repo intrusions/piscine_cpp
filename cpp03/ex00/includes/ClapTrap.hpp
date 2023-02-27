@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:24:57 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 05:59:54 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 08:03:24 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ class ClapTrap {
 		uint32_t		getEnergyPoints() const;
 		uint32_t		getAttackDamage() const;
 
-		void			setName(std::string n);
-		void			setHitPoints(uint32_t v);
-		void			setEnergyPoints(uint32_t v);
-		void			setAttackDamage(uint32_t v);
+		void			setName(std::string const n);
+		void			setHitPoints(uint32_t const v);
+		void			setEnergyPoints(uint32_t const v);
+		void			setAttackDamage(uint32_t const v);
 
 		virtual void	attack(const std::string &target);
 		void			takeDamage(uint32_t amount);

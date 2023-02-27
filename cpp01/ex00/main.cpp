@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:52:17 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/19 16:19:47 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 07:44:48 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int main() {
-	Zombie *new_z = NewZombie("Bar");
-	new_z->announce();
+	Zombie *newZ = NewZombie("Bar");
+	newZ->announce();
 	
 	randomChump("Foo");
 	
-	Zombie *new_zz = NewZombie("42");
-	new_zz->announce();
+	Zombie *newZZ = NewZombie("42");
+	newZZ->announce();
 	
 	randomChump("school");
 
-	delete new_z;
-	delete new_zz;
+	delete newZ;
+	delete newZZ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:35:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 03:21:35 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/27 07:52:32 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 Fixed::Fixed() : _val(0) {
 	std::cout << "Default constructor called" << std::endl;
-	return ;
 }
 
 Fixed::Fixed(Fixed &r){
 	std::cout << "Copy constructor called" << std::endl;
 	_val = r.getRawBits();
-	return ;
 }
 
 Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
-	return ;
 }
 
 Fixed& Fixed::operator=(Fixed &r) {
