@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:51:04 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 07:50:50 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:31:19 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,4 @@ void	Zombie::announce(void) const{
 	return ;
 }
 
-void	Zombie::set_name(std::string name) { _name = name; }
+void	Zombie::setName(std::string name) { _name = name; }
