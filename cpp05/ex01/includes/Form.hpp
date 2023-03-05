@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:16:04 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 05:44:42 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/05 19:47:23 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Form {
 
 	public:
 		Form(std::string _name, uint8_t _gradeToSign, uint8_t _gradeToExec);
+		Form(Form const &obj);
 		virtual ~Form();
 
 		Form &operator=(const Form &rhs);

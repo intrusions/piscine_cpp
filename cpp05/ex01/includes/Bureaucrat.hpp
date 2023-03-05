@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 01:52:09 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 05:08:04 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/05 19:57:50 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Bureaucrat {
 	
 	public:
 		Bureaucrat(const std::string name, uint8_t grade);
+		Bureaucrat(Bureaucrat const &obj);
 		virtual ~Bureaucrat();
 
 		Bureaucrat &operator=(const Bureaucrat &rhs);
@@ -45,7 +46,7 @@ class Bureaucrat {
 		void			incrementGrade();
 		void			decrementGrade();
 
-		bool			signForm(Form &form);
+		void			signForm(Form &form);
 };
 
 std::ostream	&operator<<(std::ostream &os, const Bureaucrat &obj);

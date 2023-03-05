@@ -6,12 +6,12 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 02:37:05 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/17 02:40:10 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/06 00:40:30 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -19,13 +19,24 @@
 
 int	main() {
 
-	Bureaucrat	a("BOSS", 1);
-	Intern		b;
+	{
+		Bureaucrat	a("BOSS", 1);
+		Intern		b;
 
-	Form *newForm = b.makeForm("shrubbery creation", "hello");
+		AForm *newForm = b.makeForm("shrubbery creation", "hello");
 
-	a.signForm(*newForm);
-	a.executeForm(*newForm);
-	// (void)ret;
-	// newForm->execute(a);
+		a.signForm(*newForm);
+		a.executeForm(*newForm);
+		delete newForm;
+	}
+
+
+	std::cout << "---------------------------------" << std::endl;
+	{
+		Bureaucrat	a("Julien", 1);
+		Intern		b;
+
+		AForm *newForm = b.makeForm("wtf", "hello");
+		(void)newForm;
+	}
 }

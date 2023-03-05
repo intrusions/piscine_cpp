@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 02:00:31 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 09:25:26 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:05:04 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ Bureaucrat::Bureaucrat(const std::string name, uint8_t grade) : _name(name) {
 		throw GradeTooLowException();
 	_grade = grade;
 	return ;
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat const &obj)
+	: _name(obj.getName())
+	, _grade(obj.getGrade())
+{
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat() {}
@@ -66,19 +73,19 @@ void		Bureaucrat::decrementGrade() {
 	return ;
 }
 
-bool		Bureaucrat::signForm(Form &form) {
-	if (this->getGrade() > form.getGradeToSign()) {
+void		Bureaucrat::signForm(Form &form) {
+	try {
+		form.beSigned(*this);
+	} catch(const std::exception &err) {
 		std::cout 	<< this->getName()
 					<< " couldn't signed "
 					<< form.getName()
 					<< " because form grade is too low"
 					<< std::endl;
-		return (0);	
-	} else {
-		std::cout 	<< this->getName()
-					<< " signed "
-					<< form.getName()
-					<< std::endl;
-		return (1);
+		return ;
 	}
+	std::cout 	<< this->getName()
+				<< " signed "
+				<< form.getName()
+				<< std::endl;
 }

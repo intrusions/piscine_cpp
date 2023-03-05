@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 02:00:31 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 09:26:34 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/05 22:25:30 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ Bureaucrat::Bureaucrat(const std::string name, uint8_t grade) : _name(name) {
 	_grade = grade;
 	return ;
 }
+
+Bureaucrat::Bureaucrat(Bureaucrat const &obj)
+	: _name(obj.getName())
+	, _grade(obj.getGrade()) {}
 
 Bureaucrat::~Bureaucrat() {}
 
@@ -66,19 +70,34 @@ void		Bureaucrat::decrementGrade() {
 	return ;
 }
 
-bool		Bureaucrat::signForm(Form &form) {
-	if (this->getGrade() > form.getGradeToSign()) {
+void		Bureaucrat::signForm(AForm &form) {
+	try {
+		form.beSigned(*this);
+	} catch(const std::exception &err) {
 		std::cout 	<< this->getName()
 					<< " couldn't signed "
 					<< form.getName()
-					<< " because form grade is too low"
+					<< " because form grade is too high"
 					<< std::endl;
-		return (0);	
-	} else {
-		std::cout 	<< this->getName()
-					<< " signed "
+		return ;
+	}
+	std::cout 	<< this->getName()
+				<< " signed "
+				<< form.getName()
+				<< std::endl;
+}
+
+void		Bureaucrat::executeForm(AForm const &form) {
+	if (form.execute(*this)) {
+		std::cout	<< getName()
+					<< " executed "
 					<< form.getName()
 					<< std::endl;
-		return (1);
+	} else {
+		std::cout	<< std::endl
+					<< getName()
+					<< " can't execute "
+					<< form.getName()
+					<< std::endl;
 	}
 }

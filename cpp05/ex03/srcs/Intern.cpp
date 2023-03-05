@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 03:59:53 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/17 02:30:40 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/06 00:42:46 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ Intern::Intern(Intern const &obj) { *this = obj; }
 
 Intern::~Intern() {};
 
-// Intern		&Intern::operator=(Intern const &rhs) { return (*this); }
+Intern		&Intern::operator=(Intern const &rhs) { (void)rhs; return (*this); }
 
-static Form *newShrubbery(std::string formTarget) { return (new ShrubberyCreationForm(formTarget)); }
+static AForm *newShrubbery(std::string formTarget) { return (new ShrubberyCreationForm(formTarget)); }
 
-static Form *newRobotomy(std::string formTarget) { return (new RobotomyRequestForm(formTarget)); }
+static AForm *newRobotomy(std::string formTarget) { return (new RobotomyRequestForm(formTarget)); }
 
-static Form *newPresidential(std::string formTarget) { return (new PresidentialPardonForm(formTarget)); }
+static AForm *newPresidential(std::string formTarget) { return (new PresidentialPardonForm(formTarget)); }
 
 static uint16_t		whatForm(std::string FormName) {
 	
@@ -42,16 +42,16 @@ static uint16_t		whatForm(std::string FormName) {
 	return (id);
 }
 
-Form	*Intern::makeForm(std::string formName, std::string formTarget) {
+AForm	*Intern::makeForm(std::string formName, std::string formTarget) {
 
-	Form *(*f[3])(std::string formTarget) = { 
+	AForm *(*f[3])(std::string formTarget) = { 
 		&newShrubbery,
 		&newRobotomy,
 		&newPresidential
 	};
 	
 	int16_t id = whatForm(formName);
-	Form *newForm = NULL;
+	AForm *newForm = NULL;
 
 	if (id != -1) {
 		newForm = f[id](formTarget);

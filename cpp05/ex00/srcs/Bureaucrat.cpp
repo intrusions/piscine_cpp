@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 02:00:31 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 09:24:58 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/05 19:41:00 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ Bureaucrat::Bureaucrat(const std::string name, uint8_t grade) : _name(name) {
 		throw GradeTooLowException();
 	_grade = grade;
 	return ;
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat const &obj)
+	: _name(obj.getName())
+	, _grade(obj.getGrade())
+{
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat() {}

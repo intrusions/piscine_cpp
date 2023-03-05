@@ -6,28 +6,45 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:41:57 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/08 09:28:13 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/06 00:20:35 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: Form("RobotomyForm", 72, 45)
+	: AForm("RobotomyForm", 72, 45)
 	, _target(target) {}
+
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &obj) 
+	: AForm("RobotomyForm", 72, 45)
+	, _target(obj._target) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-void	RobotomyRequestForm::execute(Bureaucrat &bureaucrat) const {
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &rhs) {
+	if (this != &rhs)
+		_target = rhs._target;
+	return (*this);
+}
+
+bool	RobotomyRequestForm::execute(Bureaucrat &bureaucrat) const {
 	try {
-		executeCheck(bureaucrat);
+		AForm::execute(bureaucrat);
 		
+		std::srand(std::time(NULL));
+		int rand = std::rand();
+		
+		std::cout << "BrRrrrRrrrrrrrRrrr" << std::endl;
 		std::cout	<< _target
-					<< " Robotomy creation"
+					<< (rand % 2 ? " is robitized" : " robotization failed")
 					<< std::endl;
-	} catch(Form::GradeTooHighException &err) {
+
+		return (1);
+	} catch(AForm::GradeTooHighException &err) {
 		std::cout << err.tooHigh();
-	} catch(Form::FormIsNotSigned &err) {
+	} catch(AForm::FormIsNotSigned &err) {
 		std::cout << err.notSigned();
 	}
+	return (0);
 }

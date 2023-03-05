@@ -6,21 +6,23 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:43:51 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:24:58 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/06 00:10:43 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class PresidentialPardonForm : public Form {
+class PresidentialPardonForm : public AForm {
     private:
         std::string     _target;
         
     public:
         PresidentialPardonForm(std::string _target);
+        PresidentialPardonForm(PresidentialPardonForm const &obj);
 		virtual ~PresidentialPardonForm();
 
-        void	execute(Bureaucrat &bureaucrat) const;
+        PresidentialPardonForm  &operator=(PresidentialPardonForm const &rhs);
+
+        bool	execute(Bureaucrat &bureaucrat) const;
 };

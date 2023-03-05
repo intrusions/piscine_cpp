@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:16:04 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/17 02:35:27 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/05 22:22:04 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 	private:
 		const std::string	_name;
 		bool				_isSigned;
@@ -26,10 +26,11 @@ class Form {
 		const uint8_t		_gradeToExec;
 
 	public:
-		Form(std::string _name, uint8_t _gradeToSign, uint8_t _gradeToExec);
-		virtual ~Form();
+		AForm(std::string _name, uint8_t _gradeToSign, uint8_t _gradeToExec);
+		AForm(AForm const &obj);
+		virtual ~AForm();
 
-		Form &operator=(const Form &rhs);
+		AForm &operator=(const AForm &rhs);
 
 		class GradeTooHighException : public std::exception {
 			public:
@@ -53,10 +54,8 @@ class Form {
 
 		void			beSigned(Bureaucrat bureaucrat);
 
+		virtual bool	execute(Bureaucrat &bureaucrat) const = 0;
 		void			executeCheck(Bureaucrat const &executor) const;		
-
-		virtual void	execute(Bureaucrat &bureaucrat) const = 0;
-
 };
 
-std::ostream	&operator<<(std::ostream &os, Form &obj);
+std::ostream	&operator<<(std::ostream &os, AForm &obj);

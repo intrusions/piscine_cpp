@@ -6,21 +6,25 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:41:12 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:24:52 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/06 00:22:57 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
-#include "Form.hpp"
+#include <cstdlib>
+#include <ctime>
+#include "AForm.hpp"
 
-class RobotomyRequestForm : public Form {
+class RobotomyRequestForm : public AForm {
 	private:
 		std::string     _target;
 		
 	public:
 		RobotomyRequestForm(std::string _target);
+        RobotomyRequestForm(RobotomyRequestForm const &obj);
 		virtual ~RobotomyRequestForm();
 
-		void	execute(Bureaucrat &bureaucrat) const;
+        RobotomyRequestForm  &operator=(RobotomyRequestForm const &rhs);
+
+		bool	execute(Bureaucrat &bureaucrat) const;
 };

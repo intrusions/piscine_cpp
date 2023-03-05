@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 01:52:09 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 05:49:03 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/05 22:21:39 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <iostream>
 #include <stdint.h>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -25,6 +25,7 @@ class Bureaucrat {
 	
 	public:
 		Bureaucrat(const std::string name, uint8_t grade);
+		Bureaucrat(Bureaucrat const &obj);
 		virtual ~Bureaucrat();
 
 		Bureaucrat &operator=(const Bureaucrat &rhs);
@@ -45,7 +46,9 @@ class Bureaucrat {
 		void			incrementGrade();
 		void			decrementGrade();
 
-		bool			signForm(Form &form);
+		void			signForm(AForm &form);
+
+		void			executeForm(AForm const &form);
 
 };
 

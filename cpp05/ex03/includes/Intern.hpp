@@ -6,12 +6,12 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 03:59:56 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/16 23:38:22 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/06 00:40:54 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -25,7 +25,7 @@ class Intern {
 		Intern(Intern const &obj);
 		virtual ~Intern();
 
-		// Intern	&operator=(Intern const &obj);
-		Form	*makeForm(std::string formName, std::string FormTarget);
+		Intern	&operator=(Intern const &obj);
+		AForm	*makeForm(std::string formName, std::string FormTarget);
 
 };
