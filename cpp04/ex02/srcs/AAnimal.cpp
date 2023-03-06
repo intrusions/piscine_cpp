@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:22 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/27 10:12:43 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/06 08:47:47 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,3 @@ AAnimal::~AAnimal() {
 }
 
 std::string	AAnimal::getType() const { return (_type); }
-
-void	AAnimal::makeSound() const {
-	std::cout << "Animal sound" << std::endl;
-}

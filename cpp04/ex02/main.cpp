@@ -6,7 +6,7 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:37 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/27 10:11:52 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/06 08:47:56 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main()
 {
-	// const Animal *cc = new Animal();
+	// const AAnimal *cc = new AAnimal();
 	// (void)cc;
 	const AAnimal *animalArr[4];
 	for (int i = 0; i < 4; i++) {
