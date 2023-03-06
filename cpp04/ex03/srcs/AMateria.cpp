@@ -6,7 +6,7 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 04:19:44 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/06 09:17:02 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/06 10:44:34 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,8 @@ AMateria    &AMateria::operator=(AMateria const &rhs) {
 }
 
 std::string const	&getType() const { return (_type) }
+
+void	AMateria::use(ICharacter &target) {
+	std::cout << "nothing" << std::endl;
+}
 
