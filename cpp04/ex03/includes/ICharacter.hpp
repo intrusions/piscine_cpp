@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 04:19:44 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/06 09:17:02 by jucheval         ###   ########.fr       */
+/*   Created: 2023/03/06 09:28:23 by jucheval          #+#    #+#             */
+/*   Updated: 2023/03/06 09:51:02 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "AMateria.hpp"
 
-AMateria::AMateria() {}
-
-AMateria::AMateria(std::string const &type) : _type(type) {}
-
-AMateria::AMateria(AMateria const obj) : _type(obj._type) {}
-
-AMateria::~AMateria() {}
-
-AMateria    &AMateria::operator=(AMateria const &rhs) {
-	if (this != &rhs)
-		_type = rhs.type;
-	return (*this);
-}
-
-std::string const	&getType() const { return (_type) }
-
+class ICharacter {
+    private:
+        
+    public:
+        virtual ~ICharacter();
+        virtual std::string const &getName() const = 0;
+        virtual void equip(AMateria *m) = 0;
+        virtual void unequip(int idx) = 0;
+        virtual void use(int idx, ICharacter &target) = 0;
+};

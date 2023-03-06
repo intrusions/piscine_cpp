@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 04:19:44 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/06 09:17:02 by jucheval         ###   ########.fr       */
+/*   Created: 2023/03/06 09:06:57 by jucheval          #+#    #+#             */
+/*   Updated: 2023/03/06 09:32:49 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "AMateria.hpp"
 
-AMateria::AMateria() {}
+class Ice : public AMateria {
+	private:
 
-AMateria::AMateria(std::string const &type) : _type(type) {}
+	public:
+		Ice();
+		Ice(Ice const &obj);
+		virtual ~Ice();
 
-AMateria::AMateria(AMateria const obj) : _type(obj._type) {}
+		Ice		&operator=(Ice const &rhs);
 
-AMateria::~AMateria() {}
-
-AMateria    &AMateria::operator=(AMateria const &rhs) {
-	if (this != &rhs)
-		_type = rhs.type;
-	return (*this);
-}
-
-std::string const	&getType() const { return (_type) }
-
+		Ice		*clone() const;
+		void	use(ICharacter &target);
+};

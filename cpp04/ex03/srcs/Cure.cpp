@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 04:19:44 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/06 09:17:02 by jucheval         ###   ########.fr       */
+/*   Created: 2023/03/06 09:10:46 by jucheval          #+#    #+#             */
+/*   Updated: 2023/03/06 09:32:33 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Cure.hpp"
 
-AMateria::AMateria() {}
+Cure::Cure() : _type("cure") {}
 
-AMateria::AMateria(std::string const &type) : _type(type) {}
+Cure::Cure(Cure const &obj) : _type(obj._type) {}
 
-AMateria::AMateria(AMateria const obj) : _type(obj._type) {}
+Cure::~Cure() {}
 
-AMateria::~AMateria() {}
-
-AMateria    &AMateria::operator=(AMateria const &rhs) {
+Cure    &Cure::operator=(Ice const &rhs) {
 	if (this != &rhs)
-		_type = rhs.type;
+		_type = rhs._type;
 	return (*this);
 }
 
-std::string const	&getType() const { return (_type) }
+Cure	*Cure::clone() const { return(new Cure()) }
 
+void	Cure::use(ICharacter &target) {
+	std::cout	<< "Cure : '* heals "
+				<< target.getName()
+				<< "'s wounds *\""
+				<< std::endl;
+}
