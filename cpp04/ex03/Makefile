@@ -1,8 +1,10 @@
-SRCS		=	main.cpp			\
-				srcs/Animal.cpp		\
-				srcs/Dog.cpp		\
-				srcs/Cat.cpp		\
-				srcs/Brain.cpp		\
+SRCS		=	main.cpp					\
+				srcs/AMateria.cpp			\
+				srcs/Character.cpp			\
+				srcs/Cure.cpp				\
+				srcs/Ice.cpp				\
+				srcs/ICharacter.cpp			\
+				srcs/MateriaSource.cpp		\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
