@@ -6,14 +6,13 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 09:41:10 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/09 10:03:32 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/09 10:11:56 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 # include <cstdlib>
 # include <iostream>
-# include <exception>
 # include <ctime>
 
 class Base {

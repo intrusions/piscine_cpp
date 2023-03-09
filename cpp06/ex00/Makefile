@@ -1,5 +1,5 @@
 SRCS		=	main.cpp								\
-				srcs/Bureaucrat.cpp						\
+				srcs/Convertor.cpp						\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -11,7 +11,7 @@ CFLAGS		= 	-Wall -Wextra -Werror -I./includes
 
 CPPFLAGS	= 	-std=c++98
 
-NAME		=	ex03
+NAME		=	ex00
 
 all:		$(NAME)
 
