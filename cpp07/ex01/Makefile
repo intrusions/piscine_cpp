@@ -10,7 +10,7 @@ CFLAGS		= 	-Wall -Wextra -Werror -I./
 
 CPPFLAGS	= 	-std=c++98
 
-NAME		=	ex00
+NAME		=	ex01
 
 all:		$(NAME)
 
