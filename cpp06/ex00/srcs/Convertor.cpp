@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:05:26 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/10 19:46:17 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:51:44 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ float	Convertor::toFloat() const {
 }
 
 double	Convertor::toDouble() const {
-	if (_cast < DBL_MAX || _cast > DBL_MAX)
+	if (_cast < DBL_MIN || _cast > DBL_MAX)
 		throw(Convertor::Impossible());
 	return (_cast);
 }
@@ -82,7 +82,7 @@ std::ostream	&operator<<(std::ostream &os, const Convertor &obj) {
 	try {
 		std::cout	<< "double: "
 					<< std::fixed << std::setprecision(1)
-					<< obj.getCast()
+					<< obj.toDouble()
 					<< std::endl;
 	} catch (std::exception &err) {
 		std::cout << err.what() << std::endl;
