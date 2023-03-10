@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:05:23 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/10 19:16:26 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:47:02 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ class Convertor {
 	int		toInt() const;
 	float	toFloat() const;
 	double	toDouble() const;
-
-
 	
 	double	getCast() const;
 
