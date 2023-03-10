@@ -7,7 +7,7 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror -I./includes
+CFLAGS		= 	 -I./includes
 
 CPPFLAGS	= 	-std=c++98
 
