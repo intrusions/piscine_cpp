@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:54:52 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/09 12:16:30 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/10 23:22:59 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,30 @@ class Array {
 		uint32_t	_len;
 
 	public:
-		Array();
-		Array(uint32_t n);
-		Array(Array const &obj);
-		virtual ~Array();
+		Array() : _arr(new T[0]), _len(0) {}
 
-		Array	&operator=(Array const &rhs);
+		Array(uint32_t n) : _arr(new T[n]), _len(n - 1) {
+			for (uint32_t i = 0; i < n; i++)
+		_arr[i] = 0;
+		}
+		
+		Array(Array const &obj) : _len(obj._len), _arr(new T[_len]) {
+			for (uint32_t i = 0; i < _len; i++)
+		_arr[i] = obj._arr[i];
+		}
+		
+		~Array() { delete[] _arr; }
 
-		uint32_t	size();
+		Array<T>   &operator=(Array<T> const &rhs) {
+			if (this != &rhs) {
+				delete[] _arr;
+				_len = rhs._len;
+				_arr = new T[_len];
+				
+				for (uint32_t i = 0; i < _len; i++)
+					_arr[i] = rhs._arr[i];
+			}
+			return (*this);
+		}
+		uint32_t	size() { return (_len); }
 };
