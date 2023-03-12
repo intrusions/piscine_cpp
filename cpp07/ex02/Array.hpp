@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:54:52 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/11 02:45:15 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/12 02:50:10 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ class Array {
 
 		class InvalidIndex : public std::exception {
 			public:
-				std::string	InvalidId() const throw() {
+				const char	*what() const throw() {
 					return ("Invalid index");
 				}
 		};
