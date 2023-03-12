@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 00:15:33 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/27 07:54:00 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/11 23:00:05 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int main( void ) {
+    
     Fixed a;
- 
     Fixed const b( 10 );
     Fixed const c( 42.42f );
     Fixed const d( b );

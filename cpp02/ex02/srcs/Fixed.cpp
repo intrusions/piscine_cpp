@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 14:35:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/27 07:57:07 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/12 01:00:03 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,15 @@ Fixed::Fixed(const Fixed &r) : _val(r.getRawBits()) {}
 
 Fixed::Fixed(const int n) : _val(n << _bits) {}
 
-Fixed::Fixed(const float n) : _val(int(roundf(n * (1 << _bits)))) {}
+Fixed::Fixed(const float n) : _val((int)roundf(n * (1 << _bits))) {}
 
 Fixed::~Fixed() {}
 
-float	Fixed::toFloat(void) const {
-	return (_val / (double)(1 << _bits));
-}
+float	Fixed::toFloat(void) const { return (_val / (double)(1 << _bits)); }
 
-int	Fixed::toInt(void) const {
-	return (_val >> _bits);
-}
+int		Fixed::toInt(void) const { return (_val >> _bits); }
 
-int	Fixed::getRawBits() const { return (_val); }
+int		Fixed::getRawBits() const { return (_val); }
 
 void	Fixed::setRawBits(int const raw) { _val = raw; }
 
@@ -45,25 +41,43 @@ Fixed&	Fixed::operator=(const Fixed &r) {
 	return (*this);
 }
 
-
 /*ex02 parts*/
+bool	Fixed::operator<(const Fixed &obj) { return (getRawBits() < obj.getRawBits()); }
+bool	Fixed::operator>(const Fixed &obj) { return (getRawBits() > obj.getRawBits()); }
+bool	Fixed::operator>=(const Fixed &obj) { return (getRawBits() >= obj.getRawBits()); }
+bool	Fixed::operator<=(const Fixed &obj) { return (getRawBits() <= obj.getRawBits()); }
+bool	Fixed::operator==(const Fixed &obj) { return (getRawBits() == obj.getRawBits()); }
+bool	Fixed::operator!=(const Fixed &obj) { return (getRawBits() != obj.getRawBits()); }
 
-bool		Fixed::operator<(const Fixed &obj) { return (_val < obj._val); }
+Fixed	Fixed::operator+(const Fixed &obj) { return (toFloat() + obj.toFloat()); }
+Fixed	Fixed::operator-(const Fixed &obj) { return (toFloat() - obj.toFloat()); }
+Fixed	Fixed::operator*(const Fixed &obj) { return (toFloat() * obj.toFloat()); }
+Fixed	Fixed::operator/(const Fixed &obj) { return (toFloat() / obj.toFloat()); }
 
-bool		Fixed::operator<=(const Fixed &obj) { return (_val <= obj._val); }
+Fixed	&Fixed::operator++() {
+	_val++; 
+	return (*this);
+}
 
-bool		Fixed::operator>(const Fixed &obj) { return (_val > obj._val); }
+Fixed	&Fixed::operator--() {
+	_val--; 
+	return (*this);
+}
 
-bool		Fixed::operator>=(const Fixed &obj) { return (_val >= obj._val); }
+Fixed	Fixed::operator++(int) {
+	Fixed tmp(*this);
+	_val++;
+	return (tmp);
+}
 
-bool		Fixed::operator==(const Fixed &obj) { return (_val == obj._val); }
+Fixed	Fixed::operator--(int) {
+	Fixed tmp(*this);
+	_val--;
+	return (tmp);
+}
 
-bool		Fixed::operator!=(const Fixed &obj) { return (_val != obj._val); }
+Fixed	&Fixed::min(Fixed &n1, Fixed &n2) { return (n1.getRawBits() < n2.getRawBits() ? n1 : n2); } 
+const Fixed	&Fixed::min(Fixed const &n1, Fixed const &n2) { return (n1.getRawBits() < n2.getRawBits() ? n1 : n2); } 
 
-int			Fixed::operator*(const Fixed &obj) { return (_val * obj._val); }
-
-int			Fixed::operator/(const Fixed &obj) { return (_val / obj._val); }
-
-int			Fixed::operator+(const Fixed &obj) { return (_val + obj._val); }
-
-int			Fixed::operator-(const Fixed &obj) { return (_val - obj._val); }
+Fixed	&Fixed::max(Fixed &n1, Fixed &n2) { return (n1.getRawBits() < n2.getRawBits() ? n2 : n1); } 
+const Fixed	&Fixed::max(Fixed const &n1, Fixed const &n2) { return (n1.getRawBits() < n2.getRawBits() ? n2 : n1); } 
