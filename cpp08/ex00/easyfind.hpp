@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 03:13:16 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/12 03:35:08 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/12 04:29:26 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,11 @@
 #include <stdint.h>
 #include <vector>
 
-template <typename T>
-typename T::iterator easyfind(T &container, int value);
+template<typename T>
+typename T::iterator easyfind(T &container, int value) {
+	typename T::iterator it = std::find(container.begin(), container.end(), value);
+	
+	if (it == container.end())
+		throw std::out_of_range("Out of range");
+	return (it);
+}

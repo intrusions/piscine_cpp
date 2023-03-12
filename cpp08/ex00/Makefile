@@ -1,5 +1,4 @@
-SRCS		=	main.cpp		\
-				easyfind.cpp		
+SRCS		=	main.cpp		
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -11,7 +10,7 @@ CFLAGS		= 	-Wall -Wextra -Werror -I./
 
 CPPFLAGS	= 	-std=c++98
 
-NAME		=	ex01
+NAME		=	ex00
 
 all:		$(NAME)
 
