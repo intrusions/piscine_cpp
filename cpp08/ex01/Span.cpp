@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 04:53:31 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/12 05:31:35 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/15 20:45:17 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,50 @@ Span::Span(uint32_t n) : _size(n) {}
 Span::~Span() {}
 
 void    Span::addNumber(uint32_t n) {
-	if (_data.size >= _size)
+	if (_data.size() == _size)
 		throw std::out_of_range("span is full");
 	_data.push_back(n);
 }
 
+void    Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+	if (std::distance(begin, end) > int(_size - _data.size()))
+		throw std::out_of_range("span is full");
+	_data.insert(_data.end(), begin, end);
+}
+
 uint32_t    Span::shortestSpan() {
-	if (_data.empty() || _data.size() == 1)
+	if (_data.size() <= 0)
 		throw (Span::InvalidSpan());
 
-	for (uint32_t i = 0; i < _data.size; i++) {
-		
+	std::vector<int> sorted_data = _data;
+	std::sort(sorted_data.begin(), sorted_data.end());
+	int	shortest = sorted_data[1] - sorted_data[0];
+	
+	for (uint64_t i = 2; i < _data.size(); i++) {
+		if ((sorted_data[i] - sorted_data[i - 1]) < shortest)	
+			shortest = sorted_data[i] - sorted_data[i - 1];
 	}
+	return (shortest);
 }
 
 uint32_t    Span::longestSpan() {
 	int min;
 	int max;
 	
-	if (_data.empty() || _data.size() == 1)
-		throw (Span::InvalidSpan());
-	
-	for (uint32_t i = 0; i < _data.size; i++) {
+	if (_data.size() <= 1)
+		throw InvalidSpan();
+
+	for (uint64_t i = 0; i < _data.size(); i++) {
 		if (i == 0) {
-			min = data[i];
-			max = data[i];
+			min = _data[i];
+			max = _data[i];
 		}
 		if (_data[i] < min)
-			min = data[i];
+			min = _data[i];
 		if (_data[i] > max)
-			max = data[i];
+			max = _data[i];
 	}
 	return (max - min);
 }
+
+const char	*Span::InvalidSpan::what() const throw() { return ("error"); }
