@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 04:53:31 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/15 20:45:17 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/25 23:43:53 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ Span::Span(uint32_t n) : _size(n) {}
 
 Span::~Span() {}
 
-void    Span::addNumber(uint32_t n) {
+void	Span::addNumber(uint32_t n) {
 	if (_data.size() == _size)
 		throw std::out_of_range("span is full");
 	_data.push_back(n);
 }
 
-void    Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
 	if (std::distance(begin, end) > int(_size - _data.size()))
-		throw std::out_of_range("span is full");
+		throw InvalidSpan();
 	_data.insert(_data.end(), begin, end);
 }
 
-uint32_t    Span::shortestSpan() {
+uint32_t	Span::shortestSpan() {
 	if (_data.size() <= 0)
 		throw (Span::InvalidSpan());
 
@@ -43,7 +43,7 @@ uint32_t    Span::shortestSpan() {
 	return (shortest);
 }
 
-uint32_t    Span::longestSpan() {
+uint32_t	Span::longestSpan() {
 	int min;
 	int max;
 	
@@ -63,4 +63,6 @@ uint32_t    Span::longestSpan() {
 	return (max - min);
 }
 
-const char	*Span::InvalidSpan::what() const throw() { return ("error"); }
+const char			*Span::InvalidSpan::what() const throw() { return ("out of range"); }
+
+std::vector<int>	Span::get_data() { return _data; }
