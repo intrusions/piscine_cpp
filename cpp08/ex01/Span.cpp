@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 04:53:31 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/25 23:43:53 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:49:32 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,19 @@
 
 Span::Span(uint32_t n) : _size(n) {}
 
+Span::Span(Span const &obj)
+	: _data(obj._data)
+	, _size(obj._size) {}
+
 Span::~Span() {}
+
+Span	Span::operator=(Span const &rhs) {
+	if (this != &rhs) {
+		_data = rhs._data;
+		_size = rhs._size;
+	}
+	return (*this);
+}
 
 void	Span::addNumber(uint32_t n) {
 	if (_data.size() == _size)
@@ -65,4 +77,4 @@ uint32_t	Span::longestSpan() {
 
 const char			*Span::InvalidSpan::what() const throw() { return ("out of range"); }
 
-std::vector<int>	Span::get_data() { return _data; }
+std::vector<int>	Span::getData() { return _data; }

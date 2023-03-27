@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 04:52:16 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/25 23:23:24 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:47:56 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ class Span {
 
 	public:
 		Span(uint32_t n);
+		Span(Span const &obj);
 		virtual ~Span();
 
+		Span		operator=(Span const &rhs);
 		void		addNumber(uint32_t n);
 		void		addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
@@ -37,5 +39,5 @@ class Span {
 				const char	*what() const throw();
 		};
 
-		std::vector<int>	get_data();
+		std::vector<int>	getData();
 };
