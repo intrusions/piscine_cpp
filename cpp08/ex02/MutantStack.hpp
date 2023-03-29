@@ -6,30 +6,35 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 20:55:12 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/27 22:22:10 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/03/29 20:06:11 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iosteam>
+#include <iostream>
 #include <stack>
 #include <stdint.h>
 
-template <typaname T>
-class MutantStack {
+template <typename T>
+class MutantStack : public std::stack<T> {
 	private:
-		std::stack<T>	_data;	
-	
-	public:
 
-	
+	public:
 		MutantStack() 			{};
+		MutantStack(MutantStack const &obj) : MutantStack::stack(obj) {}
 		virtual ~MutantStack()	{};
 
-		bool	empty()			{ return (_data.empty()); }
-		int64_t	size()			{ return (_data.size()); }
-		T		&top()			{ return (_data.top()); }
-		void	push(T &n)		{ _data.push(n); }
-		void	emplace(T &n)	{ _data.emplace(n); }
-		void	pop() 			{ _data.pop(); }
+		MutantStack	&operator=(MutantStack const &rhs) {
+			if (this != &rhs)
+				MutantStack::stack(rhs);
+			return (*this);		
+		}
+
+		typedef typename std::stack<T>::container_type::iterator 		iterator;
+		typedef typename std::stack<T>::container_type::const_iterator	const_iterator;
+
+		iterator		begin()				{ return(this->c.begin()); }
+		const_iterator	begin()	const		{ return(this->c.begin()); }
+		iterator		end()				{ return(this->c.end()); }
+		const_iterator	end() const			{ return(this->c.end()); }
 };
