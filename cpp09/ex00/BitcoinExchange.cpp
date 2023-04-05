@@ -6,14 +6,18 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 05:33:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/04/04 10:58:09 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/04/05 06:49:24 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 uint8_t	BitcoinExchange::check_date(std::string const date) {
-	(void)date;
+
+	struct tm tm;
+
+	if (!strptime(date.c_str(), "%Y-%m-%d", &tm))
+		return (1);
 	return (0);
 }
 
@@ -21,7 +25,7 @@ uint8_t	BitcoinExchange::check_value(float const value) {
 	
 	if (value <= 0)
 		return (1);
-	else if (value > INT_MAX)
+	else if (value > 1000)
 		return (2);
 	return (0);	
 }
@@ -46,8 +50,30 @@ bool	BitcoinExchange::error_manager(uint8_t const date_error, uint8_t const valu
 
 double	BitcoinExchange::get_price_per_date(std::string const date) {
 
-	std::map<std::string, double>::iterator	it = _db.find(date);
+	char **arr = split(date.c_str(), '-');
 
+	uint8_t y = atoi(arr[0]);
+	uint8_t m = atoi(arr[1]);
+	uint8_t d = atoi(arr[2]);
+	
+	std::map<std::string, double>::iterator it = _db.find(date);
+
+	while (it == _db.end()) {
+		
+		std::stringstream	new_date;
+		std::string			new_string;
+		
+		for (uint8_t years = y; years > 0; years--) {
+			for (uint8_t mouth = m; mouth > 0; mouth--) {
+				for (uint8_t day = d; day > 0; day--) {
+					
+					new_date << years << "-" << mouth << "-" << day;
+					new_string = new_date.str();
+					it = _db.find(new_string);
+				}
+			}
+		}
+	}
 	return (it->second);
 }
 
@@ -57,19 +83,19 @@ bool	BitcoinExchange::parse_csv_file(void) {
 	std::string		line;
 	
 	if (csv_file) {
-        if (std::getline(csv_file, line)) {
-            if (line != "date,exchange_rate") {
-                std::cout << "error: bad csv format" << std::endl;
-                return (0);
-            }
-        }
+		if (std::getline(csv_file, line)) {
+			if (line != "date,exchange_rate") {
+				std::cout << "error: bad csv format" << std::endl;
+				return (0);
+			}
+		}
 		
 		while (std::getline(csv_file, line)) {
-            std::stringstream	ss(line);
-            std::string			date, value;
+ 			std::stringstream	ss(line);
+			std::string			date, value;
 			
 			if (std::getline(ss, date, ',') && std::getline(ss, value))
-                _db.insert(std::make_pair(date, atof(value.c_str())));
+				 _db.insert(std::make_pair(date, atof(value.c_str())));
 		}
 	} else {
 		std::cout << "error: file does not exist" << std::endl;
@@ -83,10 +109,9 @@ bool	BitcoinExchange::parse_input_file(char *input_file_name) {
 	std::ifstream	input_file(input_file_name);
 	std::string		line;
 
+	/* check if input file format is valid */
 	if (input_file) {
-        
 		if (std::getline(input_file, line)) {
-           
 		    if (line != "date | value") {
                 std::cout << "error: bad input file format" << std::endl;
                 return (0);
@@ -95,6 +120,7 @@ bool	BitcoinExchange::parse_input_file(char *input_file_name) {
 		else
 			std::cout << "error: file empty" << std::endl;
 
+		/* boucle for each line */
 		while (std::getline(input_file, line)) {
 			
 			std::stringstream	ss(line);
@@ -102,6 +128,7 @@ bool	BitcoinExchange::parse_input_file(char *input_file_name) {
 			float				converted_value;
 			uint8_t				date_error, value_error;
 			
+			/* split on '|', stock the date in 'date', and the value in 'value' */
 			if (std::getline(ss, date, '|') && std::getline(ss, value)) {
 				
 				/* convert value in double, and delete all space in date */

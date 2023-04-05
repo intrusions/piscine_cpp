@@ -6,7 +6,7 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 04:52:49 by jucheval          #+#    #+#             */
-/*   Updated: 2023/04/04 10:57:47 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/04/05 05:57:43 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv) {
 	if (argc != 2) {
-		std::cout << "put a file in params of prog" << std::endl;
+		std::cout << "error: put a file in params of prog" << std::endl;
 		return (0);
 	}
 	
