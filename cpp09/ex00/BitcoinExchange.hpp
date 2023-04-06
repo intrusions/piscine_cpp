@@ -6,19 +6,18 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 05:21:57 by jucheval          #+#    #+#             */
-/*   Updated: 2023/04/04 10:33:23 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/04/06 07:07:17 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <stdint.h>
 #include <sstream>
 #include <algorithm>
 #include <map>
-#include <limits.h>
+#include <ctime>
 
 
 
@@ -35,5 +34,5 @@ class BitcoinExchange {
 
 		bool	error_manager(uint8_t const date_error, uint8_t const value_error, std::string date);
 	
-		double	get_price_per_date(std::string const date);
+		double	get_price_per_date(std::string date);
 };
