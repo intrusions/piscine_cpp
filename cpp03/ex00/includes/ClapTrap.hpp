@@ -15,8 +15,8 @@
 #include <stdint.h>
 
 class ClapTrap {
-	private:
-		
+	
+	private:	
 		std::string	_name;
 		uint32_t	_hitPoints;
 		uint32_t	_energyPoints;

@@ -12,13 +12,15 @@
 
 #include "BitcoinExchange.hpp"
 
-/* function to check if the format and value in date are coherent */
+/* function to check if format and value in date are coherent */
 uint8_t	BitcoinExchange::check_date(std::string const date) {
 
 	struct tm tm;
 
 	if (!strptime(date.c_str(), "%Y-%m-%d", &tm))
 		return (1);
+
+	std::cout << "regarde bien ici:" << tm.tm_mday << std::endl;
 
 	if (tm.tm_mday > 31 || tm.tm_mon > 12)
 		return (1);
@@ -37,7 +39,7 @@ uint8_t	BitcoinExchange::check_value(float const value) {
 }
 
 /* if error is present in 'date_error' or 'value_error', print the appropriate message
-and return 1 if error are, or 0 */
+and return 1 if error are, else 0 */
 bool	BitcoinExchange::error_manager(uint8_t const date_error, uint8_t const value_error, std::string date) {
 	
 	if (date_error == 1)
@@ -101,7 +103,7 @@ bool	BitcoinExchange::parse_csv_file(void) {
 				return (0);
 			}
 		}
-		
+
 		while (std::getline(csv_file, line)) {
  			std::stringstream	ss(line);
 			std::string			date, value;
@@ -139,7 +141,7 @@ bool	BitcoinExchange::parse_input_file(char *input_file_name) {
 			std::stringstream	ss(line);
 			std::string			date, value;
 			uint8_t				date_error, value_error;
-			float				converted_value;
+			double				converted_value;
 			
 			/* split on '|', stock the date in 'date', and the value in 'value' */
 			if (std::getline(ss, date, '|') && std::getline(ss, value)) {
@@ -147,7 +149,7 @@ bool	BitcoinExchange::parse_input_file(char *input_file_name) {
 				/* convert value in double, and delete all space in date */
 				converted_value = atof(value.c_str());
 				date.erase(remove_if(date.begin(), date.end(), ::isspace), date.end());
-				
+
 				/* parse and return an error code if error finded */
 				date_error = check_date(date);
 				value_error = check_value(converted_value);
