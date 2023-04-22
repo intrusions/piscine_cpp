@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:23:20 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/27 08:20:54 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/04/22 21:27:17 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ int	main(void) {
 
 	john.attack("Chuck");
 	chuck.takeDamage(0);
-	
+	chuck.beRepaired(10);
 	chuck.takeDamage(132);
-	
 	chuck.attack("Me");
 	chuck.beRepaired(2);
 	chuck.takeDamage(10);

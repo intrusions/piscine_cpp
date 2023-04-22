@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:56:00 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/27 08:53:53 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/04/22 21:39:09 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ScavTrap::~ScavTrap() {
 }
 
 ScavTrap	&ScavTrap::operator=(ScavTrap const &obj) {
-	std::cout << "++ FragTrap asignement constructor called" << std::endl;
+	std::cout << "++ ScavTrap asignement constructor called" << std::endl;
 	
 	if (this != &obj) {
 		setName(obj.getName());

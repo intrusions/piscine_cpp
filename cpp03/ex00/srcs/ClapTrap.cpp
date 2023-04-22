@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:25:13 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/27 08:23:31 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/04/22 21:29:09 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &obj) {
 	}
 	return (*this);
 }
-
 
 void	ClapTrap::attack(const std::string &target) {
 	if (getHitPoints() && getEnergyPoints()) {

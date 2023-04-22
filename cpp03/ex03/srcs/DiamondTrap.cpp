@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:01:47 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/27 09:46:15 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/04/22 21:53:26 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ DiamondTrap::DiamondTrap(DiamondTrap const &obj)
 	setAttackDamage(obj.getAttackDamage());
 }
 
-
 DiamondTrap	DiamondTrap::operator=(DiamondTrap const &obj) {
 	std::cout << "++ DiamondTrap asignement constructor called" << std::endl;
 
@@ -49,11 +48,9 @@ DiamondTrap	DiamondTrap::operator=(DiamondTrap const &obj) {
 	return (*this);
 }
 
-
 DiamondTrap::~DiamondTrap() {
   	std::cout << "-- DiamondTrap destructor called" << std::endl;
 }
-
 
 void    DiamondTrap::whoAmI() {
     std::cout   << "DiamondTrap : "

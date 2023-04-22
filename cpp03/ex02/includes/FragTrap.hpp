@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 22:56:56 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/27 09:05:33 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/04/22 21:42:45 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ class FragTrap : public ClapTrap {
 
         FragTrap	&operator=(FragTrap const &obj);
         
-        void    highFivesGuys() const ;
+        void    highFivesGuys() const;
 };

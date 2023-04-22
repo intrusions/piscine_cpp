@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 05:33:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/04/06 07:05:51 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:43:41 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ bool	BitcoinExchange::parse_csv_file(void) {
 			if (std::getline(ss, date, ',') && std::getline(ss, value))
 				 _db.insert(std::make_pair(date, atof(value.c_str())));
 		}
-	} else {
+	} else {z
 		std::cout << "error: file does not exist" << std::endl;
 		return (0);
 	}
