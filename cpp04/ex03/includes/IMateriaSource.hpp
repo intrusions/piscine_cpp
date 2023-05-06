@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:46:11 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/07 10:51:18 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/06 21:25:31 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "AMateria.hpp"
+
+/* Interfarce pour la classe MateriaSource */
 
 class IMateriaSource {
 	private:

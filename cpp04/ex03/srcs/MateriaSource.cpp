@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:51:44 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/07 11:36:11 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/06 20:29:37 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ MateriaSource   &MateriaSource::operator=(MateriaSource const &rhs) {
 }
 
 void    MateriaSource::learnMateria(AMateria *m) {
-	
 	for (uint8_t i = 0; i < 4; i++) {
 		if (!_spellsLearned[i]) {
 			_spellsLearned[i] = m;
@@ -48,7 +47,6 @@ void    MateriaSource::learnMateria(AMateria *m) {
 }
 
 AMateria*	MateriaSource::createMateria(std::string const &type) {
-	
 	for (uint8_t i = 0; i < 4; i++) {
 		if (_spellsLearned[i] && _spellsLearned[i]->getType() == type)
 			return (_spellsLearned[i]->clone());

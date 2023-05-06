@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:24 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:01:25 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/04/28 21:45:21 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Animal {
 
 	public:
 		Animal();
-		Animal(const std::string _type);
+		Animal(const std::string type);
 		Animal(const Animal &obj);
 		virtual ~Animal();
 		

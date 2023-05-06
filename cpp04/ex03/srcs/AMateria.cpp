@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 04:19:44 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/07 11:28:02 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/06 20:40:22 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ AMateria    &AMateria::operator=(AMateria const &rhs) {
 std::string const	&AMateria::getType() const { return (_type); }
 
 void	AMateria::use(ICharacter &target) {
-	std::cout << "\"*nothing happen to " << target.getName() << "*\"" << std::endl;
+	std::cout << "* nothing happen to " << target.getName() << " *" << std::endl;
 }
-

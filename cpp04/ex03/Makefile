@@ -3,7 +3,6 @@ SRCS		=	main.cpp					\
 				srcs/Character.cpp			\
 				srcs/Cure.cpp				\
 				srcs/Ice.cpp				\
-				srcs/ICharacter.cpp			\
 				srcs/MateriaSource.cpp		\
 
 OBJS		=	$(SRCS:.cpp=.o)

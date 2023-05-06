@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:37 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/06 08:47:56 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/03 22:36:40 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,23 @@
 
 int main()
 {
+	/* Does not compile */
 	// const AAnimal *cc = new AAnimal();
 	// (void)cc;
 	const AAnimal *animalArr[4];
+	
 	for (int i = 0; i < 4; i++) {
 		if (i < 2)
 			animalArr[i] = new Dog();
 		else
 			animalArr[i] = new Cat();
+		std::cout << "-----------------------------------------" << std::endl;
 	}
-	for (int i = 0; i < 4; i++)
+	
+	std::cout << std::endl << std::endl; 
+	for (int i = 0; i < 4; i++) {
 		delete animalArr[i];
+		std::cout << "-----------------------------------------" << std::endl;
+	}
 	return 0;
 }
-
-// int main()
-// {
-// 	const Animal* j = new Dog();
-// 	const Animal* i = new Cat();
-// 	delete j;//should not create a leak
-// 	delete i;
-// 	return 0;
-// }

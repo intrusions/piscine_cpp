@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:37 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/07 13:39:18 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/06 22:12:03 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,53 +18,45 @@
 
 int main()
 {
-	IMateriaSource *src = new MateriaSource();
 	
-	// learn materia
+	/* Cree une materiaSource et apprend Ice et Cure */
+	IMateriaSource *src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	
-	ICharacter* me = new Character("me");
+	/* Cree un personnage */
+	ICharacter *carl = new Character("Carl");
 
-	AMateria* tmpSpell; 
-
-	// creat and equip 4 Materia
-	tmpSpell = src->createMateria("ice");
-	me->equip(tmpSpell);
-	tmpSpell = src->createMateria("cure");
-	me->equip(tmpSpell);
-	// save address of tmpSpell n2 "Cure" for free it
-	AMateria *tmpSpell2 = tmpSpell;
+	/* Cree des Materia Ice et Cure, et les equipe au personnage */
+	AMateria *to_free = src->createMateria("ice");
+	carl->equip(to_free);
+	carl->equip(src->createMateria("ice"));
+	carl->equip(src->createMateria("cure"));
+	carl->equip(src->createMateria("cure"));
 	
-	tmpSpell = src->createMateria("cure");
-	me->equip(tmpSpell);
-	tmpSpell = src->createMateria("ice");
-	me->equip(tmpSpell);
-	
-	// 5 materia cant be added
-	tmpSpell = src->createMateria("ice");
-	me->equip(tmpSpell);
-	delete tmpSpell;
+	/* Une cinquieme materia ne peut etre equiper */
+	AMateria *ice = src->createMateria("ice");
+	carl->equip(ice);
+	delete ice;
 
+	/* utilise les 4 spell de "Carl" sur "bob" */
 	ICharacter* bob = new Character("bob");
+	carl->use(0, *bob);
+	carl->use(1, *bob);
+	carl->use(2, *bob);
+	carl->use(3, *bob);
 
-	me->use(0, *bob);
-	me->use(1, *bob);
-	me->use(2, *bob);
-	me->use(3, *bob);
+	/* Utilisation d'un spell pas present dans l'inventaire du personnage */
+	carl->use(5, *bob);
 
-	//bad spell id
-	me->use(5, *bob);
+	/* Drop un spell au sol */
+	carl->unequip(0);
+	
+	/* tente d'utiliser un spell inexistant */
+	carl->use(0, *bob);
 
-	// unequip tmpSpell n2
-	me->unequip(1);
-	// try to attack with spell was already dropped
-	me->use(1, *bob);
-
-
+	delete to_free;
 	delete bob;
-	delete me;
+	delete carl;
 	delete src;
-	delete tmpSpell2;
-	return 0;
 }
