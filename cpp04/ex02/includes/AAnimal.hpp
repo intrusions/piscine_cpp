@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:24 by jucheval          #+#    #+#             */
-/*   Updated: 2023/04/28 22:27:29 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:13:11 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+#include <stdint.h>
 
 class AAnimal {
 	private:
@@ -21,7 +22,7 @@ class AAnimal {
 
 	public:
 		AAnimal();
-		AAnimal(const std::string type);
+		AAnimal(const std::string _type);
 		AAnimal(const AAnimal &obj);
 		virtual ~AAnimal();
 	

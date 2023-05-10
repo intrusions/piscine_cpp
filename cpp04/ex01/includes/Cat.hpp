@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:30 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/07 02:03:42 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:02:02 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 class Cat : public Animal {
 	private:
 		Brain	*_brain;
+
 	public:
 		Cat();
 		Cat(const Cat &obj);
@@ -25,4 +26,6 @@ class Cat : public Animal {
 		Cat		&operator=(const Cat &obj);
 
 		void	makeSound() const;
+
+		Brain	*getBrain() const;
 };

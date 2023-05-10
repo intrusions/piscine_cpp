@@ -6,7 +6,7 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:30 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/27 10:08:29 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:14:01 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 class Cat : public AAnimal {
 	private:
 		Brain	*_brain;
+
 	public:
 		Cat();
 		Cat(const Cat &obj);
@@ -25,4 +26,6 @@ class Cat : public AAnimal {
 		Cat		&operator=(const Cat &obj);
 
 		void	makeSound() const;
+
+		Brain	*getBrain() const;
 };

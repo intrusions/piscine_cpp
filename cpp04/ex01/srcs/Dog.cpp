@@ -6,7 +6,7 @@
 /*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:33 by jucheval          #+#    #+#             */
-/*   Updated: 2023/05/10 06:47:24 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/10 08:32:56 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,5 @@ Dog::~Dog() {
 void	Dog::makeSound() const {
 	std::cout << "Woof woof" << std::endl;
 }
+
+Brain	*Dog::getBrain() const { return (_brain); }
