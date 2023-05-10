@@ -2,6 +2,8 @@ SRCS		=	main.cpp					\
 				srcs/Animal.cpp				\
 				srcs/Dog.cpp				\
 				srcs/Cat.cpp				\
+				srcs/WrongCat.cpp			\
+				srcs/WrongAnimal.cpp		\
 
 OBJS		=	$(SRCS:.cpp=.o)
 

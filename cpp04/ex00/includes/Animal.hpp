@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:24 by jucheval          #+#    #+#             */
-/*   Updated: 2023/04/28 21:45:21 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/10 04:50:33 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ class Animal {
 	private:
 
 	protected:
-		std::string		_type;		
+		std::string		_type;
 
 	public:
 		Animal();
