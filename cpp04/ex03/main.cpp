@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 02:10:37 by jucheval          #+#    #+#             */
-/*   Updated: 2023/05/06 22:12:03 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/11 07:44:56 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ int main()
 	
 	/* tente d'utiliser un spell inexistant */
 	carl->use(0, *bob);
+
+	/* equipe un spell et l'utilise*/
+	carl->equip(src->createMateria("cure"));
+	carl->use(0, *bob);
+
 
 	delete to_free;
 	delete bob;
