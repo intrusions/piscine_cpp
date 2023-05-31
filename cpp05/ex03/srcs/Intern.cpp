@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 03:59:53 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/06 00:42:46 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:50:02 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static AForm *newRobotomy(std::string formTarget) { return (new RobotomyRequestF
 
 static AForm *newPresidential(std::string formTarget) { return (new PresidentialPardonForm(formTarget)); }
 
-static uint16_t		whatForm(std::string FormName) {
+static int8_t		whatForm(std::string FormName) {
 	
-	int16_t	id = -1;
+	int8_t	id = -1;
 	std::string	formNameList[3] = {
 		"shrubbery creation",
 		"robotomy request",

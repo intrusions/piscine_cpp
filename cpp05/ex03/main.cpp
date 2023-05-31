@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 02:37:05 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/06 00:40:30 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:53:19 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #include "Intern.hpp"
 
 int	main() {
-
+	
+	std::cout << "---------------------------------" << std::endl;
 	{
 		Bureaucrat	a("BOSS", 1);
 		Intern		b;
@@ -33,10 +34,22 @@ int	main() {
 
 	std::cout << "---------------------------------" << std::endl;
 	{
-		Bureaucrat	a("Julien", 1);
+		Bureaucrat	a("BOSS", 1);
 		Intern		b;
 
-		AForm *newForm = b.makeForm("wtf", "hello");
+		AForm *newForm = b.makeForm("creation", "hello");
 		(void)newForm;
+	}
+
+	std::cout << "---------------------------------" << std::endl;
+	{
+		Bureaucrat	a("BOSS", 1);
+		Intern		b;
+
+		AForm *newForm = b.makeForm("robotomy request", "Bender");
+
+		a.signForm(*newForm);
+		a.executeForm(*newForm);
+		delete newForm;
 	}
 }

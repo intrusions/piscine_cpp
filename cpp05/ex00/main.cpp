@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 02:37:05 by jucheval          #+#    #+#             */
-/*   Updated: 2023/02/04 18:12:12 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:05:44 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main() {
 	}
 
 	try {
-		Bureaucrat c("John Doe", 150);
+		Bureaucrat c("Carl", 150);
 		std::cout << c << std::endl;
 	} catch (const Bureaucrat::GradeTooHighException &err ) {
 		std::cout << err.tooHigh() << std::endl;
@@ -41,7 +41,7 @@ int	main() {
 	}
 
 	try {
-		Bureaucrat d("John Doe", 150);
+		Bureaucrat d("Sylvain", 150);
 		d.decrementGrade();
 		std::cout << d << std::endl;
 	} catch (const Bureaucrat::GradeTooHighException &err ) {
@@ -51,7 +51,7 @@ int	main() {
 	}
 
 	try {
-		Bureaucrat e("John Doe", 1);
+		Bureaucrat e("Alex", 1);
 		e.incrementGrade();
 		std::cout << e << std::endl;
 	} catch (const Bureaucrat::GradeTooHighException &err ) {
