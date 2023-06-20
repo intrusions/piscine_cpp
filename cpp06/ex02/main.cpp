@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:04:52 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/09 10:10:33 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:11:17 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
 Base	*generate() {
-	Base *newBase;
+	Base *newBase = NULL;
 	
 	srand(time(NULL));
 	int random = rand() % 3;
@@ -63,4 +63,6 @@ int main() {
     
     ptr = &c;
     identify(*ptr);
+
+	delete newRand;
 }

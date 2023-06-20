@@ -1,5 +1,5 @@
-SRCS		=	main.cpp								\
-				srcs/Serialization.cpp					\
+SRCS		=	main.cpp				\
+				srcs/Serializer.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -18,7 +18,7 @@ all:		$(NAME)
 .cpp.o:
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 
-
+return (reinterpret_cast<uintptr_t>(pt
 $(NAME):	$(OBJS)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)	
 

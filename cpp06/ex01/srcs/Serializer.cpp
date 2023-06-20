@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialization.cpp                                  :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 09:17:40 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/09 09:35:47 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:20:46 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serialization.hpp"
+#include "Serializer.hpp"
 
-uintptr_t serialize(Data *ptr) { return (reinterpret_cast<uintptr_t>(ptr)); }
+uintptr_t Serializer::serialize(Data *ptr) { return (reinterpret_cast<uintptr_t>(ptr)); }
 
-Data	*deserialize(uintptr_t raw) { return (reinterpret_cast<Data *>(raw)); }
+Data	*Serializer::deserialize(uintptr_t raw) { return (reinterpret_cast<Data *>(raw)); }

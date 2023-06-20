@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 09:04:52 by jucheval          #+#    #+#             */
-/*   Updated: 2023/06/18 17:21:37 by jucheval         ###   ########.fr       */
+/*   Created: 2023/03/09 09:15:31 by jucheval          #+#    #+#             */
+/*   Updated: 2023/06/20 17:20:14 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#pragma once
+#include <Data.hpp>
+#include <stdint.h>
+#include <iostream>
 
-int main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cout << "Invalid input" << std::endl;
-		return (1);
-	}
+class Serializer {
+	private:
 
-	try {
-		ScalarConverter a(argv[1]);
-		std::cout << a << std::endl;
-	} catch(std::exception &err) {
-		std::cout << err.what() << std::endl;
-	}
-}
+	public:
+		uintptr_t	serialize(Data *ptr);
+		Data		*deserialize(uintptr_t raw);
+};

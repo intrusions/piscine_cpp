@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Convertor.hpp                                      :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:05:23 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/10 19:47:02 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:59:38 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 #include <cstdlib>
 #include <iomanip>
 
-class Convertor {
+class ScalarConverter {
 	private:
 		double	_cast;
 		bool	_nan;
 
 	public:
-		Convertor(std::string input);
+		ScalarConverter(std::string input);
 
 	class EmptyString : public std::exception {
 		virtual const char *what() const throw();
@@ -48,6 +48,8 @@ class Convertor {
 	
 	double	getCast() const;
 
+	void	convert(std::string str);
+
 };
 
-std::ostream	&operator<<(std::ostream &os, const Convertor &obj);
+std::ostream	&operator<<(std::ostream &os, const ScalarConverter &obj);

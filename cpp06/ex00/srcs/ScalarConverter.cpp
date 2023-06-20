@@ -1,58 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Convertor.cpp                                      :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:05:26 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/10 19:51:44 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:12:33 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Convertor.hpp"
+#include "ScalarConverter.hpp"
 
-Convertor::Convertor(std::string input) : _nan(0) {
+ScalarConverter::ScalarConverter(std::string input) : _nan(0) {
 	if (input.empty())
-		throw (Convertor::EmptyString());
-	if (input == "nan" || input == "nanf")
+		throw (ScalarConverter::EmptyString());
+	else if (input == "nan" || input == "nanf") 
 		_nan = 1;
-	if (input.size() == 1 && !isdigit(input[0])) {
+	else if (input.size() == 1 && !isdigit(input[0])) {
 		_cast = static_cast<char>(input[0]);
 		return ;
 	}
 	_cast = atof(input.c_str());
 }
 
-char	Convertor::toChar() const {
+char	ScalarConverter::toChar() const {
 	if (_cast < CHAR_MIN || _cast > CHAR_MAX || _nan)
-		throw(Convertor::Impossible());
+		throw(ScalarConverter::Impossible());
 	if (_cast < 32 || _cast > 126)
-		throw(Convertor::NonDisplayable());
+		throw(ScalarConverter::NonDisplayable());
 	return (static_cast<char>(_cast));
 }
 
-int	Convertor::toInt() const {
+int	ScalarConverter::toInt() const {
 	if (_cast < INT_MIN || _cast > INT_MAX || _nan)
-		throw(Convertor::Impossible());
+		throw(ScalarConverter::Impossible());
 	return (static_cast<int>(_cast));
 }
 
-float	Convertor::toFloat() const {
-	if (_cast < FLT_MIN || _cast > FLT_MAX)
-		throw(Convertor::Impossible());	
+float	ScalarConverter::toFloat() const {
+	if (_cast < 0 || _cast > FLT_MAX)
+		throw(ScalarConverter::Impossible());
 	return (static_cast<float>(_cast));
 }
 
-double	Convertor::toDouble() const {
-	if (_cast < DBL_MIN || _cast > DBL_MAX)
-		throw(Convertor::Impossible());
+double	ScalarConverter::toDouble() const {
+	if (_cast < 0 || _cast > DBL_MAX)
+		throw(ScalarConverter::Impossible());
 	return (_cast);
 }
 
-double	Convertor::getCast() const { return (_cast); }
+double	ScalarConverter::getCast() const { return (_cast); }
 
-std::ostream	&operator<<(std::ostream &os, const Convertor &obj) {
+std::ostream	&operator<<(std::ostream &os, const ScalarConverter &obj) {
 	
 	try {
 		std::cout	<< "char: "
@@ -91,18 +91,18 @@ std::ostream	&operator<<(std::ostream &os, const Convertor &obj) {
 }
 
 /* exception */
-const char *Convertor::EmptyString::what() const throw() {
+const char *ScalarConverter::EmptyString::what() const throw() {
 	return ("The string is empty");
 }
 
-const char *Convertor::BadInput::what() const throw() {
+const char *ScalarConverter::BadInput::what() const throw() {
 	return ("Bad Input");
 }
 
-const char *Convertor::Impossible::what() const throw() {
+const char *ScalarConverter::Impossible::what() const throw() {
 	return ("Impossible");
 }
 
-const char *Convertor::NonDisplayable::what() const throw() {
+const char *ScalarConverter::NonDisplayable::what() const throw() {
 	return ("Non displayable");
 }

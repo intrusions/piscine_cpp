@@ -1,5 +1,5 @@
-SRCS		=	main.cpp								\
-				srcs/Convertor.cpp						\
+SRCS		=	main.cpp					\
+				srcs/ScalarConverter.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
