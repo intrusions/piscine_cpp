@@ -6,13 +6,16 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:05:26 by jucheval          #+#    #+#             */
-/*   Updated: 2023/06/20 17:12:33 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:38:32 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(std::string input) : _nan(0) {
+bool ScalarConverter::_nan = 0;
+double ScalarConverter::_cast = 0;
+
+ScalarConverter::ScalarConverter(std::string input) {
 	if (input.empty())
 		throw (ScalarConverter::EmptyString());
 	else if (input == "nan" || input == "nanf") 
@@ -24,7 +27,7 @@ ScalarConverter::ScalarConverter(std::string input) : _nan(0) {
 	_cast = atof(input.c_str());
 }
 
-char	ScalarConverter::toChar() const {
+char	ScalarConverter::toChar() {
 	if (_cast < CHAR_MIN || _cast > CHAR_MAX || _nan)
 		throw(ScalarConverter::Impossible());
 	if (_cast < 32 || _cast > 126)
@@ -32,25 +35,25 @@ char	ScalarConverter::toChar() const {
 	return (static_cast<char>(_cast));
 }
 
-int	ScalarConverter::toInt() const {
+int	ScalarConverter::toInt() {
 	if (_cast < INT_MIN || _cast > INT_MAX || _nan)
 		throw(ScalarConverter::Impossible());
 	return (static_cast<int>(_cast));
 }
 
-float	ScalarConverter::toFloat() const {
+float	ScalarConverter::toFloat() {
 	if (_cast < 0 || _cast > FLT_MAX)
 		throw(ScalarConverter::Impossible());
 	return (static_cast<float>(_cast));
 }
 
-double	ScalarConverter::toDouble() const {
+double	ScalarConverter::toDouble() {
 	if (_cast < 0 || _cast > DBL_MAX)
 		throw(ScalarConverter::Impossible());
 	return (_cast);
 }
 
-double	ScalarConverter::getCast() const { return (_cast); }
+double	ScalarConverter::getCast() { return (_cast); }
 
 std::ostream	&operator<<(std::ostream &os, const ScalarConverter &obj) {
 	
