@@ -6,14 +6,14 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:05:26 by jucheval          #+#    #+#             */
-/*   Updated: 2023/06/20 18:38:32 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:51:20 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-bool ScalarConverter::_nan = 0;
-double ScalarConverter::_cast = 0;
+bool ScalarConverter::_nan = false;
+double ScalarConverter::_cast = 0.0f;
 
 ScalarConverter::ScalarConverter(std::string input) {
 	if (input.empty())

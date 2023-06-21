@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:05:23 by jucheval          #+#    #+#             */
-/*   Updated: 2023/06/20 18:33:24 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:59:09 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class ScalarConverter {
 	private:
 		static double	_cast;
-		static bool	_nan;
+		static bool		_nan;
 
 	public:
 		ScalarConverter(std::string input);
