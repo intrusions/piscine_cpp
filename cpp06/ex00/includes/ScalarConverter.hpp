@@ -12,6 +12,7 @@
 
 #pragma once
 #include <iostream>
+#include <limits>
 #include <climits>
 #include <float.h>
 #include <cstdlib>
@@ -20,7 +21,6 @@
 class ScalarConverter {
 	private:
 		static double	_cast;
-		static bool		_nan;
 
 	public:
 		ScalarConverter(std::string input);
@@ -46,8 +46,5 @@ class ScalarConverter {
 	static float	toFloat();
 	static double	toDouble();
 	
-	static void		convert(std::string str);
-
+	static void		convert();
 };
-
-std::ostream	&operator<<(std::ostream &os, const ScalarConverter &obj);

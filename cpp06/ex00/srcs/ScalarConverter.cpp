@@ -12,55 +12,25 @@
 
 #include "ScalarConverter.hpp"
 
-bool ScalarConverter::_nan = false;
 double ScalarConverter::_cast = 0.0f;
 
 ScalarConverter::ScalarConverter(std::string input) {
 	if (input.empty())
 		throw (ScalarConverter::EmptyString());
-	else if ( input == "nan" || input == "nanf"
-		|| input == "-nan" || input == "-nanf")
-		_nan = 1;
-	else if (input.size() == 1 && !isdigit(input[0])) {
+	else if (input == "+inff" || input == "-inff" || input == "nanf")
+		_cast = std::numeric_limits<float>::quiet_NaN();
+	else if (input == "+inf" || input == "-inf" || input == "nan")
+		_cast = std::numeric_limits<double>::quiet_NaN();
+	else if (input.size() == 1 && !isdigit(input[0]))
 		_cast = static_cast<char>(input[0]);
-		return ;
-	}
-	_cast = atof(input.c_str());
+	else
+		_cast = atof(input.c_str());
 }
 
-char	ScalarConverter::toChar() {
-	if (_cast < CHAR_MIN || _cast > CHAR_MAX || _nan)
-		throw(ScalarConverter::Impossible());
-	if (_cast < 32 || _cast > 126)
-		throw(ScalarConverter::NonDisplayable());
-	return (static_cast<char>(_cast));
-}
-
-int	ScalarConverter::toInt() {
-	if (_cast < INT_MIN || _cast > INT_MAX || _nan)
-		throw(ScalarConverter::Impossible());
-	return (static_cast<int>(_cast));
-}
-
-
-float	ScalarConverter::toFloat() {
-	if (_cast < -FLT_MAX || _cast > FLT_MAX) {
-		throw(ScalarConverter::Impossible());
-	}
-	return (static_cast<float>(_cast));
-}
-
-double	ScalarConverter::toDouble() {
-	if (_cast < -DBL_MAX || _cast > DBL_MAX)
-		throw(ScalarConverter::Impossible());
-	return (_cast);
-}
-
-std::ostream	&operator<<(std::ostream &os, const ScalarConverter &obj) {
-	
+void ScalarConverter::convert() {
 	try {
 		std::cout	<< "char: "
-					<< obj.toChar()
+					<< toChar()
 					<< std::endl;
 	} catch (std::exception &err) {
 		std::cout << err.what() << std::endl;
@@ -68,7 +38,7 @@ std::ostream	&operator<<(std::ostream &os, const ScalarConverter &obj) {
 
 	try {
 		std::cout	<< "int: "
-					<< obj.toInt()
+					<< toInt()
 					<< std::endl;
 	} catch (std::exception &err) {
 		std::cout << err.what() << std::endl;
@@ -77,7 +47,7 @@ std::ostream	&operator<<(std::ostream &os, const ScalarConverter &obj) {
 	try {
 		std::cout	<< "float: "
 					<< std::fixed << std::setprecision(1)
-					<< obj.toFloat() << "f"
+					<< toFloat() << "f"
 					<< std::endl;
 	} catch (std::exception &err) {
 		std::cout << err.what() << std::endl;
@@ -86,12 +56,38 @@ std::ostream	&operator<<(std::ostream &os, const ScalarConverter &obj) {
 	try {
 		std::cout	<< "double: "
 					<< std::fixed << std::setprecision(1)
-					<< obj.toDouble()
+					<< toDouble()
 					<< std::endl;
 	} catch (std::exception &err) {
 		std::cout << err.what() << std::endl;
 	}
-	return (os);
+} 
+
+char	ScalarConverter::toChar() {
+	if (_cast < CHAR_MIN || _cast > CHAR_MAX || _cast != _cast)
+		throw(ScalarConverter::Impossible());
+	if (_cast < 32 || _cast > 126)
+		throw(ScalarConverter::NonDisplayable());
+	return (static_cast<char>(_cast));
+}
+
+int	ScalarConverter::toInt() {
+	if (_cast < INT_MIN || _cast > INT_MAX || _cast != _cast)
+		throw(ScalarConverter::Impossible());
+	return (static_cast<int>(_cast));
+}
+
+
+float	ScalarConverter::toFloat() {
+	if (_cast < -FLT_MAX || _cast > FLT_MAX)
+		throw(ScalarConverter::Impossible());
+	return (static_cast<float>(_cast));
+}
+
+double	ScalarConverter::toDouble() {
+	if (_cast < -DBL_MAX || _cast > DBL_MAX)
+		throw(ScalarConverter::Impossible());
+	return (_cast);
 }
 
 /* exception */

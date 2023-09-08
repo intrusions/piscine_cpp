@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
 
 	try {
 		ScalarConverter a(argv[1]);
-		std::cout << a << std::endl;
+		a.convert();
 	} catch(std::exception &err) {
 		std::cout << err.what() << std::endl;
 	}
