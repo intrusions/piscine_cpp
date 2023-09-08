@@ -18,7 +18,8 @@ double ScalarConverter::_cast = 0.0f;
 ScalarConverter::ScalarConverter(std::string input) {
 	if (input.empty())
 		throw (ScalarConverter::EmptyString());
-	else if (input == "nan" || input == "nanf") 
+	else if ( input == "nan" || input == "nanf"
+		|| input == "-nan" || input == "-nanf")
 		_nan = 1;
 	else if (input.size() == 1 && !isdigit(input[0])) {
 		_cast = static_cast<char>(input[0]);
@@ -41,19 +42,19 @@ int	ScalarConverter::toInt() {
 	return (static_cast<int>(_cast));
 }
 
+
 float	ScalarConverter::toFloat() {
-	if (_cast < 0 || _cast > FLT_MAX)
+	if (_cast < -FLT_MAX || _cast > FLT_MAX) {
 		throw(ScalarConverter::Impossible());
+	}
 	return (static_cast<float>(_cast));
 }
 
 double	ScalarConverter::toDouble() {
-	if (_cast < 0 || _cast > DBL_MAX)
+	if (_cast < -DBL_MAX || _cast > DBL_MAX)
 		throw(ScalarConverter::Impossible());
 	return (_cast);
 }
-
-double	ScalarConverter::getCast() { return (_cast); }
 
 std::ostream	&operator<<(std::ostream &os, const ScalarConverter &obj) {
 	

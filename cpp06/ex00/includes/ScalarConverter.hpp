@@ -46,8 +46,6 @@ class ScalarConverter {
 	static float	toFloat();
 	static double	toDouble();
 	
-	static double	getCast();
-
 	static void		convert(std::string str);
 
 };
