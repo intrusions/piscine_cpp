@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:04:52 by jucheval          #+#    #+#             */
-/*   Updated: 2023/06/21 17:30:28 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/10 01:09:31 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,18 @@ int main() {
 	A a;
     B b;
     C c;
+
     
 	Base *newRand = generate();
-	(void)newRand;
-
-    identify(a);
+	identify(newRand);
+	delete newRand;
+	std::cout << "----------------------" << std::endl;
+    
+	identify(a);
     identify(b);
     identify(c);
+	std::cout << "----------------------" << std::endl;
+
 
     Base *ptr = &a;
     identify(*ptr);
@@ -77,6 +82,7 @@ int main() {
     
     ptr = &c;
     identify(*ptr);
+	std::cout << "----------------------" << std::endl;
 
-	delete newRand;
+
 }
