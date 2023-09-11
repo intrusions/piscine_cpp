@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:05:26 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/10 06:44:16 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/11 05:27:12 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ float	ScalarConverter::_f = 0.0;
 double	ScalarConverter::_d = 0.0;
 
 bool	ScalarConverter::_nan = false;
-bool	ScalarConverter::_posInf = false;
-bool	ScalarConverter::_negInf = false;
+bool	ScalarConverter::_inf = false;
 
 double	ScalarConverter::_cast = 0.0;
 
+/* constructor/destructor */
 ScalarConverter::ScalarConverter(std::string input) {
 	if (input.empty()) {	
 		throw (ScalarConverter::EmptyString());
@@ -34,21 +34,47 @@ ScalarConverter::ScalarConverter(std::string input) {
 		_nan = true;
 	} else if (input == "+inf") {
 		_d = std::numeric_limits<double>::infinity();
-		_posInf = true;
+		_inf = true;
 	} else if (input == "-inf") {
 		_d = -std::numeric_limits<double>::infinity();
-		_negInf = true;
+		_inf = true;
 	} else if (input == "+inff") {
 		_f = std::numeric_limits<float>::infinity();
-		_posInf = true;
+		_inf = true;
 	} else if (input == "-inff") {
 		_f = -std::numeric_limits<float>::infinity();
-		_negInf = true;
+		_inf = true;
 	} else {
 		findOriginalType(input);
 	}
 }
 
+ScalarConverter::ScalarConverter(ScalarConverter &obj) {
+	_c = obj._c;
+	_i = obj._i;
+	_f = obj._f;
+	_d = obj._d;
+	_nan = obj._nan;
+	_inf = obj._inf;
+	_cast = obj._cast;
+}
+
+ScalarConverter::~ScalarConverter() {}
+
+ScalarConverter &ScalarConverter::operator=(ScalarConverter &obj) {
+    if (this != &obj) {
+        _c = obj._c;
+        _i = obj._i;
+        _f = obj._f;
+        _d = obj._d;
+        _nan = obj._nan;
+        _inf = obj._inf;
+        _cast = obj._cast;
+    }
+    return *this;
+}
+
+/* mains function */
 void	ScalarConverter::findOriginalType(std::string input) {
 	_cast = strtod(input.c_str(), NULL);
 
@@ -101,6 +127,8 @@ void ScalarConverter::convert() {
 	}
 } 
 
+
+/* is function */
 bool	ScalarConverter::isChar(std::string input) {
 	return (input.size() == 1 && !isdigit(input[0]));
 }
@@ -165,8 +193,9 @@ bool ScalarConverter::isDouble(const std::string input) {
 	return (true);
 }
 
+/* to function */
 char	ScalarConverter::toChar() {
-	if (_cast < 0 || _cast > CHAR_MAX || _nan || _posInf || _negInf)
+	if (_cast < 0 || _cast > CHAR_MAX || _nan || _inf)
 			throw(ScalarConverter::Impossible());
 	if (_cast < 32 || _cast > 126)
 			throw(ScalarConverter::NonDisplayable());
@@ -180,7 +209,7 @@ char	ScalarConverter::toChar() {
 }
 
 int	ScalarConverter::toInt() {
-	if (_cast < INT_MIN || _cast > INT_MAX || _nan || _posInf || _negInf)
+	if (_cast < INT_MIN || _cast > INT_MAX || _nan || _inf)
 		throw(ScalarConverter::Impossible());
 	else if (_c)
 		return (static_cast<int>(_c));
