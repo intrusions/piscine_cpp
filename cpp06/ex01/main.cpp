@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:04:52 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/11 04:49:38 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/11 06:58:19 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int main() {
 	uintptr_t	serializeData;
 	Data		*deserializeData;
 
+	a->x = '4';
+	a->y = '2';
+
 
 	std::cout << "Data" << std::endl;
 	std::cout << a << std::endl << std::endl;
@@ -29,7 +32,8 @@ int main() {
 
 	std::cout << "Deserialized Data" << std::endl;
 	deserializeData = Serializer::deserialize(serializeData);
-	std::cout << deserializeData << std::endl << std::endl;
+	std::cout << deserializeData << std::endl;
+	std::cout << "x | y : " << deserializeData->x << " | " << deserializeData->y << std::endl << std::endl;
 	
 	delete a;
 }

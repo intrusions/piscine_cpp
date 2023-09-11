@@ -6,14 +6,13 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:19:30 by jucheval          #+#    #+#             */
-/*   Updated: 2023/06/20 17:19:58 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/11 06:57:43 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 typedef struct s_Data {
-	int     x;
-	int     y;
-	bool	isDie;
+	char     x;
+	char     y;
 }	Data;
