@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:04:52 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/11 01:08:46 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/11 23:26:08 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	identify(Base *p) {
 }
 
 void	identify(Base &p) {
-
 	try {
 		(void)dynamic_cast<A &>(p);
 		std::cout << "A" << std::endl;
@@ -74,12 +73,12 @@ int main() {
 
 
     Base *ptr = &a;
-    identify(*ptr);
+    identify(ptr);
     
     ptr = &b;
-    identify(*ptr);
+    identify(ptr);
     
     ptr = &c;
-    identify(*ptr);
+    identify(ptr);
 	std::cout << "----------------------" << std::endl;
 }
