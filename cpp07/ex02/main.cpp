@@ -16,7 +16,7 @@ int	main() {
 	{
 		Array<int> arr(15);
 		try {
-			for (uint32_t i = 0; i < 15; i++)
+			for (uint8_t i = 0; i < 15; i++)
 				std::cout << arr[i] << std::endl;	
 		} catch (std::exception &err) {
 			std::cout << err.what() << std::endl;
@@ -27,7 +27,7 @@ int	main() {
 	{
 		Array<int> arr = Array<int>(15);
 		try {
-			for (uint32_t i = 0; i < 15; i++)
+			for (uint8_t i = 0; i < 15; i++)
 				std::cout << arr[i] << std::endl;	
 		} catch (std::exception &err) {
 			std::cout << err.what() << std::endl;
@@ -38,8 +38,8 @@ int	main() {
 	{
 		Array<char> arr(15);
 		try {
-			for (uint32_t i = 0; i < 15; i++)
-				std::cout << arr[i] << std::endl;	
+			for (uint8_t i = 0; i < 15; i++)
+				std::cout << "'" << arr[i] << "'" << std::endl;	
 		} catch (std::exception &err) {
 			std::cout << err.what() << std::endl;
 		}
