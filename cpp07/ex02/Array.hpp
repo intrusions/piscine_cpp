@@ -55,10 +55,9 @@ class Array {
 		}
 
 		class InvalidIndex : public std::exception {
-			public:
-				const char	*what() const throw() {
-					return ("Invalid index");
-				}
+			const char	*what() const throw() {
+				return ("Invalid index");
+			}
 		};
 		
 		int32_t	size() { return (_len); }
