@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:18:03 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/12 02:53:43 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/15 12:16:42 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,6 @@ int	main() {
 
 	std::cout << "-------------------" << std::endl;
 	{
-		Array<int> arr = Array<int>(15);
-		try {
-			for (uint8_t i = 0; i < 15; i++)
-				std::cout << arr[i] << std::endl;	
-		} catch (std::exception &err) {
-			std::cout << err.what() << std::endl;
-		}
-	}
-
-	std::cout << "-------------------" << std::endl;
-	{
 		Array<char> arr(15);
 		try {
 			for (uint8_t i = 0; i < 15; i++)
@@ -43,5 +32,21 @@ int	main() {
 		} catch (std::exception &err) {
 			std::cout << err.what() << std::endl;
 		}
+
+		std::cout << "-------------------" << std::endl;
+		try {
+			std::cout << arr[16] << std::endl;
+		} catch (std::exception &err) {
+			std::cout << err.what() << std::endl;
+		}
 	}
+
+	std::cout << "-------------------" << std::endl;
+	// Array<int> *arr = new Array<int>(15);
+	// try {
+	// 	for (uint8_t i = 0; i < 15; i++)
+	// 		std::cout << arr[i] << std::endl;	
+	// } catch (std::exception &err) {
+	// 	std::cout << err.what() << std::endl;
+	// }
 }
