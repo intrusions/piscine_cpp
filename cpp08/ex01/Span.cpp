@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 04:53:31 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/27 20:49:32 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:58:47 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterato
 }
 
 uint32_t	Span::shortestSpan() {
-	if (_data.size() <= 0)
+	if (_data.size() <= 1)
 		throw (Span::InvalidSpan());
 
 	std::vector<int> sorted_data = _data;

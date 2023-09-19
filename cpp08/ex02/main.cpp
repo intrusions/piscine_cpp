@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 20:54:42 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/29 20:18:37 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/19 18:30:12 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int main() {
 	
 	mstack.push(5);
 	mstack.push(17);
-	std::cout << "top : " <<mstack.top() << std::endl;
+	std::cout << "top : " << mstack.top() << std::endl;
 	
 	mstack.pop();
-	std::cout << "new top : " <<mstack.top() << std::endl;
+	std::cout << "new top : " << mstack.top() << std::endl;
 	std::cout << "size of stack : " << mstack.size() << std::endl;
 	
 	mstack.push(3);
@@ -48,3 +48,32 @@ int main() {
 	for (MutantStack<int>::iterator it = s2.begin(); it != s2.end(); it++)
 		std::cout << *it << std::endl;
 }
+
+// int main() {
+// 	MutantStack<int> mstack;
+	
+// 	mstack.push(5);
+// 	mstack.push(17);
+// 	std::cout << mstack.top() << std::endl;
+	
+// 	mstack.pop();
+// 	std::cout << mstack.size() << std::endl;
+	
+// 	mstack.push(3);
+// 	mstack.push(5);
+// 	mstack.push(737);
+// 	mstack.push(0);
+
+// 	MutantStack<int>::iterator it = mstack.begin();
+// 	MutantStack<int>::iterator ite = mstack.end();
+
+// 	++it;
+// 	--it;
+
+// 	while (it != ite) {
+// 		std::cout << *it << std::endl;
+// 		++it;
+// 	}
+	
+// 	std::stack<int> s(mstack);
+// }

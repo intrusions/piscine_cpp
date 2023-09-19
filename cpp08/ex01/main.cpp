@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 04:59:29 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/27 20:52:42 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:10:00 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 int main() {
 	try {
-		Span span(15);
+		Span span(1010);
 
-		span.addNumber(10);
-		span.addNumber(5);
-		span.addNumber(50);
-		span.addNumber(30);
-		span.addNumber(20);
-
+		for (uint16_t i = 0; i < 1000; i++)
+			span.addNumber(i);
 
 		std::cout << "data in span : ";
 		std::vector<int> data = span.getData();
@@ -34,7 +30,7 @@ int main() {
 
 
 		std::vector<int> v;
-		for (int i = 0; i < 10; ++i)
+		for (uint8_t i = 0; i < 10; ++i)
 			v.push_back(i);
 		span.addNumber(v.begin(), v.end()); 
 		data = span.getData();
@@ -43,6 +39,6 @@ int main() {
 		std::cout << std::endl;
 	}
 	catch (std::exception & e) {
-		std::cout << "exception : " << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }

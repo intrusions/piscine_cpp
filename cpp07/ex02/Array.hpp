@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:54:52 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/15 12:04:51 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:01:12 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ template<typename T>
 class Array {
 	private:
 		T			*_arr;
-		uint32_t		_len;
+		uint32_t	_len;
 
 	public:
 		Array() : _arr(new T[0]), _len(0) {}
