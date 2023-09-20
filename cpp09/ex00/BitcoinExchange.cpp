@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 05:33:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/04/30 17:58:07 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:53:23 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ uint8_t	BitcoinExchange::check_date(std::string const date) {
 	if (!strptime(date.c_str(), "%Y-%m-%d", &tm))
 		return (1);
 
-	std::cout << "regarde bien ici:" << tm.tm_mday << std::endl;
-
-	if (tm.tm_mday > 31 || tm.tm_mon > 12)
-		return (1);
-	
+	if ((tm.tm_mon == 1 && tm.tm_mday > 29)
+		|| (!(tm.tm_mon % 2) && tm.tm_mday > 31)
+		|| (tm.tm_mon % 2 && tm.tm_mday > 30)
+		|| tm.tm_mon > 12)
+			return (1);
 	return (0);
 }
 
@@ -132,8 +132,9 @@ bool	BitcoinExchange::parse_input_file(char *input_file_name) {
 				return (0);
 			}
 		}
-		else
+		else {
 			std::cout << "error: file empty" << std::endl;
+		}
 
 		/* boucle for each line in input file */
 		while (std::getline(input_file, line)) {
