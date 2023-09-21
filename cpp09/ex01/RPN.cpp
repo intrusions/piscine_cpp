@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:11:29 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/20 19:04:47 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:45:07 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,75 @@
 
 RPN::RPN() {}
 
-void	RPN::calcul() {}
+RPN::RPN(const RPN &cpy) { _stack = cpy._stack; }
 
-/* `debug` */
-void print_stack(std::stack<int> s)
-{
-	if (s.empty())
-		return;
- 
-	int x = s.top();
-	s.pop();
-	std::cout << x << ' ';
-	print_stack(s);
-	s.push(x);
+RPN::~RPN() {}
+
+RPN		&RPN::operator=(const RPN &rhs) {
+	if (this != &rhs) {
+		_stack = rhs._stack;
+	}
+	return (*this);
 }
 
-/* check if `c` is an arythmetic operator or a digit */
-bool    RPN::char_is_valid(char c) {
 
-	return ((c == '+' || c == '-' || c == '/' || c == '*')
-		|| (isdigit(c))
+bool	RPN::_is_valid_char(char c) {
+	return (
+		(c == ' ')
+		|| (c == '+' || c == '-' || c == '/' || c == '*')
+		|| (c >= '0' && c <= '9')
 	);
 }
 
-/* check if string are composed by arythmetic operator or digit, separate by space */
-bool    RPN::input_is_valid(std::string str) {
-	
-	for (uint8_t i = 0; str[i]; i++) {
-
-		if (!(i % 2)) {
-			if (!char_is_valid(str[i]))
-				return (0);
-		} else if (str[i] != ' ')
-			return (0);
-	}
-	return (1);
+bool	RPN::_is_operator(char c) {
+	return (
+		c == '+' || c == '-' || c == '/' || c == '*'
+	);
 }
 
-/* fill our `std::stack _n`, with our char */
-void	RPN::fill_stack(std::string str) {
+void	RPN::_stack_operation(char sign) {
 
-	for (int8_t i = str.length() - 1; i >= 0; i -= 2) {
-		isdigit(str[i]) ? _n.push(str[i] - 48) : _n.push(str[i]);
+	int32_t	n1, n2;
+
+	n1 = _stack.top();
+	_stack.pop();
+	n2 = _stack.top();
+	_stack.pop();
+
+	switch (sign) {
+		case '+':
+			_stack.push(n2 + n1);
+			break;
+		case '-':
+			_stack.push(n2 - n1);
+			break;
+		case '/':
+			_stack.push(n2 / n1);
+			break;
+		case '*':
+			_stack.push(n2 * n1);
+			break;
 	}
-	print_stack(_n);
+}
+
+void	RPN::calcul(const std::string &input) {
+	
+	if (input.empty())
+		throw std::invalid_argument("empty string");
+
+	for (uint16_t i = 0; input[i]; i++) {
+		if (!_is_valid_char(input[i])) {
+			throw std::invalid_argument("invalid character in string");
+		}
+	}
+
+	for (uint16_t i = 0; input[i]; i++) {
+		if 			(input[i] == ' ')			{ continue; }
+		else if		(_is_operator(input[i]))	{ _stack_operation(input[i]); }
+		else									{ _stack.push(input[i] - 48); }
+	}
+
+	if (_stack.size() != 1)
+		throw std::invalid_argument("invalid logic");
+	std::cout << _stack.top() << std::endl;
 }

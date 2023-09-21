@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <jucheval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 05:21:57 by jucheval          #+#    #+#             */
-/*   Updated: 2023/04/06 07:07:17 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:41:21 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include <algorithm>
 #include <map>
 #include <ctime>
-
-
 
 class BitcoinExchange {
 	private:
