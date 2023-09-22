@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:47 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/22 18:11:08 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/22 19:12:22 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <exception>
 #include <vector>
+#include <list>
 #include <stdint.h>
 #include <cstdlib>
 #include <ctime>
@@ -25,7 +26,10 @@ class PmergeMe {
 
 	private:
 		std::vector<uint32_t>		_vector_c;
+		std::list<uint32_t>			_list_c;
+		
 		double						_duration_vector_c;
+		double						_duration_list_c;
 
 	public:
 		PmergeMe();
@@ -38,7 +42,11 @@ class PmergeMe {
 		
 		void	fill_vector_c(int ac, char **av);
 		void	ford_johson_vector_c(void);
-		void	print_time_vector_c();
+		void	print_time_vector_c(void);
+
+		void	fill_list_c(int ac, char **av);
+		void	ford_johson_list_c(void);
+		void	print_time_list_c(void);
 
 		void	print_before(int ac, char **av);
 		void	print_after(void);

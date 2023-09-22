@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:34 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/22 18:09:27 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/22 19:10:44 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,38 @@ void	PmergeMe::print_time_vector_c() {
 				<< " us" << std::endl;
 }
 
+/* `list_c` */
+void	PmergeMe::fill_list_c(int ac, char **av) {
+
+	for (int32_t i = 1; i < ac; i++) {
+		_list_c.push_back(atoi(av[i]));
+	}
+}
+
+void	PmergeMe::ford_johson_list_c() {
+
+	std::clock_t	start_list = std::clock();
+
+	// insert algo here
+	
+	std::clock_t end_list = std::clock();
+	_duration_list_c = static_cast<double>(end_list - start_list) / CLOCKS_PER_SEC * 1000000;
+
+}
+
+void	PmergeMe::print_time_list_c() {
+	
+	std::cout	<< "Time to process a range of "
+				<< _list_c.size()
+				<< " elements with std::[list] : "
+				<< _duration_list_c
+				<< " us" << std::endl;
+}
+
 
 /* utils */
 void	PmergeMe::print_before(int ac, char **av) {
-	
+
 	std::cout << "Before:  ";
 
 	for (int32_t i = 1; i < ac; i++) {
