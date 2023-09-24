@@ -22,7 +22,7 @@ int main() {
 	
 	mstack.pop();
 	std::cout << "new top : " << mstack.top() << std::endl;
-	std::cout << "size of stack : " << mstack.size() << std::endl;
+	std::cout << "size of stack : " << mstack.size() << std::endl << std::endl;
 	
 	mstack.push(3);
 	mstack.push(5);
@@ -37,12 +37,16 @@ int main() {
 		std::cout << *it << std::endl;
 		++it;
 	}
+	std::cout << std::endl;
+
 	
 	std::cout << "-------------- copy constructor" << std::endl;
 	MutantStack<int> s1(mstack);
 	for (MutantStack<int>::iterator it = s1.begin(); it != s1.end(); it++)
-		std::cout << *it << std::endl;		
-	
+		std::cout << *it << std::endl;
+	std::cout << std::endl;
+
+
 	std::cout << "-------------- assignment constructor" << std::endl;
 	MutantStack<int> s2 = s1;
 	for (MutantStack<int>::iterator it = s2.begin(); it != s2.end(); it++)
