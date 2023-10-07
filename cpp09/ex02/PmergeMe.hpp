@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:47 by jucheval          #+#    #+#             */
-/*   Updated: 2023/10/07 08:17:34 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/10/07 08:47:28 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,8 @@ class PmergeMe {
 		/* init jacob */
 		std::vector<long long unsigned>	init_jacob(void);
 		
-		/* all things about our `_vector_c` */
+		/* start our algorithm for each type of container, and save the time of it */
 		void	start_ford_johson_vector_c(int ac, char **av);
-
-		/* all things about our `_deque_c` */
 		void	start_ford_johson_deque_c(int ac, char **av);
 
 		
@@ -58,8 +56,7 @@ class PmergeMe {
 		template <typename T>
 		void	fill_container(int ac, char **av, T &c);
 
-		/* swap value in pair if the left value is higher than right value,
-		in any type of container */
+		/* swap value in pair if the left value is higher than right value */
 		template <typename T>
 		void	sort_pair(T &a);
 		
@@ -89,14 +86,12 @@ class PmergeMe {
 		template <typename T>
 		void	insert(T &vector, int value, int index);
 
-		/* print our about our different container with the correct syntax */
+		/* print the algorithm executing time of our different container with the correct syntax */
 		void	print_time_vector_c(int ac);
 		void	print_time_deque_c(int ac);
 
-		/* print our list before any changement */
+		/* print our list before and after sorting */
 		void	print_before(int ac, char **av);
-
-		/* print our list once sorted */
 		void	print_after(void);
 
 		/* debug function */

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:34 by jucheval          #+#    #+#             */
-/*   Updated: 2023/10/07 08:39:50 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/10/07 08:48:13 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ std::deque<int>	PmergeMe::creat_deque_from_pair() {
 }
 
 
-/* main function about algorythm */
+/* main function about algorithm */
 void	PmergeMe::start_ford_johson_vector_c(int ac, char **av) {
 
 	std::clock_t	start_vec = std::clock();
@@ -132,7 +132,7 @@ void	PmergeMe::start_ford_johson_deque_c(int ac, char **av) {
 }
 
 
-/* algorythm */
+/* algorithm */
 template <class T>
 void	PmergeMe::sort_pair(T &a) {
 	
@@ -295,7 +295,7 @@ void	PmergeMe::binary_insert_sort(T &c, G &second_c)
 template <typename T>
 void PmergeMe::__print_vector_element__(T &c) {
 	
-	std::cout << "debug : ";
+	std::cout << "Debug: ";
 	
 	for (typename T::iterator it = c.begin(); it != c.end(); it++) {
 		std::cout << it->first << " " << it->second << " | ";
