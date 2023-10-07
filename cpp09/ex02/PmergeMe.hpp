@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:47 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/22 19:12:22 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/10/07 06:28:06 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,24 @@
 #include <iostream>
 #include <exception>
 #include <vector>
-#include <list>
+#include <deque>
+#include <utility>
+#include <limits.h>
 #include <stdint.h>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 
-#define BEFORE 0
-#define AFTER 1
 
 class PmergeMe {
 
 	private:
-		std::vector<uint32_t>		_vector_c;
-		std::list<uint32_t>			_list_c;
+		std::vector<std::pair<int32_t, int32_t> >		_vector_c;
+		std::deque<std::pair<int32_t, int32_t> >		_deque_c;
+		std::vector<long long unsigned>					_jacob;
 		
-		double						_duration_vector_c;
-		double						_duration_list_c;
+		double											_duration_vector_c;
+		double											_duration_deque_c;
 
 	public:
 		PmergeMe();
@@ -38,16 +40,27 @@ class PmergeMe {
 
 		PmergeMe	&operator=(const PmergeMe &rhs);
 
-		void	arg_is_valid(int ac, char **av);
+		void							arg_is_valid(int ac, char **av);
+		std::vector<long long unsigned>	init_jacob(void);
 		
-		void	fill_vector_c(int ac, char **av);
-		void	ford_johson_vector_c(void);
-		void	print_time_vector_c(void);
 
-		void	fill_list_c(int ac, char **av);
-		void	ford_johson_list_c(void);
-		void	print_time_list_c(void);
+		void							fill_vector_c(int ac, char **av);
+		void							start_ford_johson_vector_c(void);
+		void							merge_sort(std::vector<std::pair<int32_t, int32_t> > &a, int beg, int end);
+		void							merge(std::vector<std::pair<int32_t, int32_t> > &a, int beg, int mid, int end);
+		std::vector<int>				creat_vector_from_pair();
+		void							binary_insert_sort(std::vector<std::pair<int32_t, int32_t > > &vector, std::vector<int32_t> &second_vector);
+		std::vector<int32_t>::iterator	get_pos(std::vector<int> &vec);
+		int32_t							binary_search(std::vector<std::pair<int32_t, int32_t > > &vector, int value, int L, int R);
+		void							insert(std::vector<std::pair<int32_t, int32_t > > &vector, int value, int index);
+
+
+		void							print_time_vector_c(int ac);
+
+
 
 		void	print_before(int ac, char **av);
 		void	print_after(void);
+
+		void __print_vector_element__(void);
 };
