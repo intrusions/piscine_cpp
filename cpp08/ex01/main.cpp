@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 04:59:29 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/19 16:10:00 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/27 22:45:41 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ int main() {
 		std::vector<int> v;
 		for (uint8_t i = 0; i < 10; ++i)
 			v.push_back(i);
+		
 		span.addNumber(v.begin(), v.end()); 
 		data = span.getData();
 		for (std::vector<int>::iterator it = data.begin(); it != data.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;
+
+		span.addNumber(42); 
 	}
 	catch (std::exception & e) {
 		std::cout << e.what() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 20:55:12 by jucheval          #+#    #+#             */
-/*   Updated: 2023/03/29 20:06:11 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/09/27 23:46:55 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ class MutantStack : public std::stack<T> {
 		virtual ~MutantStack()	{};
 
 		MutantStack	&operator=(MutantStack const &rhs) {
-			if (this != &rhs)
-				MutantStack::stack(rhs);
-			return (*this);		
+			if (this != &rhs) {
+				std::stack<T>::operator=(rhs);
+			}
+			return (*this);
 		}
 
 		typedef typename std::stack<T>::container_type::iterator 		iterator;

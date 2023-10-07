@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:34 by jucheval          #+#    #+#             */
-/*   Updated: 2023/10/07 06:38:44 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/10/07 08:39:50 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,22 @@ void    PmergeMe::arg_is_valid(int ac, char **av) {
 	for (int32_t i = 1; i < ac; i++) {
 		for (uint8_t j = 0; av[i][j]; j++) {
 			if (!isdigit(av[i][j]) && av[i][j] != ' ')
-				throw std::invalid_argument("invalid character in input");
+				throw std::invalid_argument("error: invalid character in input");
 		}
 	}
 }
 
 
-/* `vector_c` */
-void	PmergeMe::fill_vector_c(int ac, char **av) {
+/* utils */
+std::vector<long long unsigned>	PmergeMe::init_jacob(void) {
+	
+	static const int arr[] = {0, 1, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525, 699051, 1398101, 2796203, 5592405, 11184811, 22369621, 44739243, 89478485, 178956971, 357913941};
+	std::vector<long long unsigned> res(arr, arr + sizeof(arr) / sizeof(arr[0]));
+	return (res);
+}
+
+template <typename T>
+void	PmergeMe::fill_container(int ac, char **av, T &c) {
 	
 	std::pair<int32_t, int32_t>	pair;
 	int64_t						buffer;
@@ -50,7 +58,7 @@ void	PmergeMe::fill_vector_c(int ac, char **av) {
 		
 		buffer = atol(av[i]);
 		if (buffer > INT_MAX)
-			throw std::invalid_argument("`int32_t` overflow");
+			throw std::invalid_argument("error: `int32_t` overflow");
 
 		pair.first = buffer;
 		
@@ -58,67 +66,12 @@ void	PmergeMe::fill_vector_c(int ac, char **av) {
 			
 			buffer = atol(av[i + 1]);
 			if (buffer > INT_MAX)
-				throw std::invalid_argument("`int32_t` overflow");
+				throw std::invalid_argument("error: `int32_t` overflow");
 			pair.second = buffer;
 		} else {
 			pair.second = -1;
 		}
-		_vector_c.push_back(pair);
-	}
-}
-
-void	PmergeMe::merge(std::vector<std::pair<int32_t, int32_t> > &a, int left, int mid, int right) {
-
-	int	subArrayOne = mid - left + 1;
-	int	subArrayTwo = right - mid;
- 
-	int *leftArray = new int[subArrayOne];
-	int *rightArray = new int[subArrayTwo];
- 
-	for (int i = 0; i < subArrayOne; i++)
-		leftArray[i] = a[left + i].first;
-	for (int j = 0; j < subArrayTwo; j++)
-		rightArray[j] = a[mid + 1 + j].first;
- 
-	int indexOfSubArrayOne = 0;
-	int indexOfSubArrayTwo = 0;
-	int indexOfMergedArray = left;
- 
-	while (indexOfSubArrayOne < subArrayOne && indexOfSubArrayTwo < subArrayTwo) {
-		if (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo]) {
-			a[indexOfMergedArray].first = leftArray[indexOfSubArrayOne];
-			indexOfSubArrayOne++;
-		} else {
-			a[indexOfMergedArray].first = rightArray[indexOfSubArrayTwo];
-			indexOfSubArrayTwo++;
-		}
-		indexOfMergedArray++;
-	}
- 
-	while (indexOfSubArrayOne < subArrayOne) {
-		a[indexOfMergedArray].first = leftArray[indexOfSubArrayOne];
-		indexOfSubArrayOne++;
-		indexOfMergedArray++;
-	}
- 
-	while (indexOfSubArrayTwo < subArrayTwo) {
-		a[indexOfMergedArray].first = rightArray[indexOfSubArrayTwo];
-		indexOfSubArrayTwo++;
-		indexOfMergedArray++;
-	}
-	
-	delete[] leftArray;
-	delete[] rightArray;
-}
-
-void	PmergeMe::merge_sort(std::vector<std::pair<int32_t, int32_t> > &a, int beg, int end)
-{
-	if (beg < end)
-	{
-		int mid = (beg + end) / 2;
-		merge_sort(a, beg, mid);
-		merge_sort(a, mid + 1, end);
-		merge(a, beg, mid, end);
+		c.push_back(pair);
 	}
 }
 
@@ -133,14 +86,122 @@ std::vector<int>	PmergeMe::creat_vector_from_pair() {
 	return (res);
 }
 
-std::vector<long long unsigned>	PmergeMe::init_jacob(void)
-{
-	static const int arr[] = {0, 1, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525, 699051, 1398101, 2796203, 5592405, 11184811, 22369621, 44739243, 89478485, 178956971, 357913941};
-	std::vector<long long unsigned> res(arr, arr + sizeof(arr) / sizeof(arr[0]));
+std::deque<int>	PmergeMe::creat_deque_from_pair() {
+	
+	std::deque<int>	res;
+	
+	for (std::deque<std::pair<int, int> >::iterator it = _deque_c.begin(); it != _deque_c.end(); it++) {
+		if (it->second != -1)
+			res.push_back(it->second);
+	}
 	return (res);
 }
 
-int32_t	 PmergeMe::binary_search(std::vector<std::pair<int32_t, int32_t > > &vector, int value, int L, int R) {
+
+/* main function about algorythm */
+void	PmergeMe::start_ford_johson_vector_c(int ac, char **av) {
+
+	std::clock_t	start_vec = std::clock();
+
+	fill_container(ac, av, _vector_c);
+	sort_pair(_vector_c);
+	
+	merge_sort(_vector_c, 0, _vector_c.size() - 1);
+	
+	std::vector<int> second_vector = creat_vector_from_pair();
+	binary_insert_sort(_vector_c, second_vector);
+
+	std::clock_t end_vec = std::clock();
+	_duration_vector_c = (double) ((double) ((double) end_vec / (double) CLOCKS_PER_SEC * 1000) - (double)((start_vec / (double) CLOCKS_PER_SEC) * 1000));
+}
+
+void	PmergeMe::start_ford_johson_deque_c(int ac, char **av) {
+
+	std::clock_t	start_deque = std::clock();
+
+	fill_container(ac, av, _deque_c);
+	sort_pair(_deque_c);
+	
+	merge_sort(_deque_c, 0, _deque_c.size() - 1);
+	
+	std::deque<int> second_deque = creat_deque_from_pair();
+	binary_insert_sort(_deque_c, second_deque);
+
+	std::clock_t end_deque = std::clock();
+	_duration_deque_c = (double) ((double) ((double) end_deque / (double) CLOCKS_PER_SEC * 1000) - (double)((start_deque / (double) CLOCKS_PER_SEC) * 1000));
+}
+
+
+/* algorythm */
+template <class T>
+void	PmergeMe::sort_pair(T &a) {
+	
+	for (typename T::iterator it = a.begin(); it != a.end(); it++) {
+		if (it->second < it->first && it->second != -1) {
+			std::swap(it->first, it->second);
+		}
+	}
+};
+
+template <typename T>
+void	PmergeMe::merge_sort(T &a, int beg, int end)
+{
+	if (beg < end)
+	{
+		int mid = (beg + end) / 2;
+		merge_sort(a, beg, mid);
+		merge_sort(a, mid + 1, end);
+		merge(a, beg, mid, end);
+	}
+}
+
+template <typename T>
+void	PmergeMe::merge(T &c, int left, int mid, int right) {
+
+	int	sub_array_one = mid - left + 1;
+	int	sub_array_two = right - mid;
+ 
+	int *left_array = new int[sub_array_one];
+	int *right_array = new int[sub_array_two];
+ 
+	for (int i = 0; i < sub_array_one; i++)
+		left_array[i] = c[left + i].first;
+	for (int j = 0; j < sub_array_two; j++)
+		right_array[j] = c[mid + 1 + j].first;
+ 
+	int index_of_sub_array_one = 0;
+	int index_of_sub_array_two = 0;
+	int index_of_merged_array = left;
+ 
+	while (index_of_sub_array_one < sub_array_one && index_of_sub_array_two < sub_array_two) {
+		if (left_array[index_of_sub_array_one] <= right_array[index_of_sub_array_two]) {
+			c[index_of_merged_array].first = left_array[index_of_sub_array_one];
+			index_of_sub_array_one++;
+		} else {
+			c[index_of_merged_array].first = right_array[index_of_sub_array_two];
+			index_of_sub_array_two++;
+		}
+		index_of_merged_array++;
+	}
+ 
+	while (index_of_sub_array_one < sub_array_one) {
+		c[index_of_merged_array].first = left_array[index_of_sub_array_one];
+		index_of_sub_array_one++;
+		index_of_merged_array++;
+	}
+ 
+	while (index_of_sub_array_two < sub_array_two) {
+		c[index_of_merged_array].first = right_array[index_of_sub_array_two];
+		index_of_sub_array_two++;
+		index_of_merged_array++;
+	}
+	
+	delete[] left_array;
+	delete[] right_array;
+}
+
+template <typename T>
+int32_t	 PmergeMe::binary_search(T &vector, int value, int L, int R) {
 	
 	if (abs(L - R) <= 1)
 		return (L);
@@ -171,7 +232,26 @@ std::vector<int32_t>::iterator PmergeMe::get_pos(std::vector<int> &vec) {
 	return (pos);
 }
 
-void	PmergeMe::insert(std::vector<std::pair<int32_t, int32_t > > &vector, int value, int index) {
+std::deque<int32_t>::iterator PmergeMe::get_pos(std::deque<int> &deq) {
+	
+	std::vector<long long unsigned>::iterator	it = _jacob.begin();
+	std::vector<long long unsigned>::iterator	find_res;
+	std::deque<int>::iterator 					pos = deq.end();
+	int											buff = -1;
+
+	for (std::deque<int>::iterator it2 = deq.begin(); it2 != deq.end(); it2++) {
+		
+		find_res = find(it, _jacob.end(), *it2);
+		if (find_res != _jacob.end() && (buff == -1 || (buff != -1 && buff < find_res - it))) {
+			buff = find_res - it;
+			pos = it2;
+		}
+	}
+	return (pos);
+}
+
+template <typename T>
+void	PmergeMe::insert(T &vector, int value, int index) {
 
 	std::pair<int, int>	pair;
 
@@ -189,69 +269,35 @@ void	PmergeMe::insert(std::vector<std::pair<int32_t, int32_t > > &vector, int va
 	}
 };
 
-void	PmergeMe::binary_insert_sort(std::vector<std::pair<int32_t, int32_t > > &vector, std::vector<int32_t> &second_vector)
+
+template <typename T, typename G>
+void	PmergeMe::binary_insert_sort(T &c, G &second_c)
 {
-	std::vector<int32_t>::iterator	elem;
-	int								index;
-	PmergeMe						jacob;
+	typename G::iterator	elem;
+	int						index;
 	
-	while (!second_vector.empty()) {
+	while (!second_c.empty()) {
 		
-		elem = get_pos(second_vector);
-		if (elem != second_vector.end()) {
-			index = binary_search(vector, *elem, 0, vector.size());
-			insert(vector, *elem, index);
-			second_vector.erase(elem);
+		elem = get_pos(second_c);
+		if (elem != second_c.end()) {
+			index = binary_search(c, *elem, 0, c.size());
+			insert(c, *elem, index);
+			second_c.erase(elem);
 		} else {
-			index = binary_search(vector, *(second_vector.begin()), 0, vector.size());
-			insert(vector, *(second_vector.begin()), index);
-			second_vector.erase(second_vector.begin());
+			index = binary_search(c, *(second_c.begin()), 0, c.size());
+			insert(c, *(second_c.begin()), index);
+			second_c.erase(second_c.begin());
 		}
 	}
 };
 
-void	PmergeMe::start_ford_johson_vector_c() {
-
-	std::clock_t	start_vec = std::clock();
-
-	/* swap value in pair if the left value is higher than right value */
-	for (std::vector<std::pair<int32_t, int32_t > >::iterator it = _vector_c.begin(); it != _vector_c.end(); it++) {
-
-		if (it->first > it->second) {
-			std::swap(it->first, it->second);
-		}
-	}
-	
-	/* sort list but only left number */
-	merge_sort(_vector_c, 0, _vector_c.size() - 1);
-	
-	/* creat a second `std::vector`, but this time with no `std::pair`, only with number contained in our previous list */
-	std::vector<int> second_vector = creat_vector_from_pair();
-
-	/* binary insert sort */
-	binary_insert_sort(_vector_c, second_vector);
-
-	std::clock_t end_vec = std::clock();
-	_duration_vector_c = static_cast<double>(end_vec - start_vec) / CLOCKS_PER_SEC * 1000000;
-
-}
-
-void	PmergeMe::print_time_vector_c(int ac) {
-	
-	std::cout	<< "Time to process a range of "
-				<< ac
-				<< " elements with std::[vector] : "
-				<< _duration_vector_c
-				<< " us" << std::endl;
-}
-
-
 /* utils print */
-void PmergeMe::__print_vector_element__() {
+template <typename T>
+void PmergeMe::__print_vector_element__(T &c) {
 	
 	std::cout << "debug : ";
 	
-	for (std::vector<std::pair<int32_t, int32_t > >::iterator it = _vector_c.begin(); it != _vector_c.end(); it++) {
+	for (typename T::iterator it = c.begin(); it != c.end(); it++) {
 		std::cout << it->first << " " << it->second << " | ";
 	}
 	std::cout << std::endl;
@@ -275,4 +321,22 @@ void	PmergeMe::print_after() {
 		std::cout << it->first << " ";
 	}
 	std::cout << std::endl;
+}
+
+void	PmergeMe::print_time_vector_c(int ac) {
+	
+	std::cout	<< "Time to process a range of "
+				<< ac - 1
+				<< " elements with std::[vector] : "
+				<< _duration_vector_c
+				<< " us" << std::endl;
+}
+
+void	PmergeMe::print_time_deque_c(int ac) {
+	
+	std::cout	<< "Time to process a range of "
+				<< ac - 1
+				<< " elements with std::[deque]  : "
+				<< _duration_deque_c
+				<< " us" << std::endl;
 }
