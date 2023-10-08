@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:34 by jucheval          #+#    #+#             */
-/*   Updated: 2023/10/08 03:32:21 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/10/08 05:30:26 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,12 @@ void    PmergeMe::arg_is_valid(int ac, char **av) {
 std::vector<uint64_t> PmergeMe::_init_jacobsthal() {
 	
 	std::vector<uint64_t>	res;
-	uint8_t					n = 1;
 	
 	res.push_back(0);
 	res.push_back(1);
 
-	for (; n < 31; n++) {
-		uint64_t next = res[n] * 2 + res[n - 1];
+	for (uint8_t n = 1; n < 31; n++) {
+		uint64_t next = res[n] + (res[n - 1] * 2);
 		res.push_back(next);
 	}
 	return (res);
