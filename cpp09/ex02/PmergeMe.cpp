@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:34 by jucheval          #+#    #+#             */
-/*   Updated: 2023/10/07 08:48:13 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/10/08 03:04:19 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,18 @@ void    PmergeMe::arg_is_valid(int ac, char **av) {
 
 
 /* utils */
-std::vector<long long unsigned>	PmergeMe::init_jacob(void) {
+std::vector<uint64_t> PmergeMe::init_jacob() {
 	
-	static const int arr[] = {0, 1, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525, 699051, 1398101, 2796203, 5592405, 11184811, 22369621, 44739243, 89478485, 178956971, 357913941};
-	std::vector<long long unsigned> res(arr, arr + sizeof(arr) / sizeof(arr[0]));
+	std::vector<uint64_t>	res;
+	uint8_t					n = 1;
+	
+	res.push_back(0);
+	res.push_back(1);
+
+	for (; n < 31; n++) {
+		uint64_t next = res[n] * 2 + res[n - 1];
+		res.push_back(next);
+	}
 	return (res);
 }
 
@@ -75,22 +83,22 @@ void	PmergeMe::fill_container(int ac, char **av, T &c) {
 	}
 }
 
-std::vector<int>	PmergeMe::creat_vector_from_pair() {
+std::vector<int32_t>	PmergeMe::creat_vector_from_pair() {
 	
-	std::vector<int>	res;
+	std::vector<int32_t>	res;
 	
-	for (std::vector<std::pair<int, int> >::iterator it = _vector_c.begin(); it != _vector_c.end(); it++) {
+	for (std::vector<std::pair<int32_t, int32_t> >::iterator it = _vector_c.begin(); it != _vector_c.end(); it++) {
 		if (it->second != -1)
 			res.push_back(it->second);
 	}
 	return (res);
 }
 
-std::deque<int>	PmergeMe::creat_deque_from_pair() {
+std::deque<int32_t>	PmergeMe::creat_deque_from_pair() {
 	
-	std::deque<int>	res;
+	std::deque<int32_t>	res;
 	
-	for (std::deque<std::pair<int, int> >::iterator it = _deque_c.begin(); it != _deque_c.end(); it++) {
+	for (std::deque<std::pair<int32_t, int32_t> >::iterator it = _deque_c.begin(); it != _deque_c.end(); it++) {
 		if (it->second != -1)
 			res.push_back(it->second);
 	}
@@ -101,18 +109,18 @@ std::deque<int>	PmergeMe::creat_deque_from_pair() {
 /* main function about algorithm */
 void	PmergeMe::start_ford_johson_vector_c(int ac, char **av) {
 
-	std::clock_t	start_vec = std::clock();
+	std::clock_t	start_vector = std::clock();
 
 	fill_container(ac, av, _vector_c);
 	sort_pair(_vector_c);
-	
+
 	merge_sort(_vector_c, 0, _vector_c.size() - 1);
 	
-	std::vector<int> second_vector = creat_vector_from_pair();
+	std::vector<int32_t> second_vector = creat_vector_from_pair();
 	binary_insert_sort(_vector_c, second_vector);
 
-	std::clock_t end_vec = std::clock();
-	_duration_vector_c = (double) ((double) ((double) end_vec / (double) CLOCKS_PER_SEC * 1000) - (double)((start_vec / (double) CLOCKS_PER_SEC) * 1000));
+	std::clock_t end_vector = std::clock();
+	_duration_vector_c = ((double)end_vector / CLOCKS_PER_SEC * 1000) - ((double)start_vector / CLOCKS_PER_SEC * 1000);
 }
 
 void	PmergeMe::start_ford_johson_deque_c(int ac, char **av) {
@@ -124,11 +132,11 @@ void	PmergeMe::start_ford_johson_deque_c(int ac, char **av) {
 	
 	merge_sort(_deque_c, 0, _deque_c.size() - 1);
 	
-	std::deque<int> second_deque = creat_deque_from_pair();
+	std::deque<int32_t> second_deque = creat_deque_from_pair();
 	binary_insert_sort(_deque_c, second_deque);
 
-	std::clock_t end_deque = std::clock();
-	_duration_deque_c = (double) ((double) ((double) end_deque / (double) CLOCKS_PER_SEC * 1000) - (double)((start_deque / (double) CLOCKS_PER_SEC) * 1000));
+	std::clock_t end_deque = std::clock();	
+	_duration_deque_c = ((double)end_deque / CLOCKS_PER_SEC * 1000) - ((double)start_deque / CLOCKS_PER_SEC * 1000);
 }
 
 
@@ -144,11 +152,11 @@ void	PmergeMe::sort_pair(T &a) {
 };
 
 template <typename T>
-void	PmergeMe::merge_sort(T &a, int beg, int end)
-{
-	if (beg < end)
-	{
-		int mid = (beg + end) / 2;
+void	PmergeMe::merge_sort(T &a, int32_t beg, int32_t end) {
+	
+	if (beg < end) {
+		
+		int32_t mid = (beg + end) / 2;
 		merge_sort(a, beg, mid);
 		merge_sort(a, mid + 1, end);
 		merge(a, beg, mid, end);
@@ -156,22 +164,22 @@ void	PmergeMe::merge_sort(T &a, int beg, int end)
 }
 
 template <typename T>
-void	PmergeMe::merge(T &c, int left, int mid, int right) {
+void	PmergeMe::merge(T &c, int32_t left, int32_t mid, int32_t right) {
 
-	int	sub_array_one = mid - left + 1;
-	int	sub_array_two = right - mid;
+	int32_t	sub_array_one = mid - left + 1;
+	int32_t	sub_array_two = right - mid;
  
-	int *left_array = new int[sub_array_one];
-	int *right_array = new int[sub_array_two];
+	int32_t *left_array = new int32_t[sub_array_one];
+	int32_t *right_array = new int32_t[sub_array_two];
  
-	for (int i = 0; i < sub_array_one; i++)
+	for (int32_t i = 0; i < sub_array_one; i++)
 		left_array[i] = c[left + i].first;
-	for (int j = 0; j < sub_array_two; j++)
+	for (int32_t j = 0; j < sub_array_two; j++)
 		right_array[j] = c[mid + 1 + j].first;
  
-	int index_of_sub_array_one = 0;
-	int index_of_sub_array_two = 0;
-	int index_of_merged_array = left;
+	int32_t index_of_sub_array_one = 0;
+	int32_t index_of_sub_array_two = 0;
+	int32_t index_of_merged_array = left;
  
 	while (index_of_sub_array_one < sub_array_one && index_of_sub_array_two < sub_array_two) {
 		if (left_array[index_of_sub_array_one] <= right_array[index_of_sub_array_two]) {
@@ -201,12 +209,12 @@ void	PmergeMe::merge(T &c, int left, int mid, int right) {
 }
 
 template <typename T>
-int32_t	 PmergeMe::binary_search(T &vector, int value, int L, int R) {
+int32_t	 PmergeMe::binary_search(T &vector, int32_t value, int32_t L, int32_t R) {
 	
 	if (abs(L - R) <= 1)
 		return (L);
 	
-	int	mid = (L + R) / 2 - 1;
+	int32_t	mid = (L + R) / 2 - 1;
 	
 	if (value > vector[mid].first)
 		return (binary_search(vector, value, mid + 1, R));
@@ -216,12 +224,12 @@ int32_t	 PmergeMe::binary_search(T &vector, int value, int L, int R) {
 
 std::vector<int32_t>::iterator PmergeMe::get_pos(std::vector<int> &vec) {
 	
-	std::vector<long long unsigned>::iterator	it = _jacob.begin();
-	std::vector<long long unsigned>::iterator	find_res;
-	std::vector<int>::iterator 					pos = vec.end();
-	int											buff = -1;
+	std::vector<uint64_t>::iterator	it = _jacob.begin();
+	std::vector<uint64_t>::iterator	find_res;
+	std::vector<int32_t>::iterator 	pos = vec.end();
+	int32_t							buff = -1;
 
-	for (std::vector<int>::iterator it2 = vec.begin(); it2 != vec.end(); it2++) {
+	for (std::vector<int32_t>::iterator it2 = vec.begin(); it2 != vec.end(); it2++) {
 		
 		find_res = find(it, _jacob.end(), *it2);
 		if (find_res != _jacob.end() && (buff == -1 || (buff != -1 && buff < find_res - it))) {
@@ -232,14 +240,14 @@ std::vector<int32_t>::iterator PmergeMe::get_pos(std::vector<int> &vec) {
 	return (pos);
 }
 
-std::deque<int32_t>::iterator PmergeMe::get_pos(std::deque<int> &deq) {
+std::deque<int32_t>::iterator PmergeMe::get_pos(std::deque<int32_t> &deq) {
 	
-	std::vector<long long unsigned>::iterator	it = _jacob.begin();
-	std::vector<long long unsigned>::iterator	find_res;
-	std::deque<int>::iterator 					pos = deq.end();
-	int											buff = -1;
+	std::vector<uint64_t>::iterator	it = _jacob.begin();
+	std::vector<uint64_t>::iterator	find_res;
+	std::deque<int32_t>::iterator 					pos = deq.end();
+	int32_t											buff = -1;
 
-	for (std::deque<int>::iterator it2 = deq.begin(); it2 != deq.end(); it2++) {
+	for (std::deque<int32_t>::iterator it2 = deq.begin(); it2 != deq.end(); it2++) {
 		
 		find_res = find(it, _jacob.end(), *it2);
 		if (find_res != _jacob.end() && (buff == -1 || (buff != -1 && buff < find_res - it))) {
@@ -251,9 +259,9 @@ std::deque<int32_t>::iterator PmergeMe::get_pos(std::deque<int> &deq) {
 }
 
 template <typename T>
-void	PmergeMe::insert(T &vector, int value, int index) {
+void	PmergeMe::insert(T &vector, int32_t value, int32_t index) {
 
-	std::pair<int, int>	pair;
+	std::pair<int32_t, int32_t>	pair;
 
 	pair.first = value;
 	pair.second = -1;
@@ -269,12 +277,11 @@ void	PmergeMe::insert(T &vector, int value, int index) {
 	}
 };
 
-
 template <typename T, typename G>
 void	PmergeMe::binary_insert_sort(T &c, G &second_c)
 {
 	typename G::iterator	elem;
-	int						index;
+	uint32_t				index;
 	
 	while (!second_c.empty()) {
 		
