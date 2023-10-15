@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:47 by jucheval          #+#    #+#             */
-/*   Updated: 2023/10/08 03:30:26 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/10/15 19:37:48 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class PmergeMe {
 		template <typename T> void	_sort_pair(T &a);
 		
 		/* merge sort */
-		template <typename T> void	_merge_sort(T &a, int32_t beg, int32_t end);
+		template <typename T> void	_merge_sort(T &c, int32_t beg, int32_t end);
 		template <typename T> void	_merge(T &a, int32_t beg, int mid, int32_t end);
 
 		/* creat a second container, but this time with no `std::pair`,
@@ -53,11 +53,13 @@ class PmergeMe {
 		std::deque<int>		_creat_deque_from_pair(void);
 		
 		/* binary insert sort */
-		template <typename T, typename G> void	_binary_insert_sort(T &vector, G &second_vector);
+		template <typename T, typename G> void	_binary_insert_sort(T &c, G &second_c);
+		template <typename T> int32_t			_binary_search(T &c, int32_t value, int32_t left, int32_t right);
+		template <typename T> void				_insert(T &vector, int32_t value, int32_t index);
+		
+		/* search */
 		std::vector<int32_t>::iterator			_get_pos(std::vector<int32_t> &vec);
 		std::deque<int32_t>::iterator			_get_pos(std::deque<int32_t> &deq);
-		template <typename T> int32_t			_binary_search(T &vector, int32_t value, int32_t L, int32_t R);
-		template <typename T> void				_insert(T &vector, int32_t value, int32_t index);
 
 	public:
 		PmergeMe();
