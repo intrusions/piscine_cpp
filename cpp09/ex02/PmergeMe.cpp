@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:34 by jucheval          #+#    #+#             */
-/*   Updated: 2023/10/15 19:38:20 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/10/30 06:14:52 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ PmergeMe    &PmergeMe::operator=(const PmergeMe &rhs) {
 	return (*this);
 }
 
-
-/* parsing check */
 void    PmergeMe::arg_is_valid(int ac, char **av) {
 	
 	for (int32_t i = 1; i < ac; i++) {
@@ -40,7 +38,14 @@ void    PmergeMe::arg_is_valid(int ac, char **av) {
 }
 
 
-/* main function about algorithm */
+/**
+ * Fill a `vector` container with `std::pair`
+ * and stock inside the number of our original list.
+ * Sort the 2 number by ascending order inside each pair.
+ * Applies a merge-sort on our `vector`.
+ * Creat a second `vector` from the first one, and applies 
+ * the binary-insert-sort.
+ */
 void	PmergeMe::start_ford_johson_vector_c(int ac, char **av) {
 
 	std::clock_t	start_vector = std::clock();
@@ -58,6 +63,14 @@ void	PmergeMe::start_ford_johson_vector_c(int ac, char **av) {
 	_duration_vector_c = ((double)end_vector / CLOCKS_PER_SEC * 1000) - ((double)start_vector / CLOCKS_PER_SEC * 1000);
 }
 
+/**
+ * Fill a `deque` container with `std::pair`
+ * and stock inside the number of our original list.
+ * Sort the 2 number by ascending order inside each pair.
+ * Applies a merge-sort on our `deque`.
+ * Creat a second `deque` from the first one, and applies 
+ * the binary-insert-sort.
+ */
 void	PmergeMe::start_ford_johson_deque_c(int ac, char **av) {
 
 	std::clock_t	start_deque = std::clock();
@@ -76,7 +89,9 @@ void	PmergeMe::start_ford_johson_deque_c(int ac, char **av) {
 }
 
 
-/* basic algorithm */
+/**
+ * Sort number inside each `std::pair` in `T` container.
+ */
 template <class T>
 void	PmergeMe::_sort_pair(T &a) {
 	
@@ -88,7 +103,12 @@ void	PmergeMe::_sort_pair(T &a) {
 };
 
 
-/* merge_sort algorithm */
+/**
+ * Recusivly divide by 2 the `T` list until
+ * each list of children is only composed by 2 `std::pair`.
+ * Call `_merge` with the current list for sort each 
+ * `.first` element of `std::pair`.
+ */
 template <typename T>
 void	PmergeMe::_merge_sort(T &c, int32_t beg, int32_t end) {
 	
@@ -101,15 +121,17 @@ void	PmergeMe::_merge_sort(T &c, int32_t beg, int32_t end) {
 	}
 }
 
+
+/**
+ * Creat two `sub_array`, one for left of our list
+ * and one for right.
+ * Fill our `sub_array` with `left`, `mid, and `right` value.
+ * Compare the element of our two list one by one, and put the lower in `c`.
+ * Once a index of a subarray is equal to the end of it,
+ * fill the rest of the other list in `c`.
+ */
 template <typename T>
 void	PmergeMe::_merge(T &c, int32_t left, int32_t mid, int32_t right) {
-
-	// __print_vector_element__(c);
-	// std::cout	<< "left :" << left << " | "
-	// 			<< "mid  :" << mid << " | "
-	// 			<< "right:" << right << " | "
-	// 			<< std::endl
-	// 			<< std::endl;
 
 	int32_t	sub_array_one = mid - left + 1;
 	int32_t	sub_array_two = right - mid;
