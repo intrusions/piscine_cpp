@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: xel <xel@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:34 by jucheval          #+#    #+#             */
-/*   Updated: 2023/10/31 02:05:53 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/10/31 17:22:01 by xel              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ void    PmergeMe::arg_is_valid(int ac, char **av) {
 
 /**
  * Fill a `vector` container with `std::pair`
- * and stock inside the number of our original list.
- * Sort the 2 number by descending order inside each pair.
- * Applies a merge-sort on our `vector`.
+ * and stock inside numbers of our original list.
+ * Sort the 2 numbers by descending order inside each pair.
+ * Applies a merge-sort on our `vector` for sort only `.first`.
  * Creat a second `vector` containing only the `.second`
- * from the first one, and applies the binary-insert-sort.
+ * from the first one, and applies the binary-insert-sort
+ * to insert numbers from `second_vector` to `_vector_c`.
  */
 void	PmergeMe::start_ford_johson_vector_c(int ac, char **av) {
 
@@ -65,11 +66,12 @@ void	PmergeMe::start_ford_johson_vector_c(int ac, char **av) {
 
 /**
  * Fill a `deque` container with `std::pair`
- * and stock inside the number of our original list.
- * Sort the 2 number by descending order inside each pair.
- * Applies a merge-sort on our `deque`.
+ * and stock inside numbers of our original list.
+ * Sort the 2 numbers by descending order inside each pair.
+ * Applies a merge-sort on our `deque` for sort only `.first`.
  * Creat a second `deque` containing only the `.second`
- * from the first one, and applies the binary-insert-sort.
+ * from the first one, and applies the binary-insert-sort
+ * to insert numbers from `second_deque` to `_deque_c`.
  */
 void	PmergeMe::start_ford_johson_deque_c(int ac, char **av) {
 
