@@ -6,16 +6,16 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:13:34 by jucheval          #+#    #+#             */
-/*   Updated: 2023/10/30 06:14:52 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/10/31 02:05:53 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 /* constructor/destructor */
-PmergeMe::PmergeMe() : _jacobsthal(_init_jacobsthal()) {}
+PmergeMe::PmergeMe() {}
 
-PmergeMe::PmergeMe(const PmergeMe &cpy) : _jacobsthal(_init_jacobsthal()) { (void)cpy; }
+PmergeMe::PmergeMe(const PmergeMe &cpy) { (void)cpy; }
 
 PmergeMe::~PmergeMe() {}
 
@@ -41,10 +41,10 @@ void    PmergeMe::arg_is_valid(int ac, char **av) {
 /**
  * Fill a `vector` container with `std::pair`
  * and stock inside the number of our original list.
- * Sort the 2 number by ascending order inside each pair.
+ * Sort the 2 number by descending order inside each pair.
  * Applies a merge-sort on our `vector`.
- * Creat a second `vector` from the first one, and applies 
- * the binary-insert-sort.
+ * Creat a second `vector` containing only the `.second`
+ * from the first one, and applies the binary-insert-sort.
  */
 void	PmergeMe::start_ford_johson_vector_c(int ac, char **av) {
 
@@ -57,19 +57,19 @@ void	PmergeMe::start_ford_johson_vector_c(int ac, char **av) {
 	
 	std::vector<int32_t> second_vector = _creat_vector_from_pair();
 	_binary_insert_sort(_vector_c, second_vector);
-	// __print_vector_element__(_vector_c);
 
 	std::clock_t end_vector = std::clock();
 	_duration_vector_c = ((double)end_vector / CLOCKS_PER_SEC * 1000) - ((double)start_vector / CLOCKS_PER_SEC * 1000);
 }
 
+
 /**
  * Fill a `deque` container with `std::pair`
  * and stock inside the number of our original list.
- * Sort the 2 number by ascending order inside each pair.
+ * Sort the 2 number by descending order inside each pair.
  * Applies a merge-sort on our `deque`.
- * Creat a second `deque` from the first one, and applies 
- * the binary-insert-sort.
+ * Creat a second `deque` containing only the `.second`
+ * from the first one, and applies the binary-insert-sort.
  */
 void	PmergeMe::start_ford_johson_deque_c(int ac, char **av) {
 
@@ -82,7 +82,6 @@ void	PmergeMe::start_ford_johson_deque_c(int ac, char **av) {
 
 	std::deque<int32_t> second_deque = _creat_deque_from_pair();
 	_binary_insert_sort(_deque_c, second_deque);
-	// __print_vector_element__(_deque_c);
 
 	std::clock_t end_deque = std::clock();	
 	_duration_deque_c = ((double)end_deque / CLOCKS_PER_SEC * 1000) - ((double)start_deque / CLOCKS_PER_SEC * 1000);
@@ -90,13 +89,13 @@ void	PmergeMe::start_ford_johson_deque_c(int ac, char **av) {
 
 
 /**
- * Sort number inside each `std::pair` in `T` container.
+ * Sort numbers by descending order inside each `std::pair` in `T` container.
  */
 template <class T>
 void	PmergeMe::_sort_pair(T &a) {
 	
 	for (typename T::iterator it = a.begin(); it != a.end(); it++) {
-		if (it->second < it->first && it->second != -1) {
+		if (it->second > it->first && it->second != -1) {
 			std::swap(it->first, it->second);
 		}
 	}
@@ -107,7 +106,7 @@ void	PmergeMe::_sort_pair(T &a) {
  * Recusivly divide by 2 the `T` list until
  * each list of children is only composed by 2 `std::pair`.
  * Call `_merge` with the current list for sort each 
- * `.first` element of `std::pair`.
+ * `.first` (the biggest) element of `std::pair`.
  */
 template <typename T>
 void	PmergeMe::_merge_sort(T &c, int32_t beg, int32_t end) {
@@ -176,28 +175,31 @@ void	PmergeMe::_merge(T &c, int32_t left, int32_t mid, int32_t right) {
 }
 
 
-/* binary_insert_sort algorithm */
+/**
+ * Loop on our `second_c` list (that contains all `.second` of `c` list).
+ * For each value, find the position where to insert it into `c`.
+ * Once the index is found, `_insert` the current first element of `second_c`
+ * into `c`.
+ * Erase the current `second_c.begin()`.
+ */
 template <typename T, typename G>
-void	PmergeMe::_binary_insert_sort(T &c, G &second_c)
-{
-	typename G::iterator	elem;
-	int32_t					index;
+void	PmergeMe::_binary_insert_sort(T &c, G &second_c) {
+	
+	int32_t	index;
 	
 	while (!second_c.empty()) {
 		
-		elem = _get_pos(second_c);
-		if (elem != second_c.end()) {
-			index = _binary_search(c, *elem, 0, c.size());
-			_insert(c, *elem, index);
-			second_c.erase(elem);
-		} else {
-			index = _binary_search(c, *(second_c.begin()), 0, c.size());
-			_insert(c, *(second_c.begin()), index);
-			second_c.erase(second_c.begin());
-		}
+		index = _binary_search(c, *(second_c.begin()), 0, c.size());
+		_insert(c, *(second_c.begin()), index);
+		second_c.erase(second_c.begin());
 	}
 };
 
+
+/**
+ * Recursivly divide by 2 to find index where to insert the value
+ * in `c` list.
+ */
 template <typename T>
 int32_t	 PmergeMe::_binary_search(T &c, int32_t value, int32_t left, int32_t right) {
 	
@@ -212,76 +214,29 @@ int32_t	 PmergeMe::_binary_search(T &c, int32_t value, int32_t left, int32_t rig
 		return (_binary_search(c, value, left, mid));
 };
 
+
+/**
+ * Creat a `std::pair` containing the actual `value` to insert.
+ * Check if we have to insert on the right or left of the `index`.
+ * Insert it.
+ */
 template <typename T>
 void	PmergeMe::_insert(T &c, int32_t value, int32_t index) {
 
 	std::pair<int32_t, int32_t>	pair;
+	typename T::iterator		insert_position = c.begin() + index;
 
 	pair.first = value;
 	pair.second = -1;
 
-	if (value > c[index].first) {
-		
-		if (c.begin() + index < c.end())
-			c.insert(c.begin() + index + 1, pair);
-		else
-			c.insert(c.begin() + index, pair);
-	} else {
-		c.insert(c.begin() + index, pair);
-	}
+    if (value > c[index].first) 
+        insert_position = c.begin() + index + 1;
+
+    c.insert(insert_position, pair);
 };
 
-std::vector<int32_t>::iterator PmergeMe::_get_pos(std::vector<int32_t> &vec) {
-	
-	std::vector<uint64_t>::iterator	it = _jacobsthal.begin();
-	std::vector<uint64_t>::iterator	find_res;
-	std::vector<int32_t>::iterator 	pos = vec.end();
-	int32_t							buff = -1;
-
-	for (std::vector<int32_t>::iterator it2 = vec.begin(); it2 != vec.end(); it2++) {
-		
-		find_res = find(it, _jacobsthal.end(), *it2);
-		if (find_res != _jacobsthal.end() && (buff == -1 || (buff != -1 && buff < find_res - it))) {
-			buff = find_res - it;
-			pos = it2;
-		}
-	}
-	return (pos);
-}
-
-std::deque<int32_t>::iterator PmergeMe::_get_pos(std::deque<int32_t> &deq) {
-	
-	std::vector<uint64_t>::iterator	it = _jacobsthal.begin();
-	std::vector<uint64_t>::iterator	find_res;
-	std::deque<int32_t>::iterator 	pos = deq.end();
-	int32_t							buff = -1;
-
-	for (std::deque<int32_t>::iterator it2 = deq.begin(); it2 != deq.end(); it2++) {
-		
-		find_res = find(it, _jacobsthal.end(), *it2);
-		if (find_res != _jacobsthal.end() && (buff == -1 || (buff != -1 && buff < find_res - it))) {
-			buff = find_res - it;
-			pos = it2;
-		}
-	}
-	return (pos);
-}
 
 /* utils */
-std::vector<uint64_t> PmergeMe::_init_jacobsthal() {
-	
-	std::vector<uint64_t>	res;
-	
-	res.push_back(0);
-	res.push_back(1);
-
-	for (uint8_t n = 1; n < 31; n++) {
-		uint64_t next = res[n] + (res[n - 1] * 2);
-		res.push_back(next);
-	}
-	return (res);
-}
-
 template <typename T>
 void	PmergeMe::_fill_container(int ac, char **av, T &c) {
 	
@@ -322,7 +277,7 @@ std::vector<int32_t>	PmergeMe::_creat_vector_from_pair() {
 
 std::deque<int32_t>	PmergeMe::_creat_deque_from_pair() {
 	
-	std::deque<int32_t>	res;
+	std::deque<int32_t>		res;
 	
 	for (std::deque<std::pair<int32_t, int32_t> >::iterator it = _deque_c.begin(); it != _deque_c.end(); it++) {
 		if (it->second != -1)
