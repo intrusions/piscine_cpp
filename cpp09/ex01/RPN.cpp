@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:11:29 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/21 18:45:07 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/11/03 22:50:46 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,14 @@ void	RPN::_stack_operation(char sign) {
 
 	int32_t	n1, n2;
 
+	if (_stack.size() < 2)
+		throw std::invalid_argument("invalid logic");
+	
 	n1 = _stack.top();
 	_stack.pop();
 	n2 = _stack.top();
 	_stack.pop();
+
 
 	switch (sign) {
 		case '+':

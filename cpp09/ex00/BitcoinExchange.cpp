@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 05:33:41 by jucheval          #+#    #+#             */
-/*   Updated: 2023/09/20 16:53:23 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/11/03 22:42:17 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ when value is find, return it->second */
 double BitcoinExchange::get_price_per_date(std::string date) {
  
 	std::map<std::string, double>::iterator it = _db.find(date);
- 
+
 	while (it == _db.end()) {
  
 		std::tm date_tm = {};
@@ -73,9 +73,12 @@ double BitcoinExchange::get_price_per_date(std::string date) {
 		date_tm.tm_year	-= 1900;
 		date_tm.tm_mon	-= 1;
 		
-		std::time_t timestamp = std::mktime(&date_tm);
-		timestamp		-= 86400;
+		if (date_tm.tm_year < 2009 && date_tm.tm_mon < 1 && date_tm.tm_mon < 2)
+			return (0);
 		
+		std::time_t timestamp	= std::mktime(&date_tm);
+		timestamp				-= 86400;
+
 		std::tm* new_date = std::localtime(&timestamp);
 		char new_date_str[11];
 		
