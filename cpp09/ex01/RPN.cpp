@@ -6,7 +6,7 @@
 /*   By: jucheval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:11:29 by jucheval          #+#    #+#             */
-/*   Updated: 2023/11/03 22:50:46 by jucheval         ###   ########.fr       */
+/*   Updated: 2023/11/03 22:53:58 by jucheval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ void	RPN::_stack_operation(char sign) {
 	_stack.pop();
 	n2 = _stack.top();
 	_stack.pop();
-
-
+	
+	if (sign == '/' && n1 == 0)
+		throw std::invalid_argument("division by 0");
+	
 	switch (sign) {
 		case '+':
 			_stack.push(n2 + n1);
